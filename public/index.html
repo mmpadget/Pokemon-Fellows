@@ -4,26 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pokémon Fellows</title>
-    <link rel="stylesheet" href="/vendor/styles/normalize.css">
-    <link rel="stylesheet" href="/styles/base.css">
-    <link rel="stylesheet" href="/styles/layout.css">
-    <link rel="stylesheet" href="/styles/modules.css">
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
+    <script id="data-box-template" type="text/x-handelbars-template">
+            <h1>{{name}}</h1>
+            <h2>"HP:"{{hp}}</h2>
+    </script>
   </head>
   <body>
     <h1>Gotta Catch 'Em All!!!</h1>
+    <!--  This is the div that the one that the DATA BOX appends to-->
+    <div class="data-box">
+      <div class="stats"></div>
+      <div class="health-bar" data-total="1000" data-value="1000">
+          <div class="bar">
+    	        <div class="hit"></div>
+          </div>
+      </div>
+    </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="/vendor/scripts/page.js"></script>
-
-    <script src="/scripts/models/battle.js"></script>
-    <script src="/scripts/views/homeView.js"></script>
-    <script src="/scripts/views/aboutView.js"></script>
-    <script src="/scripts/views/battleView.js"></script>
-    <script src="/scripts/controllers/homeController.js"></script>
-    <script src="/scripts/controllers/aboutController.js"></script>
-    <script src="/scripts/controllers/battleController.js"></script>
-    <script src="/scripts/controllers/routes.js"></script>
+    <script src="scripts/models/battle.js"></script>
+    <script src="scripts/views/homeView.js"></script>
+    <script src="scripts/views/aboutView.js"></script>
+    <script src="scripts/views/battleView.js"></script>
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/aboutController.js"></script>
+    <script src="scripts/controllers/battleController.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
   </body>
 </html>
