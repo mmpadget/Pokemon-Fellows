@@ -1,0 +1,33 @@
+{
+  "name": "pokemon-fellows",
+  "version": "0.0.1",
+  "description": "This is a turn-based Pokémon battle game game which will allow users to battle users to battle each other on seperate machines. This app is designed to play similar to Pokémon Stadium for the Nintendo 64, but as a web application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmpadget/Pokemon-Fellows.git"
+  },
+  "keywords": [
+    "pokemon",
+    "pokémon",
+    "game",
+    "chimpokemon",
+    "301",
+    "battle",
+    "turn-based"
+  ],
+  "author": "Michael Padget, Ely Paysinger, Saul Greene, Cameron Bacon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmpadget/Pokemon-Fellows/issues"
+  },
+  "homepage": "https://github.com/mmpadget/Pokemon-Fellows#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  }
+}
