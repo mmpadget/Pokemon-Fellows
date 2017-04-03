@@ -29,10 +29,10 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
   socket.broadcast.to("arena-"+arenaNum).emit('player', true); //socket.emit transmits the player route to others. The optional ".broadcast" limits the emition to everyone other than the connector. This sends the boolean true to any other connected client. Lets them know a new player has joined.
 
   socket.on('player', function(data){ // this sets up a listener route waiting for a client to send something on the 'player' route.
-    socket.broadcast.to(data.arena).emit('player', data.value); // broadcast the boolean true if the listener hears another client join.
+    socket.broadcast.to(data.arena).emit('player', data.value); // broadcast the boolean true/data.value if the listener hears another client join.
   });
 
-  socket.on('move', function(data){ //this is the route set up to handle moves/plays when the servr recives a move,
+  socket.on('move', function(data){ //this is the route set up to handle moves/plays when the server recives a move,
     socket.broadcast.to(data.arena).emit('move', data.points); // it emits that move to everyone not the sender. ".broadcast"... socket.emit() would emit to every client including back to thesender.
   });
   console.log('a user connected'); // this logs to the server console/terminal
