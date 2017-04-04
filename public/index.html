@@ -51,9 +51,27 @@
       </section>
     </script>
 
+    <!--Handlebars template for 'fight' state of dashboard-->
+    <script id="battle-template-dashboard-fight" type="text/x-handlebars-template">
+      <section id="dashboard-bottom-fight" class="fight-template">
+        <button id="fight-{{moveSet[0].name}}" type="button" name="{{moveSet[0].name}}">
+          {{moveSet[0].name}}
+        </button>
+        <button id="fight-{{moveSet[1].name}}" type="button" name="{{moveSet[1].name}}">
+          {{moveSet[1].name}}
+        </button>
+        <button id="fight-{{moveSet[2].name}}" type="button" name="{{moveSet[2].name}}">
+          {{moveSet[2].name}}
+        </button>
+        <button id="fight-{{moveSet[3].name}}" type="button" name="{{moveSet[3].name}}">
+          {{moveSet[3].name}}
+        </button>
+      </section>
+    </script>
+
     <!--Handlebars template for 'switch' state of dashboard-->
-    <script id="battle-template-dashboard" type="text/x-handlebars-template">
-      <section id="dashboard" class="switch-template">
+    <script id="battle-template-dashboard-switch" type="text/x-handlebars-template">
+      <section id="dashboard-bottom-switch" class="switch-template">
         <span class="team-label">TEAM:</span>
         <hr>
         <button id="switch-{{name}}" type="button" name="{{name}}">
@@ -82,26 +100,6 @@
         </button>
       </section>
     </script>
-
-
-
-    <!--Handlebars template for 'fight' state of dashboard-->
-    <script id="battle-template-dashboard" type="text/x-handlebars-template">
-      <section id="dashboard" class="fight-template">
-        <button id="fight-{{moveSet[0].name}}" type="button" name="{{moveSet[0].name}}">
-          {{moveSet[0].name}}
-        </button>
-        <button id="fight-{{moveSet[1].name}}" type="button" name="{{moveSet[1].name}}">
-          {{moveSet[1].name}}
-        </button>
-        <button id="fight-{{moveSet[2].name}}" type="button" name="{{moveSet[2].name}}">
-          {{moveSet[2].name}}
-        </button>
-        <button id="fight-{{moveSet[3].name}}" type="button" name="{{moveSet[3].name}}">
-          {{moveSet[3].name}}
-        </button>
-      </section>
-    </script>
   </head>
   <body>
     <!-- START OF BODY -->
@@ -123,12 +121,13 @@
         </section>
         <!-- End section home content -->
 
-        <main  id="battle-content"></main>
-
-
+        <main id="battle-content"></main>
         <!-- End section battle content -->
 
+
+
         <section id="about" class="all-content">
+          <p>This is the About section.</p>
         </section>
         <!-- End section #about -->
 
