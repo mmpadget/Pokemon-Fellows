@@ -1,0 +1,21 @@
+.icons{
+  display: inline;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+.icon-layout {
+  max-width: 100%;
+}
+div{
+  border: 1px solid black;
+}
+img{
+  margin-left: auto;
+  margin-right: auto;
+}
+.inline{
+  display: inline;
+}
+.people{
+  max-width: 12%;
+}
