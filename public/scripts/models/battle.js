@@ -50,6 +50,7 @@ $(function(module){
         }
       })
       if (pokes.length === 3){
+        battleView.attackExecute(pokes);
         //chain what happens next.
         sendToOpponent();
         // populate to page (pokes);
@@ -79,6 +80,7 @@ $(function(module){
     //need urlNumbers to have 3 random number from 1-upper limit of api poke index
     urlNumbers = [1,4,7];
   }
+
   getRandomNumbers();
   // getSomePokes();
   module.socket = socket;
