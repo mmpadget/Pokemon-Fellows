@@ -1,6 +1,6 @@
 'use strict';
 
-// $(function(module){
+// (function(module) {
   //runs on page load
   let arena;
   let urlNumbers = []; //do some math and get 3 random numbers
@@ -48,6 +48,7 @@
         }
       })
       if (pokes.length === 3){
+        battleView.attackExecute(pokes);
         //chain what happens next.
         // populate to page (pokes);
         // push to pokes;
@@ -71,6 +72,7 @@
     //need urlNumbers to have 3 random number from 1-upper limit of api poke index
     urlNumbers = [1,4,7];
   }
+
   getRandomNumbers();
   getSomePokes();
 // })(window);
