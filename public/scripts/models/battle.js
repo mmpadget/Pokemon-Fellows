@@ -54,6 +54,7 @@ $(function(module){
               console.log('Ajax call complete calling functions');
               Pokemon.sendToOpponent();
               // populate to page (pokes);
+              battleView.renderBattleContent();
               // push to pokes;
               // if 3 pokes, sendtootherplayer()
             }
@@ -113,7 +114,7 @@ $(function(module){
     }
   }
   Pokemon.getRandomNumbers();
-  // Pokemon.getSomePokes();
+  Pokemon.getSomePokes();
   module.Pokemon = Pokemon;
   module.socket = socket;
 }(window));
