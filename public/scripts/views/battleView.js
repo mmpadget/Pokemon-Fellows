@@ -1,5 +1,14 @@
 'use strict';
 
+(function(module) {
+  const aboutView = {};
+
+  // TODO: Add any aboutView logic here. Filtering, templates, handlebars.
+  // NOTE: aboutView.doSomething = function() {};
+
+  // Make aboutView available on global scope.
+  module.aboutView = aboutView;
+})(window);
 
 var hitBtn = $('button.damage'),
   healthBar = $('.health-bar'),
