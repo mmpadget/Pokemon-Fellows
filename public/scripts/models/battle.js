@@ -20,7 +20,7 @@ $(function(module){
   socket.haveSecondPlayer = false;
   socket.pokesSent = false;
   // end socket.io vars
-
+  Pokemon.urlNumbersLimit = 3
   Pokemon.urlNumbers = []; //do some math and get 3 random numbers
   Pokemon.pokes = []; // array of pokes
   Pokemon.pokeObjects = [];
@@ -100,9 +100,12 @@ $(function(module){
 
   Pokemon.getRandomNumbers = () => {
     //need urlNumbers to have 3 random number from 1-upper limit of api poke index
-    Pokemon.urlNumbers = [1,4,7];
+    Pokemon.urlNumbers = [];
+    for(var i = 0; i < Pokemon.urlNumbersLimit; i++){
+      var returnRandomNum = Math.floor(Math.random() * (150 - 1) + 1);
+      Pokemon.urlNumbers.push(returnRandomNum)
+    }
   }
-
   Pokemon.getRandomNumbers();
   Pokemon.getSomePokes();
   module.Pokemon = Pokemon;
