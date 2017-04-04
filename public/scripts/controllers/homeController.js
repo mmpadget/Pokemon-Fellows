@@ -8,6 +8,7 @@
 
   // TODO: Middleware for loading data array or API data.
   // NOTE: homeController.doSomething = (ctx, next) => {};
+  homeController.index = () => homeView.index();
 
   // Make aboutView available on global scope.
   module.homeController = homeController;

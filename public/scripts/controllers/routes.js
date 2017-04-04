@@ -3,13 +3,13 @@
 
 // Route to home page.
 // eslint-disable-next-line
-page('/', homeController.init);
-// Route to battle page.
-// eslint-disable-next-line
-page('/battle', battleController.init);
-// Route to about page.
-// eslint-disable-next-line
-page('/about', aboutController.init);
+// page('/', homeController.index);
+// // Route to about page.
+// // eslint-disable-next-line
+// page('/about', aboutController.index);
+// // Route to battle page.
+// // eslint-disable-next-line
+// page('/battle', battleController.index);
 
 // TODO: Define additional routes as needed.
 

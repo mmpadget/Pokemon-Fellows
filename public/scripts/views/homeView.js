@@ -6,6 +6,9 @@
 
   // TODO: Add any homeView logic here. Filtering, templates, handlebars.
   // NOTE: homeView.doSomething = function() {};
+  homeView.index = function() {
+    $('#home-content').show().siblings().hide();
+  };
 
   // Make homeView available on global scope.
   module.homeView = homeView;

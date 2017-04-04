@@ -1,13 +1,7 @@
 'use strict';
 
 (function(module) {
-
   let battleView = {};
-
-  // TODO: Add any aboutView logic here. Filtering, templates, handlebars.
-  // NOTE: aboutView.doSomething = function() {};
-
-  ///////Actual battleView.js functionality///////
 
   // Updated by the return value of battleView.attackExecute()
   let healthBar = $('.health-bar');
@@ -44,7 +38,7 @@
     } else if(currentHP > (opts[0].hp * 0.3)){
       bar.css({'background': '#7FFF00'})
     }
-    console.log("Remaining Health:"+ currentHP +" Damage:"+ damage);
+    console.log('Remaining Health:' + currentHP + ' Damage:' + damage);
 
     returnHP = currentHP;
   };
