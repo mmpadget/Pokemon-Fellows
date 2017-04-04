@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
-    <script id="battle-template-pokemon" type="text/x-handelbars-template">
-      <section id="" class="pokemon-template">
+    <!--Handlebars template for pokémon-->
+    <script id="battle-template-pokemon" type="text/x-handlebars-template">
+      <section id="{{name}}" class="pokemon-template">
         <section class="pokemon-stats">
           <article class="name-and-pic">
             <figure class="pokemon-img">
@@ -30,11 +31,83 @@
         </figure>
       </section>
     </script>
+
+    <!--Handlebars template for dashboard-->
+    <script id="battle-template-dashboard" type="text/x-handlebars-template">
+      <section id="dashboard" class="player-template">
+        <section class="dashboard-top">
+          <div class="name">{{name}}</div>
+          <div class="team">
+            Team:
+            <img src="" alt="pokeball-pic">
+            <img src="" alt="pokeball-pic">
+            <img src="" alt="pokeball-pic">
+          </div>
+        </section>
+        <section class="dashboard-bottom">
+          <button type="button" name="fight">FIGHT</button>
+          <button type="button" name="switch">SWITCH POKÉMON</button>
+        </section>
+      </section>
+    </script>
+
+    <!--Handlebars template for 'switch' state of dashboard-->
+    <script id="battle-template-dashboard" type="text/x-handlebars-template">
+      <section id="dashboard" class="switch-template">
+        <span class="team-label">TEAM:</span>
+        <hr>
+        <button id="switch-{{name}}" type="button" name="{{name}}">
+          {{name}}
+          <div class="health-bar">
+              <div class="bar">
+                  <div class="hit"></div>
+              </div>
+          </div>
+        </button>
+        <button id="switch-{{name}}" type="button" name="{{name}}">
+          {{name}}
+          <div class="health-bar">
+              <div class="bar">
+                  <div class="hit"></div>
+              </div>
+          </div>
+        </button>
+        <button id="switch-{{name}}" type="button" name="{{name}}">
+          {{name}}
+          <div class="health-bar">
+              <div class="bar">
+                  <div class="hit"></div>
+              </div>
+          </div>
+        </button>
+      </section>
+    </script>
+
+
+
+    <!--Handlebars template for 'fight' state of dashboard-->
+    <script id="battle-template-dashboard" type="text/x-handlebars-template">
+      <section id="dashboard" class="fight-template">
+        <button id="fight-{{moveSet[0].name}}" type="button" name="{{moveSet[0].name}}">
+          {{moveSet[0].name}}
+        </button>
+        <button id="fight-{{moveSet[1].name}}" type="button" name="{{moveSet[1].name}}">
+          {{moveSet[1].name}}
+        </button>
+        <button id="fight-{{moveSet[2].name}}" type="button" name="{{moveSet[2].name}}">
+          {{moveSet[2].name}}
+        </button>
+        <button id="fight-{{moveSet[3].name}}" type="button" name="{{moveSet[3].name}}">
+          {{moveSet[3].name}}
+        </button>
+      </section>
+    </script>
   </head>
   <body>
+    <!-- START OF BODY -->
     <div id="page">
       <header>
-        <h1></h1>
+        <h1>Gotta Catch 'Em All!!!</h1>
         <nav>
           <!-- <ul>
             <li></li>
@@ -50,11 +123,8 @@
         </section>
         <!-- End section home content -->
 
-        <main  id="battle-content">
-          <section id="player-dashboard" class="player-template">
+        <main  id="battle-content"></main>
 
-          </section>
-        </main>
 
         <!-- End section battle content -->
 
@@ -67,8 +137,6 @@
       <footer></footer>
     </div>
     <!-- End page div -->
-
-    <h1>Gotta Catch 'Em All!!!</h1>
 
     <script src="/socket.io/socket.io.js"></script>
 

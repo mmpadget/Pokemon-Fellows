@@ -11,7 +11,11 @@
 
   hit.css({'width': '0'});
   bar.css('width', '100%');
-  bar.css({'background': '#7FFF00'})
+  bar.css({'background': '#7FFF00'});
+
+  const renderPokemon = function(pokemon) {
+    let template = Handlebars.compile($('#battle-template-pokemon').text());
+  }
 
   // hitBtn.on("click", function(){// this will be changed to an invokable function once done with testing....
   // let damage = PLACEHOLER FOR THE HP FROM THE API
