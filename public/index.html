@@ -9,9 +9,26 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <script id="data-box-template" type="text/x-handelbars-template">
-            <h1>{{name}}</h1>
-            <h2>"HP:"{{hp}}</h2>
+
+    <script id="battle-template-pokemon" type="text/x-handelbars-template">
+      <section id="" class="pokemon-template">
+        <section class="pokemon-stats">
+          <article class="name-and-pic">
+            <figure class="pokemon-img">
+              <img src="{{sprite}}" alt="pokemon-pic">
+            </figure>
+            <span class="pokemon-name">{{name}}</span>
+          </article>
+          <div class="health-bar">
+              <div class="bar">
+                  <div class="hit"></div>
+              </div>
+          </div>
+        </section>
+        <figure class="pokemon-sprite">
+          <img src="{{sprite}}" alt="pokemon-pic">
+        </figure>
+      </section>
     </script>
   </head>
   <body>
@@ -28,27 +45,22 @@
 
         <section id="home-content" class="all-content">
           <article id="intro-content">
-            <!-- <p></p> -->
+            <p>This is the Home Content!</p>
           </article>
-
-          <article id="player-one">
-          </article>
-
-          <article id="player-two">
-          </article>
-
-          <aside>
-          </aside>
         </section>
         <!-- End section home content -->
 
-        <section id="battle-content" class="all-content">
-        </section>
+        <main  id="battle-content">
+          <section id="player-dashboard" class="player-template">
+
+          </section>
+        </main>
+
         <!-- End section battle content -->
 
-        <section id="about-content" class="all-content">
+        <section id="about" class="all-content">
         </section>
-        <!-- End section about content -->
+        <!-- End section #about -->
 
       </div>
       <!-- End main div -->
@@ -57,33 +69,19 @@
     <!-- End page div -->
 
     <h1>Gotta Catch 'Em All!!!</h1>
-    <!--  This is the div that the one that the DATA BOX appends to-->
-    <div class="data-box">
-      <div class="stats"></div>
-      <div class="health-bar">
-          <div class="bar">
-    	        <div class="hit"></div>
-          </div>
-      </div>
-    </div>
-    <main>
-
-
-    </main>
-
 
     <script src="/socket.io/socket.io.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
-    <script src="vendor/scripts/page.js"></script>
-    <script src="scripts/models/battle.js"></script>
-    <script src="scripts/views/homeView.js"></script>
-    <script src="scripts/views/aboutView.js"></script>
-    <script src="scripts/views/battleView.js"></script>
-    <script src="scripts/controllers/homeController.js"></script>
-    <script src="scripts/controllers/aboutController.js"></script>
-    <script src="scripts/controllers/battleController.js"></script>
-    <script src="scripts/controllers/routes.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
+    <script src="/scripts/models/battle.js"></script>
+    <script src="/scripts/views/homeView.js"></script>
+    <script src="/scripts/controllers/homeController.js"></script>
+    <script src="/scripts/views/aboutView.js"></script>
+    <script src="/scripts/controllers/aboutController.js"></script>
+    <script src="/scripts/views/battleView.js"></script>
+    <script src="/scripts/controllers/battleController.js"></script>
+    <script src="/scripts/controllers/routes.js"></script>
   </body>
 </html>
