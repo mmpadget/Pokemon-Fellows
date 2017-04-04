@@ -12,7 +12,7 @@
 
     <!--Handlebars template for pokémon-->
     <script id="battle-template-pokemon" type="text/x-handlebars-template">
-      <section id="{{name}}" class="pokemon-template">
+      <section id="{{name}}" class="pokemon-template"> <!-- This is image next to Pokemon's name -->
         <section class="pokemon-stats">
           <article class="name-and-pic">
             <figure class="pokemon-img">
@@ -27,26 +27,28 @@
           </div>
         </section>
         <figure class="pokemon-sprite">
-          <img src="{{sprite}}" alt="pokemon-pic">
+          <img src="{{sprite}}" alt="pokemon-pic"> <!-- This is the bigger Pokemon image -->
         </figure>
       </section>
     </script>
 
-    <!--Handlebars template for dashboard-->
+    <!--Handlebars template for default dashboard-->
     <script id="battle-template-dashboard" type="text/x-handlebars-template">
       <section id="dashboard" class="player-template">
         <section class="dashboard-top">
           <div class="name">{{name}}</div>
           <div class="team">
             Team:
-            <img src="" alt="pokeball-pic">
-            <img src="" alt="pokeball-pic">
-            <img src="" alt="pokeball-pic">
+            <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
+            <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
+            <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
           </div>
         </section>
         <section class="dashboard-bottom">
-          <button type="button" name="fight">FIGHT</button>
-          <button type="button" name="switch">SWITCH POKÉMON</button>
+          <section class="dashboard-bottom-default">
+            <button type="button" name="fight">FIGHT</button>
+            <button type="button" name="switch">SWITCH POKÉMON</button>
+          </section>
         </section>
       </section>
     </script>
@@ -54,44 +56,43 @@
     <!--Handlebars template for 'fight' state of dashboard-->
     <script id="battle-template-dashboard-fight" type="text/x-handlebars-template">
       <section id="dashboard-bottom-fight" class="fight-template">
-        <button id="fight-{{moveSet[0].name}}" type="button" name="{{moveSet[0].name}}">
-          {{moveSet[0].name}}
+        <button id="move-1" type="button" name="{{moveSet.0.name}}">
+          {{moveSet.0.name}}
         </button>
-        <button id="fight-{{moveSet[1].name}}" type="button" name="{{moveSet[1].name}}">
-          {{moveSet[1].name}}
+        <button id="move-2" type="button" name="{{moveSet.1.name}}">
+          {{moveSet.1.name}}
         </button>
-        <button id="fight-{{moveSet[2].name}}" type="button" name="{{moveSet[2].name}}">
-          {{moveSet[2].name}}
+        <button id="move-3" type="button" name="{{moveSet.2.name}}">
+          {{moveSet.2.name}}
         </button>
-        <button id="fight-{{moveSet[3].name}}" type="button" name="{{moveSet[3].name}}">
-          {{moveSet[3].name}}
-        </button>
+        <!-- <button id="move-4" type="button" name="{{moveSet.3.name}}">
+          {{moveSet.3.name}}
+        </button> -->
       </section>
     </script>
 
     <!--Handlebars template for 'switch' state of dashboard-->
     <script id="battle-template-dashboard-switch" type="text/x-handlebars-template">
       <section id="dashboard-bottom-switch" class="switch-template">
-        <span class="team-label">TEAM:</span>
         <hr>
-        <button id="switch-{{name}}" type="button" name="{{name}}">
-          {{name}}
+        <button id="{{0.name}}" type="button" name="{{0.name}}">
+          {{0.name}}
           <div class="health-bar">
               <div class="bar">
                   <div class="hit"></div>
               </div>
           </div>
         </button>
-        <button id="switch-{{name}}" type="button" name="{{name}}">
-          {{name}}
+        <button id="{{1.name}}" type="button" name="{{1.name}}">
+          {{1.name}}
           <div class="health-bar">
               <div class="bar">
                   <div class="hit"></div>
               </div>
           </div>
         </button>
-        <button id="switch-{{name}}" type="button" name="{{name}}">
-          {{name}}
+        <button id="{{2.name}}" type="button" name="{{2.name}}">
+          {{2.name}}
           <div class="health-bar">
               <div class="bar">
                   <div class="hit"></div>

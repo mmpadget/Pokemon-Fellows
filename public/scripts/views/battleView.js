@@ -13,10 +13,43 @@
   bar.css('width', '100%');
   bar.css({'background': '#7FFF00'});
 
-  // // eslint-disable-next-line
-  const renderPokemon = function(pokemon) {
+  // eslint-disable-next-line
+  battleView.renderPokemon = function(pokemon) {
+    // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-pokemon').text());
+    $('#battle-content').append(template(pokemon));
   }
+
+  battleView.renderDefaultDashboard = function(dashboard) {
+    // eslint-disable-next-line
+    let template = Handlebars.compile($('#battle-template-dashboard').text());
+    $('#battle-content').append(template(dashboard));
+  }
+
+  battleView.renderFightDashboard = function(dashboard) {
+    // eslint-disable-next-line
+    let template = Handlebars.compile($('#battle-template-dashboard-fight').text());
+    $('.dashboard-bottom-default').hide();
+    $('.dashboard-bottom').append(template(dashboard));
+  }
+
+  battleView.renderSwitchDashboard = function(dashboard) {
+    // eslint-disable-next-line
+    let template = Handlebars.compile($('#battle-template-dashboard-switch').text());
+    $('.dashboard-bottom-default').hide();
+    $('.dashboard-bottom').append(template(dashboard));
+  }
+
+  battleView.renderBattleContent = function() {
+    // eslint-disable-next-line
+    battleView.renderPokemon(Pokemon.pokes[0]); // player1
+    // eslint-disable-next-line
+    battleView.renderPokemon(Pokemon.pokes[1]); // player2
+    // eslint-disable-next-line
+    battleView.renderDefaultDashboard(Pokemon.pokes[0]);
+    // renderFightDashboard(Pokemon.pokes[0]);
+    // battleView.renderSwitchDashboard(Pokemon.pokes);
+  };
 
   // hitBtn.on("click", function(){// this will be changed to an invokable function once done with testing....
   // let damage = PLACEHOLER FOR THE HP FROM THE API
