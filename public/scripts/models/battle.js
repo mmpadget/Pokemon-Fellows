@@ -5,6 +5,8 @@ $(function(module){
     //pokeConstructor here
     // name, hp, moves, power
     this.name = poke.poke.name;
+    this.id = poke.poke.id;
+    //this.sprite = ;
     this.hp = poke.poke.stats[5].base_stat;
     this.moveSet = poke.moveSet.map(function (move) {
       return {name: move.name, power: move.power};
