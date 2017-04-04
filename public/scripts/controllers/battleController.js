@@ -12,6 +12,11 @@
 
 
 // MAKE A FUNCTION PICKING BETWEEN 1-0 for true or false to pick who goes first
+  function whoGoesFirst() {
+    let playerPicker = Math.random();
+    let playerReturn = playerPicker < 0.5 ? Math.floor(playerPicker) : Math.ceil(playerPicker);
+    return playerReturn;
+  }
   // Make aboutView available on global scope.
   module.battleController = battleController;
 })(window);
