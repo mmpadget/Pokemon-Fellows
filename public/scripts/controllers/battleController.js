@@ -10,6 +10,8 @@
   // TODO: Add any aboutView logic here. jQuery hide, Middleware for loading data array or API data.
   // NOTE: battleController.doSomething = (ctx, next) => {};
 
+
+// MAKE A FUNCTION PICKING BETWEEN 1-0 for true or false to pick who goes first
   // Make aboutView available on global scope.
   module.battleController = battleController;
 })(window);

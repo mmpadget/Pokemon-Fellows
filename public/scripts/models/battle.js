@@ -20,7 +20,7 @@ $(function(module){
   socket.haveSecondPlayer = false;
   socket.pokesSent = false;
   // end socket.io vars
-  Pokemon.urlNumbersLimit = 3
+  Pokemon.urlNumbersLimit = 2;
   Pokemon.urlNumbers = []; //do some math and get 3 random numbers
   Pokemon.pokes = []; // array of pokes
   Pokemon.pokeObjects = [];
@@ -47,7 +47,6 @@ $(function(module){
               new Pokemon(poke);
             }
             if (Pokemon.pokes.length === 3){
-              battleView.attackExecute(Pokemon.pokes);
               //chain what happens next.
               console.log('Ajax call complete calling functions');
               Pokemon.sendToOpponent();
@@ -103,6 +102,10 @@ $(function(module){
     Pokemon.urlNumbers = [];
     for(var i = 0; i < Pokemon.urlNumbersLimit; i++){
       var returnRandomNum = Math.floor(Math.random() * (150 - 1) + 1);
+      if(Pokemon.urlNumbers[1] === Pokemon.urlNumbers[0] || Pokemon.urlNumbers[1] === Pokemon.urlNumbers[0]){
+        Pokemon.urlNumbers.pop();
+        i--
+      }
       Pokemon.urlNumbers.push(returnRandomNum)
     }
   }
