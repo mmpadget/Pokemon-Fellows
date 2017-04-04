@@ -102,8 +102,8 @@ $(function(module){
   Pokemon.getRandomNumbers = () => {
     //need urlNumbers to have 3 random number from 1-upper limit of api poke index
     Pokemon.urlNumbers = [];
-    for(var i = 0; i < Pokemon.urlNumbersLimit; i++){
-      var returnRandomNum = Math.floor(Math.random() * (150 - 1) + 1);
+    for(let i = 0; i < Pokemon.urlNumbersLimit; i++){
+      let returnRandomNum = Math.floor(Math.random() * (150 - 1) + 1);
       if(Pokemon.urlNumbers[1] === Pokemon.urlNumbers[0] || Pokemon.urlNumbers[1] === Pokemon.urlNumbers[0]){
         Pokemon.urlNumbers.pop();
         i--
@@ -112,7 +112,7 @@ $(function(module){
     }
   }
   Pokemon.getRandomNumbers();
-  Pokemon.getSomePokes();
+  // Pokemon.getSomePokes();
   module.Pokemon = Pokemon;
   module.socket = socket;
 }(window));
