@@ -1,6 +1,12 @@
 'use strict';
 
 (function(module) {
+  const aboutView = {};
+
+  // TODO: Add any aboutView logic here. Filtering, templates, handlebars.
+  // NOTE: aboutView.doSomething = function() {};
+
+  // Make aboutView available on global scope.
   let battleView = {
     PokemonOne: {
       name: 'Ely',
@@ -29,9 +35,6 @@
       }
     }
   };
-
-
-
   ///////Actual battleView.js functionality///////
 
   let currentHP = battleView.PokemonOne.hp;
