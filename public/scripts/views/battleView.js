@@ -13,6 +13,7 @@
   bar.css('width', '100%');
   bar.css({'background': '#7FFF00'});
 
+  // // eslint-disable-next-line
   const renderPokemon = function(pokemon) {
     let template = Handlebars.compile($('#battle-template-pokemon').text());
   }
@@ -26,14 +27,14 @@
     //Calculation of damage dealt and total width of the health bar
     //change this to a PLACEHOLDER VAR
     let barWidth = (currentHP / opts[0].hp) * 100;
-    let hitWidth = (damage / currentHP) * 100 + "%";
+    let hitWidth = (damage / currentHP) * 100 + '%';
 
     // show hit bar and set the width
     hit.css('width', hitWidth);
 
     setTimeout(function(){
       hit.css({'width': '0'});
-      bar.css('width', barWidth + "%");
+      bar.css('width', barWidth + '%');
     }, 300);
 
   //this chages the color of the damage bar
