@@ -6,7 +6,7 @@ $(function(module){
     // name, hp, moves, power
     this.name = poke.poke.name;
     this.id = poke.poke.id;
-    //this.sprite = ;
+    this.sprite = `assets/sprites/pokemon/${poke.poke.id}.png`;
     this.hp = poke.poke.stats[5].base_stat;
     this.moveSet = poke.moveSet.map(function (move) {
       return {name: move.name, power: move.power};
@@ -16,6 +16,7 @@ $(function(module){
   }
 
   // socket.io variables
+  // eslint-disable-next-line
   const socket = io(); //acceptable linter error, io is defined in the js file added by the socket.io node module.
   socket.arena;
   socket.host = false;

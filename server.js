@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+// eslint-disable-next-line
 const http = require('http').Server(app);
 const io = require('socket.io')(http); // this requires socket.io, a live or active event/route handler.
 const PORT = process.env.PORT || 3000;
