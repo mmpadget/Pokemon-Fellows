@@ -18,6 +18,7 @@ $(function(module){
   socket.arena;
   socket.host = false;
   socket.haveSecondPlayer = false;
+  socket.pokesSent = false;
   // end socket.io vars
 
   Pokemon.urlNumbers = []; //do some math and get 3 random numbers
@@ -25,7 +26,7 @@ $(function(module){
   Pokemon.pokeObjects = [];
   Pokemon.theirPokes = []; //array for their pokes
   Pokemon.pokeUrl = 'http://pokeapi.co/api/v2/pokemon/';
-
+  Pokemon.numberOfMoves = 4;
   // const Player = function(){
   //   //your constructor here
   // };
@@ -36,7 +37,7 @@ $(function(module){
         // 4 pokes. Array 0-3 // This is the HP response.stats[5].base_stat
         let poke = {poke: response, moveSet: []};
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < Pokemon.numberOfMoves; i++) {
           $.get(response.moves[i].move.url, function(move) {
             // have a url, assign API response: name, power, base_stat
             // console.log(move);
@@ -45,20 +46,35 @@ $(function(module){
             if (poke.moveSet.length === 4) {
               new Pokemon(poke);
             }
+            if (Pokemon.pokes.length === 3){
+              battleView.attackExecute(Pokemon.pokes);
+              //chain what happens next.
+              console.log('Ajax call complete calling functions');
+              Pokemon.sendToOpponent();
+              // populate to page (pokes);
+              // push to pokes;
+              // if 3 pokes, sendtootherplayer()
+            }
           });
         }
       })
-      if (Pokemon.pokes.length === 3){
-        battleView.attackExecute(Pokemon.pokes);
-        //chain what happens next.
-        Pokemon.sendToOpponent();
-        // populate to page (pokes);
-        // push to pokes;
-        // if 3 pokes, sendtootherplayer()
-      }
     });
   };
 
+  Pokemon.populateToPage = () => {
+    //put them onto page.
+  }
+
+  // uses socket.emit to send out pokes.
+  Pokemon.sendToOpponent = () => {
+    if (Pokemon.pokes.length === 3 && socket.haveSecondPlayer && !socket.pokesSent){ //need to have 3 poke and a second player. This is called in 2 places and should run once when both conditions are met. Also in the event that both calls are added to the stack and true. this will only run once because of pokeSent flag.
+      console.log('Sending pokes to second player');
+      socket.emit('pokes', {arena: socket.arena, pokes: Pokemon.pokes});
+      socket.pokesSent = true;
+    }
+  }
+
+  // socket.io listeners--------------------
   socket.on('connectToArena', function(data){
     socket.arena = data.arena;
     console.log(data.message);
@@ -70,23 +86,18 @@ $(function(module){
     console.log(data.message);
   });
 
-
   socket.on('player', function(data){
-    socket.arena = data.arena;
-    console.log(data.message);
+    socket.haveSecondPlayer = data; //data is boolean true if comeing from second player
+    Pokemon.sendToOpponent();
+    console.log('There is a second Player');
   });
 
-  Pokemon.populateToPage = () => {
-    //put them onto page.
-  }
+  socket.on('pokes', function(data){
+    Pokemon.theirPokes = data; //data is pokes array comeing from second player
+    console.log('We have all their pokes');
+  });
+  // end Socket.io listeners -------------------
 
-  Pokemon.sendToOpponent = () => {
-    //send them pokes with socket.io
-  }
-
-  // socket.on('sendPokes', function(pokes){ // pokes must be object with arena value.
-    //populate their pokes to page. reuse populateToPage if possible.
-  // });
   Pokemon.getRandomNumbers = () => {
     //need urlNumbers to have 3 random number from 1-upper limit of api poke index
     Pokemon.urlNumbers = [1,4,7];
@@ -95,4 +106,5 @@ $(function(module){
   Pokemon.getRandomNumbers();
   Pokemon.getSomePokes();
   module.Pokemon = Pokemon;
+  module.socket = socket;
 }(window));
