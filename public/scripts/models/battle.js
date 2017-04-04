@@ -20,8 +20,18 @@
   function getSomePokes(pokes, urlNumbers){
     urlNumbers.forEach(function(number){
       $.get(`${pokeUrl}${number}/`, function(response){
+        // 4 pokes. Array 0-3 // This is the HP response.stats[5].base_stat
+        let poke = {poke: response, moves: []};
+        for (var i = 0; i < 4; i++) {
+          $.get(response.moves[i].move.url, function(move) {
+            // have a url, assign API response: name, power, base_stat
+            // console.log(move);
+            // See constructor: move.name is move name and move.power is move power. Move is response.
+            poke.moves.push(move);
+          });
+        }
         //build the constructor
-        pokes.push(response);
+        pokes.push(poke);
       });
       //chain what happens next.
       // populate to page (pokes);
