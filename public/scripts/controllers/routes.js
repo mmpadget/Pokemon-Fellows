@@ -12,15 +12,6 @@
 // // eslint-disable-next-line
 // page('/battle', battleController.index);
 
-// page('/', homeController.init);
-// Route to battle page.
-// eslint-disable-next-line
-// page('/battle', battleController.init);
-// Route to about page.
-// eslint-disable-next-line
-// page('/about', aboutController.init);
-
-
 // TODO: Define additional routes as needed.
 
 // Invokes Page.js.
