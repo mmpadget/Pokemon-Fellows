@@ -1,8 +1,14 @@
 'use strict';
 
-// (function(module) {
-  //runs on page load
-  let arena;
+$(function(module){
+
+  // socket.io variables
+  const socket = io();
+  socket.arena;
+  socket.host = false;
+  socket.haveSecondPlayer = false;
+  // end socket.io vars
+
   let urlNumbers = []; //do some math and get 3 random numbers
   let pokes = []; // array of pokes
   let pokeObjects = [];
@@ -25,10 +31,6 @@
     console.log(pokes);
   };
 
-  // First hold in local storage.
-
-  // Then build constructor.
-
   function getSomePokes(){
     urlNumbers.forEach(function(number){
       $.get(`${pokeUrl}${number}/`, function(response){
@@ -50,12 +52,18 @@
       if (pokes.length === 3){
         battleView.attackExecute(pokes);
         //chain what happens next.
+        sendToOpponent();
         // populate to page (pokes);
         // push to pokes;
         // if 3 pokes, sendtootherplayer()
       }
     });
   }
+
+  socket.on('connectToArena', function(data){
+    socket.arena = data.arena;
+    console.log(data.message);
+  });
 
   function populateToPage(){
     //put them onto page.
@@ -74,5 +82,6 @@
   }
 
   getRandomNumbers();
-  getSomePokes();
-// })(window);
+  // getSomePokes();
+  module.socket = socket;
+}(window));

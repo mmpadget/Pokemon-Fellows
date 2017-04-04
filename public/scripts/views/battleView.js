@@ -1,7 +1,13 @@
 'use strict';
 
 (function(module) {
+
   let battleView = {};
+
+  // TODO: Add any aboutView logic here. Filtering, templates, handlebars.
+  // NOTE: aboutView.doSomething = function() {};
+
+  ///////Actual battleView.js functionality///////
 
   // Updated by the return value of battleView.attackExecute()
   let healthBar = $('.health-bar');
