@@ -12,7 +12,7 @@
 
     <!--Handlebars template for pokémon-->
     <script id="battle-template-pokemon" type="text/x-handlebars-template">
-      <section id="{{name}}" class="pokemon-template"> <!-- This is image next to Pokemon's name -->
+      <section id="{{name}}" data-speed="{{speed}}" data-hp="{{hp}}" class="pokemon-selector pokemon-template"> <!-- This is image next to Pokemon's name -->
         <section class="pokemon-stats">
           <article class="name-and-pic">
             <figure class="pokemon-img">
@@ -55,7 +55,7 @@
 
     <!--Handlebars template for 'fight' state of dashboard-->
     <script id="battle-template-dashboard-fight" type="text/x-handlebars-template">
-      <section id="dashboard-bottom-fight" class="fight-template">
+      <section id="dashboard-bottom-fight" name="{{name}}" class="fight-template">
         <button id="move-1" class="attack" data-power="{{moveSet.0.power}}" type="button" name="{{moveSet.0.name}}">
           {{moveSet.0.name}}
         </button>
@@ -75,7 +75,7 @@
     <script id="battle-template-dashboard-switch" type="text/x-handlebars-template">
       <section id="dashboard-bottom-switch" class="switch-template">
         <hr>
-        <button id="{{0.name}}" class="pokemon-character" type="button" name="{{0.name}}">
+        <button id="{{0.name}}" data-hp="{{0.hp}}" data-speed="{{0.speed}}" class="pokemon-character" type="button" name="{{0.name}}">
           {{0.name}}
           <div class="health-bar">
               <div class="bar">
@@ -83,7 +83,7 @@
               </div>
           </div>
         </button>
-        <button id="{{1.name}}" class="pokemon-character" type="button" name="{{1.name}}">
+        <button id="{{1.name}}" data-hp="{{1.hp}}" data-speed="{{1.speed}}" class="pokemon-character" type="button" name="{{1.name}}">
           {{1.name}}
           <div class="health-bar">
               <div class="bar">
@@ -91,7 +91,7 @@
               </div>
           </div>
         </button>
-        <button id="{{2.name}}" class="pokemon-character" type="button" name="{{2.name}}">
+        <button id="{{2.name}}" data-hp="{{2.hp}}" data-speed="{{2.speed}}" class="pokemon-character" type="button" name="{{2.name}}">
           {{2.name}}
           <div class="health-bar">
               <div class="bar">

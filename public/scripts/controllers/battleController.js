@@ -21,34 +21,45 @@
 
   battleController.selectFight = function() {
     $('#fight-button').on('click', function() {
+      $('#dashboard-bottom-fight').hide();
       // console.log('Pushed Fight Button in selectFight');
       $('#dashboard-bottom-default').hide();
-      $('#dashboard-bottom-fight').show();
+      $(`section[name="${$('.pokemon-selector').filter(':visible').attr('id')}"]`).show();
     });
   }
 
   // e. select attack
   battleController.selectAttack = function() {
     $('.attack').on('click', function() {
+      Pokemon.sendStats.power = $(this).data('power');
+      Pokemon.sendStats.attack = $(this).attr('name');
+      Pokemon.sendStats.hp = $(`#${$(this).parent().attr('name')}`).data('hp');
+      Pokemon.sendStats.speed = $(`#${$(this).parent().attr('name')}`).data('speed');
+      Pokemon.sendStats.name = $(this).parent().attr('name');
+      // debugger;
+      console.log(Pokemon.sendStats);
       console.log('Pushed Attack Button in selectAttack');
       // let power = $(this).data('power');
       // console.log(power);
-      $('#dashboard-bottom-fight').hide();
+      $('.fight-template').hide();
       $('#dashboard-bottom-default').show();
     });
   }
 
   battleController.selectPokemonCharacter = function() {
     $('.pokemon-character').on('click', function() {
-      // console.log('Selected a new Pokemon');
-      // console.log(this);
+      Pokemon.sendStats.speed = $(this).data('speed');
+      Pokemon.sendStats.hp = $(this).data('hp');
+      Pokemon.sendStats.name = $(this).attr('id');
+      Pokemon.sendStats.attack = false;
+      Pokemon.sendStats.power = 0;
+      console.log(Pokemon.sendStats);
       $('#dashboard-bottom-switch').hide();
       $('#dashboard-bottom-default').show();
       // eslint-disable-next-line
       $(`#${Pokemon.pokes[0].name}`).hide();
       $(`#${$(this).attr('id')}`).siblings().hide();
       $(`#${$(this).attr('id')}`).show();
-      $().has();
     });
   }
 
