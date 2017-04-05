@@ -1,21 +1,63 @@
-.icons{
-  display: inline;
-  margin-left: 7%;
-  margin-right: 7%;
+/*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
+
+body {
+  margin: 2%;;
+  background-color: black;
+  text-align: justify;
 }
-.icon-layout {
-  max-width: 100%;
 }
-div{
-  border: 1px solid black;
+h1{
+  text-align: center;
+  padding: 10%;;
+  font-size: 50px;
 }
-img{
-  margin-left: auto;
-  margin-right: auto;
+
+.one img, .two img, .three img, .four img, .five img{
+  max-width: 100px;
+  max-height: 100px;
+  border: 3px solid #00F500;
+  border-radius: 10px;
+  float: left;
+  margin: 2%;
+  margin-bottom: 0%;
 }
-.inline{
-  display: inline;
+main{
+  font-family: monospace;
+  color: white ;
 }
-.people{
-  max-width: 12%;
+main p{
+  margin-right: 2%;
+  margin-left: 2%;
+  font-family: monospace;
+  color: white ;
+  font-size: 175%;
+
+}
+/*#saul:hover{
+  content: url();
+}
+#cameron:hover{
+  content: attr();
+}
+#ely:hover{
+  content: url();
+}
+#michael:hover{
+  content: url();
+}*/
+
+.one{
+float: left;
+}
+.two{
+  float: left;
+}
+.three{
+  float: left;
+}
+.four{
+  float: left;
+}
+.five{
+  float: left;
 }
