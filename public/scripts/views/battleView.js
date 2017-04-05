@@ -79,14 +79,9 @@
     battleView.renderPokemon(Pokemon.pokes[1]); // Second Pokemon for player one: name, picture, health bar.
     // eslint-disable-next-line
     $(`#${Pokemon.pokes[1].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
-
     // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[2]); // Third Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
-    $(`#${Pokemon.pokes[2].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
-
-    // eslint-disable-next-line
-    //battleView.renderPokemon(Pokemon.pokes[1]); // player2
+    $(`#${Pokemon.pokes[2].name}`).hide();
 
     // eslint-disable-next-line
     battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
@@ -99,6 +94,15 @@
     battleView.renderSwitchDashboard(Pokemon.pokes);
     $('#dashboard-bottom-switch').hide();
   };
+  // rendering their pokemon ---------
+  battleView.renderTheirPokemon = () => {
+    battleView.renderPokemon(Pokemon.theirPokes[0]);
+    battleView.renderPokemon(Pokemon.theirPokes[1]);
+    $(`#${Pokemon.theirPokes[1].name}`).hide();
+    battleView.renderPokemon(Pokemon.theirPokes[2]);
+    $(`#${Pokemon.theirPokes[2].name}`).hide();
+  }
+      // end render therePokemon------------
 
   // Call everything.
   battleView.init = function() {
