@@ -6,9 +6,11 @@
   // See battleController.init in routes.js
   const battleController = {};
 
-  // TODO: Invoke Pokemon API function (defined in models).
-  // TODO: Add any aboutView logic here. jQuery hide, Middleware for loading data array or API data.
-  // NOTE: battleController.doSomething = (ctx, next) => {};
+  // Initialize the battle page view. /battle in routes.
+  battleController.index = function() {
+    $('.all-content').hide(); // Hide all content.
+    $('#battle-content').show(); // Show battle content.
+  }
 
   // d. select pokemon
   battleController.selectSwitch = function() {

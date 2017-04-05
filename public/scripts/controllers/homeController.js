@@ -6,9 +6,14 @@
   // See homeController.init in routes.js
   const homeController = {};
 
-  // TODO: Middleware for loading data array or API data.
-  // NOTE: homeController.doSomething = (ctx, next) => {};
-  homeController.index = () => homeView.index();
+  // Initialize the home page view. / in routes.
+  homeController.index = function() {
+    $('.all-content').hide(); // Hide all content.
+    $('#home-content').show(); // Show home content.
+  }
+
+  // eslint-disable-next-line
+  // homeController.index = () => homeView.index(); // Alternate definition.
 
   // Make aboutView available on global scope.
   module.homeController = homeController;
