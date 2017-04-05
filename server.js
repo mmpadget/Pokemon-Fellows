@@ -25,95 +25,9 @@ app.use(express.static('./public'));
 
 // ------ GET ------
 
-// app.get('*', (req, res) => {
-//   res.sendFile('index.html', { root: './public' })
-// })
-
 app.get('/', function(req, res){
   res.sendFile('index.html', {root: './public'});
 });
-
-app.get('/battle', function(req, res){
-  res.sendFile('index.html', {root: './public'});
-});
-
-app.get('/about', function(req, res){
-  res.sendFile('index.html', {root: './public'});
-});
-
-// EXAMPLE:
-// app.get('/', (request, response) => response.sendFile('index.html', {root: '.'}));
-// app.get('/new', (request, response) => response.sendFile('new.html', {root: '.'}));
-// app.get('/articles', (request, response) => {
-//   client.query(
-//     SELECT...
-//   )
-//   .then(result => response.send(result.rows))
-//   .catch(console.error);
-// });
-
-// ------ APP.POST ------
-
-// EXAMPLE:
-// app.post('/articles', (request, response) => {
-//   client.query(
-//     INSERT...
-//   )
-//   .then(() => {
-//     client.query(
-//       INSERT...
-//     )
-//   })
-//   .then(() => response.send('Insert complete'))
-//   .catch(console.error);
-// });
-
-// ------ APP.PUT ------
-
-// EXAMPLE:
-// app.put('/articles/:id', (request, response) => {
-//   client.query(
-//     UPDATE...
-//   )
-//   .then(() => {
-//     client.query(
-//       UPDATE...
-//     )
-//   })
-//   .then(() => response.send('Update complete'))
-//   .catch(console.error);
-// });
-
-// ------ APP.DELETE ------
-
-// EXAMPLE:
-// app.delete('/articles/:id', (request, response) => {
-//   client.query(
-//     DELETE...
-//   )
-//   .then(() => response.send('Delete complete'))
-//   .catch(console.error);
-// });
-
-// ------ CALL DB ------
-
-// EXAMPLE:
-// loadDB();
-
-// ------ APP.LISTEN ------
-
-// EXAMPLE:
-// app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
-
-// app.listen(PORT, function() {
-//   console.log('Your app is being served on ' + PORT);
-// })
-
-// Stretch goal custom 404 page
-
-// ------ DATABASE ------
-
-// ------ SOCKET ------
 
 // Socket.io information channels---------
 io.on('connection', function(socket){ //io.connection sets up the paths/connections
@@ -159,6 +73,7 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
     arenaNum++;
   }
 });
+
 // end Socket.io channels------------------
 
 http.listen(PORT, function(){

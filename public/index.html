@@ -134,9 +134,11 @@
                 Step 2 <br></p>
               </div>
             </div>
-            <div class="play-button">
-              <a href="/battle"><p>PLAY</p></a>
-            </div>
+
+            <a href="/battle"><div class="play-button">
+              <p>PLAY</p>
+            </div></a>
+
           </article>
         </section>
         <!-- End section home content -->
@@ -178,7 +180,10 @@
       </div>
     </section>
 
-    <!-- End page div -->
+    <section class="nav-bar">
+    <p id="home-click"><a  href="/">HOME</a></p>
+    <p id="about-click"><a href="/about">ABOUT</a></p>
+  </section>
 
     <script src="/socket.io/socket.io.js"></script>
 
@@ -197,10 +202,4 @@
     <script src="/scripts/controllers/routes.js"></script>
 
   </body>
-  <footer>
-    <section class="nav-bar">
-    <p id="home-click"><a  href="#home-content">HOME</a></p>
-    <p id="about-click"><a href="#about-us-page">ABOUT</a></p>
-  </section>
-</footer>
 </html>
