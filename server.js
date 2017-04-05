@@ -46,6 +46,10 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
     socket.broadcast.to(data.arena).emit('attack', data.attack);
   });
 
+  socket.on('results', function(data){ //this is the route set up to handle attacks/switches
+    socket.broadcast.to(data.arena).emit('results', data.results);
+  });
+
   socket.on('disconnect', function(socket){
     console.log('a user disconnected', socket)
     io.to(arena).emit('testDisconnect', true);

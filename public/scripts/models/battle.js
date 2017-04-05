@@ -28,6 +28,8 @@ $(function(module){
   Pokemon.ourAttack = {};
   Pokemon.theirAttack = {};
   Pokemon.results = {};
+  Pokemon.selectedAttack = false;
+  Pokemon.attackReceived = false;
   // const Player = function(){
   //   //your constructor here
   // };
