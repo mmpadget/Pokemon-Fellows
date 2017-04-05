@@ -87,7 +87,7 @@
     $(`#${Pokemon.pokes[2].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
 
     // eslint-disable-next-line
-    battleView.renderPokemon(Pokemon.pokes[2], 'player-two-pokemon');
+    // battleView.renderPokemon(Pokemon.pokes[2], 'player-two-pokemon');
 
     // eslint-disable-next-line
     //battleView.renderPokemon(Pokemon.pokes[1]); // player2
@@ -106,13 +106,13 @@
   };
   // rendering their pokemon ---------
   battleView.renderTheirPokemon = () => {
-    battleView.renderPokemon(Pokemon.theirPokes[0]);
-    battleView.renderPokemon(Pokemon.theirPokes[1]);
+    battleView.renderPokemon(Pokemon.theirPokes[0], 'player-two-pokemo');
+    battleView.renderPokemon(Pokemon.theirPokes[1], 'player-two-pokemo');
     $(`#${Pokemon.theirPokes[1].name}`).hide();
-    battleView.renderPokemon(Pokemon.theirPokes[2]);
+    battleView.renderPokemon(Pokemon.theirPokes[2], 'player-two-pokemo');
     $(`#${Pokemon.theirPokes[2].name}`).hide();
   }
-      // end render therePokemon------------
+  // end render therePokemon------------
 
   // Call all the things!
   battleView.init = function() {

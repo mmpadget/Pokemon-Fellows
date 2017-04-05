@@ -15,14 +15,6 @@ $(function(module){
     console.log(Pokemon.pokes);
   }
 
-  // socket.io variables
-  // eslint-disable-next-line
-  const socket = io(); //acceptable linter error, io is defined in the js file added by the socket.io node module.
-  socket.arena;
-  socket.host = false;
-  socket.haveSecondPlayer = false;
-  socket.pokesSent = false;
-  // end socket.io vars
   Pokemon.urlNumbersLimit = 2;
   Pokemon.urlNumbers = []; //do some math and get 3 random numbers
   Pokemon.pokes = []; // array of pokes
@@ -62,43 +54,13 @@ $(function(module){
     });
   };
 
-  Pokemon.populateToPage = () => {
-    //put them onto page.
-  }
-
   // uses socket.emit to send out pokes.
   Pokemon.sendToOpponent = () => {
     if (Pokemon.pokes.length === 3 && socket.haveSecondPlayer && !socket.pokesSent){ //need to have 3 poke and a second player. This is called in 2 places and should run once when both conditions are met. Also in the event that both calls are added to the stack and true. this will only run once because of pokeSent flag.
       console.log('Sending pokes to second player');
-      socket.emit('pokes', {arena: socket.arena, pokes: Pokemon.pokes});
-      socket.pokesSent = true;
+      socket.sendPokemon();// this is handled in socket.js now
     }
   }
-
-  // socket.io listeners--------------------
-  socket.on('connectToArena', function(data){
-    socket.arena = data.arena;
-    console.log(data.message);
-    socket.emit('player', {arena: socket.arena, player: true}); // on connect to server, broadcast I'm a player to arena.
-  });
-
-  socket.on('host', function(data){
-    socket.host = data.host;
-    console.log(data.message);
-  });
-
-  socket.on('player', function(data){
-    socket.haveSecondPlayer = data; //data is boolean true if comeing from second player
-    Pokemon.sendToOpponent();
-    console.log('There is a second Player');
-  });
-
-  socket.on('pokes', function(data){
-    Pokemon.theirPokes = data; //data is pokes array comeing from second player
-    console.log('We have all their pokes');
-    // battleView.renderTheirPokemon();
-  });
-  // end Socket.io listeners -------------------
 
   Pokemon.getRandomNumbers = () => {
     //need urlNumbers to have 3 random number from 1-upper limit of api poke index
@@ -115,5 +77,5 @@ $(function(module){
   Pokemon.getRandomNumbers();
   Pokemon.getSomePokes();
   module.Pokemon = Pokemon;
-  module.socket = socket;
+
 }(window));
