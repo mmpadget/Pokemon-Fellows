@@ -3,8 +3,8 @@
 }
 
 /*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
-/*index.html styling*/
 
+/*index.html styling*/
 #page{
   background-color: white;
 }
@@ -30,10 +30,33 @@
   margin: 0%;
   margin-bottom: 10%;
   text-align: center;
-
+}
+.pokemon-name{
+  font-weight: bold;
 }
 .pokemon-sprite img{
   width: 50%;
+}
+#dashboard-bottom-default{
+  background-color: pink;
+}
+#dashboard-bottom-switch{
+  background-color: red;
+}
+.team{
+  font-size: 1.4em;
+  background-color: grey;
+}
+.team img{
+  margin-bottom: 0%;
+  margin-top: 1%;
+}
+.name{
+  font-weight: bold;
+}
+.pokemon-character{
+  width: 30%;
+  margin: 1.1%;
 }
 
 
