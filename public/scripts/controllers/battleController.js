@@ -33,7 +33,7 @@
     $('.attack').on('click', function() {
       Pokemon.ourAttack.power = $(this).data('power');
       Pokemon.ourAttack.attack = $(this).attr('name');
-      Pokemon.ourAttack.hp = $(`#${$(this).parent().attr('name')}`).data('hp');
+      Pokemon.ourAttack.hp = $('#player-one-pokemon').children().filter(':visible').data('hp');
       Pokemon.ourAttack.speed = $(`#${$(this).parent().attr('name')}`).data('speed');
       Pokemon.ourAttack.name = $(this).parent().attr('name');
       battleController.shareAttacks();//send attacks asap
@@ -89,10 +89,10 @@
       }
       function ourTurn(){
         console.log('out turn');
-        Pokemon.results.theirHp = Pokemon.theirAttack.hp - Pokemon.ourAttack.power;
+        Pokemon.results.theirHp = parseInt(Pokemon.theirAttack.hp) - parseInt(Pokemon.ourAttack.power);
       }
       function theirTurn(){
-        Pokemon.results.ourHp = Pokemon.ourAttack.hp - Pokemon.theirAttack.power;
+        Pokemon.results.ourHp = parseInt(Pokemon.ourAttack.hp) - parseInt(Pokemon.theirAttack.power);
       }
       Pokemon.results.ourPoke = Pokemon.ourAttack.name;
       Pokemon.results.theirPoke = Pokemon.theirAttack.name;
@@ -108,18 +108,27 @@
   battleController.shareResults = () => {
     socket.shareResults();
     console.log('Sending results');
-    battleController.showFight();
-  }
-
-  // i. show fight
-  battleController.showFight = () => {
-    console.log('Showing fight');
+    battleController.updateHealth();
   }
 
   // j. update health bars
-  // function updateHealthBars() {
-  //
-  // }
+  battleController.updateHealth = () => { //remember health is located on the char and the buttons.
+    if('zero-values'){
+      //remove evens - handle color change and pokeball image change
+    }
+    console.log('Updating health');
+    $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
+    $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
+    battleController.animate();
+  }
+  battleController.animate = () => {
+    function updateHealthBars(){
+      //
+    }
+    function showFight(){
+      console.log('Showing fight');
+    }
+  }
 
   // k. pokemon faints
   // function pokemonFaints() {

@@ -47,7 +47,7 @@ $(function(module){
   socket.on('results', function(results){
     console.log('the results of fight', results);
     Pokemon.results = results; //data is pokes array comeing from second player
-    battleController.showFight();
+    battleController.updateHealth();
   });
 
   // disconnect listener
@@ -69,7 +69,14 @@ $(function(module){
   }
 
   socket.shareResults= () => {
-    socket.emit('results', {arena: socket.arena, results: Pokemon.results});
+    let results ={};
+    results.ourAttack = Pokemon.results.theirAttack;
+    results.theirAttack = Pokemon.results.ourAttack;
+    results.ourHp = Pokemon.results.theirHp;
+    results.theirHp = Pokemon.results.ourHp;
+    results.ourPoke = Pokemon.results.theirPoke;
+    results.theirPoke = Pokemon.results.ourPoke;
+    socket.emit('results', {arena: socket.arena, results: results});
   }
 
   module.socket = socket;
