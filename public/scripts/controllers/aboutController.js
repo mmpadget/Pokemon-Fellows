@@ -8,10 +8,10 @@
 
   // Initialize the about page view. /about in routes.
   aboutController.index = function() {
-    $('.all-content').hide(); // Hide all content.
+    $('.all-content').hide();
+    $('#title-header').hide(); // Hide all content.
     $('#about-us-page').show(); // Show about content.
-    $('body'.css({'background-image': ' '})
-    body.css({'background-color': 'black'});
+    $('body').css('background-image', 'url()');
   }
   // #about-us-page, #home-content, #battle-content, .all-content
 
