@@ -106,10 +106,10 @@
   };
   // rendering their pokemon ---------
   battleView.renderTheirPokemon = () => {
-    battleView.renderPokemon(Pokemon.theirPokes[0], 'player-two-pokemo');
-    battleView.renderPokemon(Pokemon.theirPokes[1], 'player-two-pokemo');
+    battleView.renderPokemon(Pokemon.theirPokes[0], 'player-two-pokemon');
+    battleView.renderPokemon(Pokemon.theirPokes[1], 'player-two-pokemon');
     $(`#${Pokemon.theirPokes[1].name}`).hide();
-    battleView.renderPokemon(Pokemon.theirPokes[2], 'player-two-pokemo');
+    battleView.renderPokemon(Pokemon.theirPokes[2], 'player-two-pokemon');
     $(`#${Pokemon.theirPokes[2].name}`).hide();
   }
   // end render therePokemon------------

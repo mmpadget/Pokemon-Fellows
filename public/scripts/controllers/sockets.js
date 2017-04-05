@@ -31,7 +31,7 @@ $(function(module){
   socket.on('pokes', function(data){
     Pokemon.theirPokes = data; //data is pokes array comeing from second player
     console.log('We have all their pokes');
-    // battleView.renderTheirPokemon();
+    battleView.renderTheirPokemon();
   });
   // end Socket.io listeners -------------------
 
