@@ -41,14 +41,23 @@
   }
 
   battleView.renderBattleContent = function() {
+
     // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[0]); // player1
+
     // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[1]); // player2
+
     // eslint-disable-next-line
-    battleView.renderDefaultDashboard(Pokemon.pokes[0]);
-    // renderFightDashboard(Pokemon.pokes[0]);
-    // battleView.renderSwitchDashboard(Pokemon.pokes);
+    battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
+
+    // eslint-disable-next-line
+    battleView.renderFightDashboard(Pokemon.pokes[0]);
+    $('#dashboard-bottom-fight').hide();
+
+    // eslint-disable-next-line
+    battleView.renderSwitchDashboard(Pokemon.pokes);
+    $('#dashboard-bottom-switch').hide();
   };
 
   // hitBtn.on("click", function(){// this will be changed to an invokable function once done with testing....
@@ -81,5 +90,19 @@
     returnHP = currentHP;
   };
 
+  // Call everything.
+  battleView.init = function() {
+    battleView.renderBattleContent();
+    battleController.selectFight();
+    battleController.selectAttack();
+    // battleController.shareAttacks();
+    // battleController.fightMath();
+    // battleController.shareResults();
+    // battleController.showFight();
+    // battleController.updateHealthBars();
+    // battleController.pokemonFaints();
+    // battleController.shareWinLossState();
+    // battleController.playAgainScreen();
+  }
   module.battleView = battleView;
 })(window);
