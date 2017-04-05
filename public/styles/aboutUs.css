@@ -1,15 +1,17 @@
 /*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
 
-body {
+  body{
   margin: 2%;;
   background-color: black;
   text-align: justify;
 }
-}
-h1{
+#title{
   text-align: center;
-  padding: 10%;;
-  font-size: 50px;
+  padding: 1%;
+  font-size: 5em;
+  margin-bottom: 0%;
+  margin-top: 2%;
+  text-decoration: underline;
 }
 
 .one img, .two img, .three img, .four img, .five img{
@@ -22,11 +24,11 @@ h1{
   margin-bottom: 0%;
   margin-top: 3%;
 }
-main{
+#about-us-page{
   font-family: monospace;
   color: white ;
 }
-main p{
+#about-us-page p{
   margin-right: 2%;
   margin-left: 2%;
   font-family: monospace;
@@ -34,23 +36,6 @@ main p{
   font-size: 175%;
 
 }
-@media and screen (max-width: 700px){
-  img{
-    margin-top: 10%;
-  }
-}
-/*#saul:hover{
-  content: url();
-}
-#cameron:hover{
-  content: attr();
-}
-#ely:hover{
-  content: url();
-}
-#michael:hover{
-  content: url();
-}*/
 
 .one{
 float: left;
@@ -67,3 +52,15 @@ float: left;
 .five{
   float: left;
 }
+/*#saul:hover{
+content: url();
+}
+#cameron:hover{
+content: attr();
+}
+#ely:hover{
+content: url();
+}
+#michael:hover{
+content: url();
+}*/
