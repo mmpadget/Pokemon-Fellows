@@ -40,52 +40,57 @@
 
   battleController.selectPokemonCharacter = function() {
     $('.pokemon-character').on('click', function() {
-      console.log('Selected a new Pokemon');
+      // console.log('Selected a new Pokemon');
+      // console.log(this);
       $('#dashboard-bottom-switch').hide();
       $('#dashboard-bottom-default').show();
-      // change values...
+      // eslint-disable-next-line
+      $(`#${Pokemon.pokes[0].name}`).hide();
+      $(`#${$(this).attr('id')}`).siblings().hide();
+      $(`#${$(this).attr('id')}`).show();
+      $().has();
     });
   }
 
   // f. share attacks
-  function shareAttacks() {
-    $('')
-  }
+  // function shareAttacks() {
+  //   $('')
+  // }
 
   // g. fight math
-  function fightMath() {
-
-  }
+  // function fightMath() {
+  //
+  // }
 
   // h. share results
-  function shareResults() {
-
-  }
+  // function shareResults() {
+  //
+  // }
 
   // i. show fight
-  function showFight() {
-
-  }
+  // function showFight() {
+  //
+  // }
 
   // j. update health bars
-  function updateHealthBars() {
-
-  }
+  // function updateHealthBars() {
+  //
+  // }
 
   // k. pokemon faints
-  function pokemonFaints() {
-
-  }
+  // function pokemonFaints() {
+  //
+  // }
 
   // l. share win/loss state
-  function shareWinLossState() {
-
-  }
+  // function shareWinLossState() {
+  //
+  // }
 
   // m. play again screen
-  function playAgainScreen() {
-
-  }
+  // function playAgainScreen() {
+  //
+  // }
 
   // MAKE A FUNCTION PICKING BETWEEN 1-0 for true or false to pick who goes first
   // function whoGoesFirst() {
