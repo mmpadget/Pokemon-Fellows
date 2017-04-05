@@ -1,12 +1,128 @@
 
 
 /*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
+#about-us-page{
+  display: none;
+}
+#battle-content{
+  display: none;
+}
+#title-header{
+  display: none;
+}
+body{
+  background-image: url("../assets/splashBackground.png");
+  background-size: 100%;
+}
+
+
+/*#splash-background{
+  width: 100%;
+  z-index: 100;
+  height: 100vh;
+}*/
+.overlay {
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  opacity: .6;
+}
+.logo-header img{
+  width: 82%;
+  height: 15%;
+  z-index: 2;
+  position: absolute;
+  padding: 2%;
+  color: white;
+  border: 4px solid #00F500;
+  background: rgba(0,0,0, .6);
+}
+.logo-header{
+  margin-left: 4%;
+  width: 80%;
+}
+.instructions{
+  padding-left: 6%;
+  padding-right: 6%;
+  margin-top: 38%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 88%;
+}
+/*section #home-click{
+  color: white;
+  position: absolute;
+  padding-left: 6%;
+  padding-right: 6%;
+  margin-top: 10%;
+  position: absolute;
+  top: 87%;
+  bottom: 0;
+  left: 0;
+  width: 88%;
+}*/
+.nav-bar{
+  position: absolute;
+  padding-left: 6%;
+  padding-right: 6%;
+  margin-top: 5%;
+  top: 87%;
+  width: 50%;
+  display: inline;
+  margin-left: 23%;
+}
+#about-click, #home-click {
+  color: white;
+  display: inline;
+  margin: 5%;
+}
+#about-click a, #home-click a{
+  color: #00F500;
+  text-decoration: none;
+}
+.instructions p{
+  padding: 2%;
+  color: white;
+  border: 4px solid #00F500;
+  background: rgba(0,0,0, .6);
+
+}
+.instructions-br{
+  background: black;
+
+}
+.play-button{
+  padding-left: 6%;
+  padding-right: 6%;
+  margin-top: 35%;
+  position: absolute;
+  top: 53%;
+  bottom: 0;
+  left: 0;
+  width: 88%;
+  margin-bottom: 5%;
+}
+.play-button p{
+  padding: 2%;
+  color: white;
+  border: 4px solid #00F500;
+  background: rgba(0,0,0, .6);
+  font-size: 2.5em;
+  text-align: center;
+}
 
 /*index.html styling*/
+
+
 #page{
   background-color: white;
   /*background-size: 100%;*/
-  height: 100vh;
+  height: auto;
   /*max-height: 100%;*/
 }
 .pokemon-stats{
@@ -83,8 +199,6 @@ hr{
 #battle-content{
   background-image: url("/assets/battle-content-br.jpg");
 }
-
-
 
 .team img{
   margin-bottom: 0%;
