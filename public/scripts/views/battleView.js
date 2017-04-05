@@ -113,8 +113,6 @@
     $(`#${Pokemon.theirPokes[1].name}`).hide();
     battleView.renderPokemon(Pokemon.theirPokes[2], 'player-two-pokemon');
     $(`#${Pokemon.theirPokes[2].name}`).hide();
-
-    
   };
   // end render therePokemon------------
 
