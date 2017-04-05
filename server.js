@@ -8,7 +8,7 @@ const io = require('socket.io')(http); // this requires socket.io, a live or act
 const PORT = process.env.PORT || 3000;
 
 let arenaNum = 1; // increment up as more player join arenas.
-let arenas = []; // keep track of each arenas, on disconnect, need to handle player left behind.
+// keep track of each arenas, on disconnect, need to handle player left behind.
 
 app.use(express.static('./public'));
 
@@ -19,15 +19,7 @@ app.get('/', function(req, res){
 // Socket.io information channels---------
 io.on('connection', function(socket){ //io.connection sets up the paths/connections
   let arena = 'arena-' + arenaNum;
-  if(io.nsps['/'].adapter.rooms[arena] && io.nsps['/'].adapter.rooms[arena].length > 1){
-    arenaNum++;
-  }
-
   socket.join(arena, function(){
-    // arenas[arenas.length - 1].players.push(socket);
-    // console.log('there are ' + arenas.length + ' arenas');
-    // console.log(arena + ' has' + arenas[arenas.length-1].players.length + ' players');
-
     //Send this event to everyone in the room.
     console.log('Player Conneted in ' + arena);
     io.to(arena).emit('connectToArena', {
@@ -50,10 +42,19 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
     socket.broadcast.to(data.arena).emit('pokes', data.pokes);
   });
 
-  socket.on('attack', function(data){ //this is the route set up to handle moves/plays when the server recives a move,
-    socket.broadcast.to(data.arena).emit('move', data.points); // it emits that move to everyone not the sender. ".broadcast"... socket.emit() would emit to every client including back to thesender.
+  socket.on('attack', function(data){ //this is the route set up to handle attacks/switches
+    socket.broadcast.to(data.arena).emit('attack', data.attack);
   });
+
+  socket.on('disconnect', function(socket){
+    console.log('a user disconnected', socket)
+    io.to(arena).emit('testDisconnect', true);
+  });
+
   console.log('a user connected'); // this logs to the server console/terminal
+  if(io.nsps['/'].adapter.rooms[arena] && io.nsps['/'].adapter.rooms[arena].length > 1){
+    arenaNum++;
+  }
 });
 // end Socket.io channels------------------
 

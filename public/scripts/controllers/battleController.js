@@ -31,16 +31,13 @@
   // e. select attack
   battleController.selectAttack = function() {
     $('.attack').on('click', function() {
-      Pokemon.sendStats.power = $(this).data('power');
-      Pokemon.sendStats.attack = $(this).attr('name');
-      Pokemon.sendStats.hp = $(`#${$(this).parent().attr('name')}`).data('hp');
-      Pokemon.sendStats.speed = $(`#${$(this).parent().attr('name')}`).data('speed');
-      Pokemon.sendStats.name = $(this).parent().attr('name');
-      // debugger;
-      console.log(Pokemon.sendStats);
-      console.log('Pushed Attack Button in selectAttack');
-      // let power = $(this).data('power');
-      // console.log(power);
+      Pokemon.ourAttack.power = $(this).data('power');
+      Pokemon.ourAttack.attack = $(this).attr('name');
+      Pokemon.ourAttack.hp = $(`#${$(this).parent().attr('name')}`).data('hp');
+      Pokemon.ourAttack.speed = $(`#${$(this).parent().attr('name')}`).data('speed');
+      Pokemon.ourAttack.name = $(this).parent().attr('name');
+      battleController.shareAttacks();//send attacks asap
+      console.log('Pushed Attack Button, Pokemon.ourAttack object created');
       $('.fight-template').hide();
       $('#dashboard-bottom-default').show();
     });
@@ -48,12 +45,13 @@
 
   battleController.selectPokemonCharacter = function() {
     $('.pokemon-character').on('click', function() {
-      Pokemon.sendStats.speed = $(this).data('speed');
-      Pokemon.sendStats.hp = $(this).data('hp');
-      Pokemon.sendStats.name = $(this).attr('id');
-      Pokemon.sendStats.attack = false;
-      Pokemon.sendStats.power = 0;
-      console.log(Pokemon.sendStats);
+      Pokemon.ourAttack.speed = 0;
+      Pokemon.ourAttack.hp = $(this).data('hp');
+      Pokemon.ourAttack.name = $(this).attr('id');
+      Pokemon.ourAttack.attack = false;
+      Pokemon.ourAttack.power = 0;
+      battleController.shareAttacks();//send attacks asap
+      console.log('Pushed select chaer button, Pokemon.ourAttack object created');
       $('#dashboard-bottom-switch').hide();
       $('#dashboard-bottom-default').show();
       // eslint-disable-next-line
@@ -64,14 +62,40 @@
   }
 
   // f. share attacks
-  // function shareAttacks() {
-  //   $('')
-  // }
+  battleController.shareAttacks = () => {
+    if(!socket.host){
+      socket.sendAttack();
+    }
+  }
 
   // g. fight math
-  // function fightMath() {
-  //
-  // }
+  battleController.fightMath = () => {
+    if ('their poke changed'){
+      //change the pokemon out.
+    }
+    console.log('---fight math start---');
+    console.log('ourAttack is ', ourAttack);
+    console.log('theirAttack is ', theirAttack);
+    if (Pokemon.ourAttack.speed >= Pokemon.theirAttack.speed){
+      ourTurn();
+      theirTurn();
+    } else {
+      theirTurn();
+      ourTurn();
+    }
+    function ourTurn(){
+      console.log('out turn');
+      Pokemon.results.theirHp = Pokemon.theirAttack.hp - Pokemon.ourAttack.power;
+    }
+    function theirTurn(){
+      Pokemon.results.ourHp = Pokemon.ourAttack.hp - Pokemon.theirAttack.power;
+    }
+    Pokemon.results.ourPoke = Pokemon.ourAttack.name;
+    Pokemon.results.theirPoke = Pokemon.theirAttack.name;
+    Pokemon.results.theirAttack = Pokemon.theirAttack.attack;
+    Pokemon.results.ourAttack = Pokemon.ourAttack.attack;
+    console.log('fight results ', Pokemon.results);
+  };
 
   // h. share results
   // function shareResults() {

@@ -25,7 +25,9 @@ $(function(module){
   Pokemon.theirPokes = []; //array for their pokes
   Pokemon.pokeUrl = 'http://pokeapi.co/api/v2/pokemon/';
   Pokemon.numberOfMoves = 4;
-  Pokemon.sendStats = {};
+  Pokemon.ourAttack = {};
+  Pokemon.theirAttack = {};
+  Pokemon.results = {};
   // const Player = function(){
   //   //your constructor here
   // };
