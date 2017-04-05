@@ -8,7 +8,7 @@ const io = require('socket.io')(http); // this requires socket.io, a live or act
 const PORT = process.env.PORT || 3000;
 
 let arenaNum = 1; // increment up as more player join arenas.
-// let arenas = []; // keep track of each arenas, on disconnect, need to handle player left behind.
+let arenas = []; // keep track of each arenas, on disconnect, need to handle player left behind.
 
 app.use(express.static('./public'));
 
@@ -18,19 +18,24 @@ app.get('/', function(req, res){
 
 // Socket.io information channels---------
 io.on('connection', function(socket){ //io.connection sets up the paths/connections
-  if(io.nsps['/'].adapter.rooms['arena-' + arenaNum] && io.nsps['/'].adapter.rooms['arena-' + arenaNum].length > 1){
+  let arena = 'arena-' + arenaNum;
+  if(io.nsps['/'].adapter.rooms[arena] && io.nsps['/'].adapter.rooms[arena].length > 1){
     arenaNum++;
   }
 
-  socket.join('arena-' + arenaNum, function(){
+  socket.join(arena, function(){
+    // arenas[arenas.length - 1].players.push(socket);
+    // console.log('there are ' + arenas.length + ' arenas');
+    // console.log(arena + ' has' + arenas[arenas.length-1].players.length + ' players');
+
     //Send this event to everyone in the room.
-    console.log('Player Conneted in arena-' + arenaNum);
-    io.to('arena-' + arenaNum).emit('connectToArena', {
-      message: 'You are in Arena. ' + arenaNum,
-      arena: 'arena-' + arenaNum
+    console.log('Player Conneted in ' + arena);
+    io.to(arena).emit('connectToArena', {
+      message: 'You are in ' + arena,
+      arena: arena
     });
-    if (io.nsps['/'].adapter.rooms['arena-' + arenaNum].length === 1){
-      io.to('arena-' + arenaNum).emit('host', {
+    if (io.nsps['/'].adapter.rooms[arena].length === 1){
+      io.to(arena).emit('host', {
         message: 'You are hosting this game',
         host: true
       })
