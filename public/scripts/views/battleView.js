@@ -115,18 +115,23 @@
     $(`#${Pokemon.theirPokes[2].name}`).hide();
   };
   // end render therePokemon------------
-
+  battleView.addEvents = () => {
+    if(socket.pokesSent && socket.pokesReceived){
+      console.log('Adding events');
+      battleController.selectSwitch();
+      // eslint-disable-next-line
+      battleController.selectFight();
+      // eslint-disable-next-line
+      battleController.selectAttack();
+      // eslint-disable-next-line
+      battleController.selectPokemonCharacter();
+    }
+  }
   // Call all the things!
   battleView.init = function() {
     battleView.renderBattleContent();
     // eslint-disable-next-line
-    battleController.selectSwitch();
-    // eslint-disable-next-line
-    battleController.selectFight();
-    // eslint-disable-next-line
-    battleController.selectAttack();
-    // eslint-disable-next-line
-    battleController.selectPokemonCharacter();
+    battleView.addEvents();
     // battleController.shareAttacks();
     // battleController.fightMath();
     // battleController.shareResults();

@@ -30,8 +30,23 @@ $(function(module){
 
   socket.on('pokes', function(data){
     Pokemon.theirPokes = data; //data is pokes array comeing from second player
+    socket.pokesReceived = true;
+    battleView.addEvents();
     console.log('We have all their pokes');
     battleView.renderTheirPokemon();
+  });
+
+  socket.on('attack', function(attack){
+    console.log('their attack ', attack);
+    Pokemon.theirAttack = attack; //data is pokes array comeing from second player
+    console.log('We have their attack');
+    battleController.fightMath();
+  });
+
+  // disconnect listener
+  socket.on('testDisconnect', function(data){
+    doSomethingOnUserDisconnect();//make this something graceful
+    console.log('a user disconnected', data)
   });
   // end Socket.io listeners -------------------
 
@@ -40,5 +55,11 @@ $(function(module){
     socket.emit('pokes', {arena: socket.arena, pokes: Pokemon.pokes});
     socket.pokesSent = true;
   }
+
+  socket.sendAttack = () => {
+    socket.emit('attack', {arena: socket.arena, attack: Pokemon.ourAttack});
+    // socket.pokesSent = true;
+  }
+
   module.socket = socket;
 }(window));
