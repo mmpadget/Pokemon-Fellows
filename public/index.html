@@ -103,9 +103,6 @@
       </section>
     </script>
   </head>
-  <header>
-    <img id="title-header"src="assets/pokemon-header.png" alt="">
-  </header>
   <body>
     <!-- START OF BODY -->
     <div id="page">
@@ -121,6 +118,9 @@
               </div>
               <div class="instructions-br">
               <div class="instructions">
+                <h2>Overview</h2>
+                <p>Pokemon Fellows is an online two player Pokemon battle arena game.</p>
+                <br>
                 <p>Step 1 <br>
                 Step 2 <br>Step 1 <br>
                 Step 2 <br>Step 1 <br>
@@ -133,17 +133,23 @@
                 Step 2 <br></p>
               </div>
             </div>
+
             <a href="/battle"><div class="play-button">
               <p>PLAY</p>
             </div></a>
+
           </article>
         </section>
         <!-- End section home content -->
         <main id="battle-content" class="all-content">
+          <header>
+            <img src="assets/logo-sprite.png" alt="">
+          </header>
           <div class="battle-background">
             <section id="player-one-pokemon"></section>
             <section id="player-two-pokemon"></section>
           </div>
+
         </main>
         <!-- End section #battle-content -->
         <section id="about-us-page" class="all-content">
@@ -174,7 +180,6 @@
       </div>
       <!-- End .main-content div -->
     </div>
-    <!-- End #page div -->
 
     <script src="/socket.io/socket.io.js"></script>
 

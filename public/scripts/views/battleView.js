@@ -18,8 +18,6 @@
     // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-pokemon').text());
     $(`#${container}`).append(template(pokemon));
-    // $('#player-two-pokemon').append(template(pokemon));
-    // $(`#${container}`).append(template(container));
   }
 
   battleView.renderDefaultDashboard = function(dashboard) {
@@ -73,10 +71,8 @@
   };
 
   battleView.renderBattleContent = function() {
-
     // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[0], 'player-one-pokemon'); // First Pokemon for player one: name, picture, health bar.
-
     // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[1], 'player-one-pokemon'); // Second Pokemon for player one: name, picture, health bar.
     // eslint-disable-next-line
@@ -85,13 +81,6 @@
     battleView.renderPokemon(Pokemon.pokes[2], 'player-one-pokemon'); // Third Pokemon for player one: name, picture, health bar.
     // eslint-disable-next-line
     $(`#${Pokemon.pokes[2].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
-
-    // eslint-disable-next-line
-    // battleView.renderPokemon(Pokemon.pokes[2], 'player-two-pokemon');
-
-    // eslint-disable-next-line
-    //battleView.renderPokemon(Pokemon.pokes[1]); // player2
-
 
     // eslint-disable-next-line
     battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
