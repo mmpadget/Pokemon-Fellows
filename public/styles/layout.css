@@ -1,7 +1,7 @@
 
 
 /*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
-#about-us-page{
+/*#about-us-page{
   display: none;
 }
 #battle-content{
@@ -9,7 +9,7 @@
 }
 #title-header{
   display: none;
-}
+}*/
 body{
   background-image: url("../assets/splashBackground.png");
   background-size: 100%;
@@ -27,7 +27,7 @@ body{
   top: 0;
   left: 0;
   width: 100%;
-  height: 200vh;
+  height: 100vh;
   opacity: .6;
 }
 .logo-header img{

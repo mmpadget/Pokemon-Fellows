@@ -10,6 +10,8 @@
   aboutController.index = function() {
     $('.all-content').hide(); // Hide all content.
     $('#about-us-page').show(); // Show about content.
+    $('body'.css({'background-image': ' '})
+    body.css({'background-color': 'black'});
   }
   // #about-us-page, #home-content, #battle-content, .all-content
 
