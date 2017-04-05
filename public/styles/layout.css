@@ -1,0 +1,101 @@
+/*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
+/*index.html styling*/
+
+#page{
+  background-color: white;
+}
+.pokemon-stats{
+  border: 2px solid red;
+  width: 45%;
+}
+.health-bar{
+  width: 100%;
+  max-width: 100%;
+  /*makd this work!!*/
+}
+.name-and-pic img{
+  max-width: 30%;
+}
+.name-and-pic .pokemon-img{
+  margin: 2%;
+  width: 50%;
+}
+.pokemon-sprite{
+  border: 2px solid blue;
+  width: 45%;
+  margin: 0%;
+  margin-bottom: 10%;
+  text-align: center;
+
+}
+.pokemon-sprite img{
+  width: 50%;
+}
+
+
+
+/*about us page*/
+  body{
+  margin: 2%;;
+  background-color: black;
+  text-align: justify;
+}
+#title{
+  text-align: center;
+  padding: 1%;
+  font-size: 5em;
+  margin-bottom: 0%;
+  margin-top: 2%;
+  text-decoration: underline;
+}
+
+.one img, .two img, .three img, .four img, .five img{
+  max-width: 100px;
+  max-height: 100px;
+  border: 3px solid #00F500;
+  border-radius: 10px;
+  float: left;
+  margin: 2%;
+  margin-bottom: 0%;
+  margin-top: 3%;
+}
+#about-us-page{
+  font-family: monospace;
+  color: white ;
+}
+#about-us-page p{
+  margin-right: 2%;
+  margin-left: 2%;
+  font-family: monospace;
+  color: white ;
+  font-size: 175%;
+
+}
+
+.one{
+float: left;
+}
+.two{
+  float: left;
+}
+.three{
+  float: left;
+}
+.four{
+  float: left;
+}
+.five{
+  float: left;
+}
+/*#saul:hover{
+content: url();
+}
+#cameron:hover{
+content: attr();
+}
+#ely:hover{
+content: url();
+}
+#michael:hover{
+content: url();
+}*/
