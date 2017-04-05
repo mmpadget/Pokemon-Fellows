@@ -27,7 +27,8 @@
           </div>
         </section>
         <figure class="pokemon-sprite">
-          <img src="{{backSprite}}" alt="pokemon-pic"> <!-- This is the bigger Pokemon image -->
+          <img id="pokemon"src="{{backSprite}}" alt="pokemon-pic"> <!-- This is the bigger Pokemon image -->
+          <img id="platform" src="assets/battle-platform.png">
         </figure>
       </section>
     </script>
@@ -101,12 +102,15 @@
         </button>
       </section>
     </script>
+
   </head>
+  <header>
+    <img src="assets/pokemon-header.png" alt="">
+  </header>
   <body>
     <!-- START OF BODY -->
     <div id="page">
       <header>
-        <h1>Gotta Catch 'Em All!!!</h1>
         <nav>
           <!-- <ul>
             <li></li>
@@ -117,15 +121,16 @@
 
         <section id="home-content" class="all-content">
           <article id="intro-content">
-            <p>This is the Home Content!</p>
           </article>
         </section>
         <!-- End section home content -->
 
         <main id="battle-content">
-          <section id="player-one-pokemon"></section>
-          <section id="player-two-pokemon"></section>
-        </main>
+          <div class="battle-background">
+            <section id="player-one-pokemon"></section>
+            <section id="player-two-pokemon"></section>
+      </div>
+    </main>
         <!-- End section battle content -->
         <!-- End section #about -->
 
