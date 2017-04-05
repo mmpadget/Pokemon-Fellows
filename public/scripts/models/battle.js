@@ -54,9 +54,7 @@ $(function(module){
               console.log('Ajax call complete calling functions');
               Pokemon.sendToOpponent();
               // populate to page (pokes);
-              battleView.renderBattleContent();
-              // push to pokes;
-              // if 3 pokes, sendtootherplayer()
+              battleView.init();
             }
           });
         }

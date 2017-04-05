@@ -45,9 +45,9 @@
           </div>
         </section>
         <section class="dashboard-bottom">
-          <section class="dashboard-bottom-default">
-            <button type="button" name="fight">FIGHT</button>
-            <button type="button" name="switch">SWITCH POKÉMON</button>
+          <section id="dashboard-bottom-default">
+            <button id="fight-button" type="button" name="fight">FIGHT</button>
+            <button id="switch-button" type="button" name="switch">SWITCH POKÉMON</button>
           </section>
         </section>
       </section>
@@ -56,13 +56,13 @@
     <!--Handlebars template for 'fight' state of dashboard-->
     <script id="battle-template-dashboard-fight" type="text/x-handlebars-template">
       <section id="dashboard-bottom-fight" class="fight-template">
-        <button id="move-1" type="button" name="{{moveSet.0.name}}">
+        <button id="move-1" class="attack" data-power="{{moveSet.0.power}}" type="button" name="{{moveSet.0.name}}">
           {{moveSet.0.name}}
         </button>
-        <button id="move-2" type="button" name="{{moveSet.1.name}}">
+        <button id="move-2" class="attack"  data-power="{{moveSet.1.power}}" type="button" name="{{moveSet.1.name}}">
           {{moveSet.1.name}}
         </button>
-        <button id="move-3" type="button" name="{{moveSet.2.name}}">
+        <button id="move-3" class="attack"  data-power="{{moveSet.1.power}}" type="button" name="{{moveSet.2.name}}">
           {{moveSet.2.name}}
         </button>
         <!-- <button id="move-4" type="button" name="{{moveSet.3.name}}">
@@ -75,7 +75,7 @@
     <script id="battle-template-dashboard-switch" type="text/x-handlebars-template">
       <section id="dashboard-bottom-switch" class="switch-template">
         <hr>
-        <button id="{{0.name}}" type="button" name="{{0.name}}">
+        <button id="{{0.name}}" class="pokemon-character" type="button" name="{{0.name}}">
           {{0.name}}
           <div class="health-bar">
               <div class="bar">
@@ -83,7 +83,7 @@
               </div>
           </div>
         </button>
-        <button id="{{1.name}}" type="button" name="{{1.name}}">
+        <button id="{{1.name}}" class="pokemon-character" type="button" name="{{1.name}}">
           {{1.name}}
           <div class="health-bar">
               <div class="bar">
@@ -91,7 +91,7 @@
               </div>
           </div>
         </button>
-        <button id="{{2.name}}" type="button" name="{{2.name}}">
+        <button id="{{2.name}}" class="pokemon-character" type="button" name="{{2.name}}">
           {{2.name}}
           <div class="health-bar">
               <div class="bar">
