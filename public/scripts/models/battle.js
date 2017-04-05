@@ -9,6 +9,7 @@ $(function(module){
     this.frontSprite = `assets/sprites/pokemon/${poke.poke.id}.png`;
     this.backSprite = `assets/sprites/pokemon//back/${poke.poke.id}.png`;
     this.hp = poke.poke.stats[5].base_stat;
+    this.speed = poke.poke.stats[0].base_stat;
     this.moveSet = poke.moveSet.map(function (move) {
       return {name: move.name, power: move.power};
     });
