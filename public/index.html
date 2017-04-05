@@ -105,27 +105,46 @@
 
   </head>
   <header>
-    <img src="assets/pokemon-header.png" alt="">
+    <img id="title-header"src="assets/pokemon-header.png" alt="">
   </header>
   <body>
     <!-- START OF BODY -->
     <div id="page">
       <header>
-        <nav>
-          <!-- <ul>
-            <li></li>
-          </ul> -->
-        </nav>
+
       </header>
       <div class="main-content">
 
         <section id="home-content" class="all-content">
           <article id="intro-content">
+            <div class="logo-header">
+              <img src="assets/logo-sprite.png" alt="">
+            </div>
+              <!-- <img id="splash-background" src="assets/splashBackground.png" alt=""> -->
+              <div class="overlay">
+              </div>
+              <div class="instructions-br">
+              <div class="instructions">
+                <p>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br>Step 1 <br>
+                Step 2 <br></p>
+              </div>
+            </div>
+            <div class="play-button">
+              <p>PLAY</p>
+            </div>
           </article>
         </section>
         <!-- End section home content -->
 
-        <main id="battle-content">
+        <main id="battle-content" class="all-content">
           <div class="battle-background">
             <section id="player-one-pokemon"></section>
             <section id="player-two-pokemon"></section>
@@ -138,7 +157,7 @@
       <!-- End main div -->
       <footer></footer>
     </div>
-    <section id="about-us-page">
+    <section id="about-us-page" class="all-content">
       <h1 id="title">About Us</h1>
       <div class="one">
         <img id="saul" src="assets/sprites/pokemon/back/9.png"><br>
@@ -157,6 +176,10 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
     </section>
+    <section class="nav-bar">
+    <p id="home-click"><a  href="#home-content">HOME</a></p>
+    <p id="about-click"><a href="#about-us-page">ABOUT</a></p>
+  </section>
     <!-- End page div -->
 
     <script src="/socket.io/socket.io.js"></script>
@@ -174,5 +197,6 @@
     <script src="/scripts/views/battleView.js"></script>
     <script src="/scripts/controllers/battleController.js"></script>
     <script src="/scripts/controllers/routes.js"></script>
+
   </body>
 </html>
