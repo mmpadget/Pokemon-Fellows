@@ -162,5 +162,5 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
 // end Socket.io channels------------------
 
 http.listen(PORT, function(){
-  console.log(`listening on *:${3000}`);
+  console.log(`listening on ${PORT}`);
 });
