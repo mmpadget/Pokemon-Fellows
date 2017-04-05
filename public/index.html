@@ -104,9 +104,6 @@
     </script>
 
   </head>
-  <header>
-    <img id="title-header"src="assets/pokemon-header.png" alt="">
-  </header>
   <body>
     <!-- START OF BODY -->
     <div id="page">
@@ -137,18 +134,24 @@
                 Step 2 <br></p>
               </div>
             </div>
+
             <a href="/battle"><div class="play-button">
               <p>PLAY</p>
             </div></a>
+
           </article>
         </section>
         <!-- End section home content -->
 
         <main id="battle-content" class="all-content">
+          <header>
+            <img src="assets/logo-sprite.png" alt="">
+          </header>
           <div class="battle-background">
             <section id="player-one-pokemon"></section>
             <section id="player-two-pokemon"></section>
           </div>
+
         </main>
         <!-- End section battle content -->
         <!-- End section #about -->
@@ -176,11 +179,11 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
     </section>
+
     <section class="nav-bar">
     <p id="home-click"><a  href="/">HOME</a></p>
     <p id="about-click"><a href="/about">ABOUT</a></p>
   </section>
-    <!-- End page div -->
 
     <script src="/socket.io/socket.io.js"></script>
 
