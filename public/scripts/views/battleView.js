@@ -40,26 +40,6 @@
     $('.dashboard-bottom').append(template(dashboard));
   }
 
-  battleView.renderBattleContent = function() {
-
-    // eslint-disable-next-line
-    battleView.renderPokemon(Pokemon.pokes[0]); // player1
-
-    // eslint-disable-next-line
-    battleView.renderPokemon(Pokemon.pokes[1]); // player2
-
-    // eslint-disable-next-line
-    battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
-
-    // eslint-disable-next-line
-    battleView.renderFightDashboard(Pokemon.pokes[0]);
-    $('#dashboard-bottom-fight').hide();
-
-    // eslint-disable-next-line
-    battleView.renderSwitchDashboard(Pokemon.pokes);
-    $('#dashboard-bottom-switch').hide();
-  };
-
   // hitBtn.on("click", function(){// this will be changed to an invokable function once done with testing....
   // let damage = PLACEHOLER FOR THE HP FROM THE API
   battleView.attackExecute = function(opts) {
@@ -90,11 +70,43 @@
     returnHP = currentHP;
   };
 
+  battleView.renderBattleContent = function() {
+
+    // eslint-disable-next-line
+    battleView.renderPokemon(Pokemon.pokes[0]); // First Pokemon for player one: name, picture, health bar.
+
+    // eslint-disable-next-line
+    battleView.renderPokemon(Pokemon.pokes[1]); // Second Pokemon for player one: name, picture, health bar.
+    // eslint-disable-next-line
+    $(`#${Pokemon.pokes[1].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
+
+    // eslint-disable-next-line
+    battleView.renderPokemon(Pokemon.pokes[2]); // Third Pokemon for player one: name, picture, health bar.
+    // eslint-disable-next-line
+    $(`#${Pokemon.pokes[2].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
+
+    // eslint-disable-next-line
+    //battleView.renderPokemon(Pokemon.pokes[1]); // player2
+
+    // eslint-disable-next-line
+    battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
+
+    // eslint-disable-next-line
+    battleView.renderFightDashboard(Pokemon.pokes[0]);
+    $('#dashboard-bottom-fight').hide();
+
+    // eslint-disable-next-line
+    battleView.renderSwitchDashboard(Pokemon.pokes);
+    $('#dashboard-bottom-switch').hide();
+  };
+
   // Call everything.
   battleView.init = function() {
     battleView.renderBattleContent();
+    battleController.selectSwitch();
     battleController.selectFight();
     battleController.selectAttack();
+    battleController.selectPokemonCharacter();
     // battleController.shareAttacks();
     // battleController.fightMath();
     // battleController.shareResults();

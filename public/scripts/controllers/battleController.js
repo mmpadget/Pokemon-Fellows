@@ -11,13 +11,15 @@
   // NOTE: battleController.doSomething = (ctx, next) => {};
 
   // d. select pokemon
-  function selectPokemon() {
-    $('')
+  battleController.selectSwitch = function() {
+    $('#switch-button').on('click', function() {
+      console.log('Pushed Switch Pokemon Button');
+      $('#dashboard-bottom-default').hide();
+      $('#dashboard-bottom-switch').show();
+    });
   }
-  selectPokemon();
 
   battleController.selectFight = function() {
-    // eslint-disable-next-line
     $('#fight-button').on('click', function() {
       // console.log('Pushed Fight Button in selectFight');
       $('#dashboard-bottom-default').hide();
@@ -33,6 +35,15 @@
       // console.log(power);
       $('#dashboard-bottom-fight').hide();
       $('#dashboard-bottom-default').show();
+    });
+  }
+
+  battleController.selectPokemonCharacter = function() {
+    $('.pokemon-character').on('click', function() {
+      console.log('Selected a new Pokemon');
+      $('#dashboard-bottom-switch').hide();
+      $('#dashboard-bottom-default').show();
+      // change values...
     });
   }
 

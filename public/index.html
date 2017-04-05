@@ -47,7 +47,7 @@
         <section class="dashboard-bottom">
           <section id="dashboard-bottom-default">
             <button id="fight-button" type="button" name="fight">FIGHT</button>
-            <button type="button" name="switch">SWITCH POKÉMON</button>
+            <button id="switch-button" type="button" name="switch">SWITCH POKÉMON</button>
           </section>
         </section>
       </section>
@@ -75,7 +75,7 @@
     <script id="battle-template-dashboard-switch" type="text/x-handlebars-template">
       <section id="dashboard-bottom-switch" class="switch-template">
         <hr>
-        <button id="{{0.name}}" type="button" name="{{0.name}}">
+        <button id="{{0.name}}" class="pokemon-character" type="button" name="{{0.name}}">
           {{0.name}}
           <div class="health-bar">
               <div class="bar">
@@ -83,7 +83,7 @@
               </div>
           </div>
         </button>
-        <button id="{{1.name}}" type="button" name="{{1.name}}">
+        <button id="{{1.name}}" class="pokemon-character" type="button" name="{{1.name}}">
           {{1.name}}
           <div class="health-bar">
               <div class="bar">
@@ -91,7 +91,7 @@
               </div>
           </div>
         </button>
-        <button id="{{2.name}}" type="button" name="{{2.name}}">
+        <button id="{{2.name}}" class="pokemon-character" type="button" name="{{2.name}}">
           {{2.name}}
           <div class="health-bar">
               <div class="bar">
