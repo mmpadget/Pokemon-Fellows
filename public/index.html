@@ -102,16 +102,12 @@
         </button>
       </section>
     </script>
-
   </head>
   <body>
     <!-- START OF BODY -->
     <div id="page">
-      <header>
-
-      </header>
+      <header></header>
       <div class="main-content">
-
         <section id="home-content" class="all-content">
           <article id="intro-content">
             <div class="logo-header">
@@ -145,7 +141,6 @@
           </article>
         </section>
         <!-- End section home content -->
-
         <main id="battle-content" class="all-content">
           <header>
             <img src="assets/logo-sprite.png" alt="">
@@ -156,37 +151,35 @@
           </div>
 
         </main>
-        <!-- End section battle content -->
-        <!-- End section #about -->
-
+        <!-- End section #battle-content -->
+        <section id="about-us-page" class="all-content">
+          <h1 id="title">About Us</h1>
+          <div class="one">
+            <img id="saul" src="assets/sprites/pokemon/back/9.png"><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="two">
+            <img id="michael" src="assets/sprites/pokemon/back/44.png"><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="three">
+            <img id="cameron" src="assets/sprites/pokemon/back/111.png"><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="four">
+            <img id="ely" src="assets/sprites/pokemon/back/3.png"><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </section>
+        <!-- End section #about-us-page -->
+        <section class="nav-bar">
+          <p id="home-click"><a  href="/">HOME</a></p>
+          <p id="about-click"><a href="/about">ABOUT</a></p>
+        </section>
+        <footer>Copyright (c) 2017 || Pokémon Fellows || All Rights Reserved</footer>
       </div>
-      <!-- End main div -->
-      <footer></footer>
+      <!-- End .main-content div -->
     </div>
-    <section id="about-us-page" class="all-content">
-      <h1 id="title">About Us</h1>
-      <div class="one">
-        <img id="saul" src="assets/sprites/pokemon/back/9.png"><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <div class="two">
-        <img id="michael" src="assets/sprites/pokemon/back/44.png"><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <div class="three">
-        <img id="cameron" src="assets/sprites/pokemon/back/111.png"><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <div class="four">
-        <img id="ely" src="assets/sprites/pokemon/back/3.png"><br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-    </section>
-
-    <section class="nav-bar">
-    <p id="home-click"><a  href="/">HOME</a></p>
-    <p id="about-click"><a href="/about">ABOUT</a></p>
-  </section>
 
     <script src="/socket.io/socket.io.js"></script>
 
@@ -203,6 +196,5 @@
     <script src="/scripts/views/battleView.js"></script>
     <script src="/scripts/controllers/battleController.js"></script>
     <script src="/scripts/controllers/routes.js"></script>
-
   </body>
 </html>
