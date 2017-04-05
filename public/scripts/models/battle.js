@@ -1,5 +1,7 @@
 'use strict';
 
+// Local storage
+
 $(function(module){
   function Pokemon(poke){
     //pokeConstructor here
