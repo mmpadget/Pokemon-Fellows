@@ -98,7 +98,9 @@
 
     // eslint-disable-next-line
     battleView.renderFightDashboard(Pokemon.pokes[0]);
-    $('#dashboard-bottom-fight').hide();
+    battleView.renderFightDashboard(Pokemon.pokes[1]);
+    battleView.renderFightDashboard(Pokemon.pokes[2]);
+    $('.fight-template').hide();
 
     // eslint-disable-next-line
     battleView.renderSwitchDashboard(Pokemon.pokes);
