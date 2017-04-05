@@ -6,7 +6,8 @@ $(function(module){
     // name, hp, moves, power
     this.name = poke.poke.name;
     this.id = poke.poke.id;
-    this.sprite = `assets/sprites/pokemon/${poke.poke.id}.png`;
+    this.frontSprite = `assets/sprites/pokemon/${poke.poke.id}.png`;
+    this.backSprite = `assets/sprites/pokemon//back/${poke.poke.id}.png`;
     this.hp = poke.poke.stats[5].base_stat;
     this.moveSet = poke.moveSet.map(function (move) {
       return {name: move.name, power: move.power};

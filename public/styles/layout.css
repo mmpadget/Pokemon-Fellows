@@ -1,21 +1,20 @@
-#player-one-pokemon {
-  background-color: lightgreen;
-}
+
 
 /*make sure assets folder is in the same directory as index.html, style.css, and app.js.  Rename as necessary*/
 
 /*index.html styling*/
 #page{
   background-color: white;
+  height: 100vh;
+  /*max-height: 100%;*/
 }
 .pokemon-stats{
-  border: 2px solid red;
-  width: 45%;
+  /*border: 2px solid red;*/
+  width: 100%;
 }
 .health-bar{
-  width: 100%;
+  width: 95%;
   max-width: 100%;
-  /*makd this work!!*/
 }
 .name-and-pic img{
   max-width: 30%;
@@ -25,9 +24,10 @@
   width: 50%;
 }
 .pokemon-sprite{
-  border: 2px solid blue;
-  width: 45%;
+  /*border: 2px solid blue;*/
+  width: 100%;
   margin: 0%;
+  margin-right: 0%;
   margin-bottom: 10%;
   text-align: center;
 }
@@ -42,6 +42,14 @@
 }
 #dashboard-bottom-switch{
   background-color: red;
+}
+#dashboard-bottom-fight{
+  background-color: yellow;
+}
+.attack{
+  background-color: gray;
+  width: 30%;
+  margin: 1.1%
 }
 .team{
   font-size: 1.4em;
@@ -58,13 +66,51 @@
   width: 30%;
   margin: 1.1%;
 }
+.pokemon-template{
+  margin: 0%;
+  width: 100%;
+  /*border: 1px solid black;*/
+}
+#player-one-pokemon{
+  width: 50%;
+  float: left;
+}
+#player-two-pokemon{
+  width: 50%;
+  float: right;
+
+}
+#player-two-pokemon .health-bar{
+  margin-left: 5%;
+  margin-right: 0%;
+}
+#player-two-pokemon .name-and-pic img{
+  margin-left: 160%;
+  border: 1px solid black:
+}
+#player-two-pokemon .pokemon-name{
+  margin-left: 62%;
+}
+#player-one-pokemon .name-and-pic img{
+  margin-left: 1%;
+  border: 10px solid black:
+}
+#player-one-pokemon .pokemon-name{
+  margin-left: 4%;
+}
 
 
+#dashboard{
+  clear: left;
+}
+#player-two-pokemon .name-and-pic{
 
+}
+}
 /*about us page*/
   body{
   margin: 2%;;
-  /*background-color: black;*/
+  background-color: black;
   text-align: justify;
 }
 #title{
