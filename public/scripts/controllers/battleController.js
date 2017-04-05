@@ -10,6 +10,8 @@
   battleController.index = function() {
     $('.all-content').hide(); // Hide all content.
     $('#battle-content').show(); // Show battle content.
+    $('body').css('background-image', 'url()');
+    Pokemon.getSomePokes();
   }
 
   // d. select pokemon
