@@ -4,16 +4,7 @@
   let battleView = {};
 
   // Updated by the return value of battleView.attackExecute()
-  let healthBar = $('.health-bar');
-  let bar = healthBar.find('.bar');
-  let hit = healthBar.find('.hit');
-  let returnHP;
-
-  hit.css({'width': '0'});
-  bar.css('width', '100%');
-  bar.css({'background': '#7FFF00'});
-
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   battleView.renderPokemon = function(pokemon, container) {
     // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-pokemon').text());
@@ -40,34 +31,69 @@
     $('.dashboard-bottom').append(template(dashboard));
   }
 
-  // hitBtn.on("click", function(){// this will be changed to an invokable function once done with testing....
-  // let damage = PLACEHOLER FOR THE HP FROM THE API
-  battleView.attackExecute = function(opts) {
-    let currentHP = (returnHP) ? returnHP : opts[0].hp;
-    let damage = opts[0].moveSet[0].power * .1;
-    currentHP -= damage;
+  battleView.healthBarInit = () => {
+    let healthBar = $('.health-bar');
+    let bar = healthBar.find('.bar');
+    let hit = healthBar.find('.hit');
+
+    hit.css({'width': '0'});
+    bar.css('width', '100%');
+    bar.css({'background': '#7FFF00'});
+  }
+  battleView.healthBarUpdate = function() {
+    let ourShownPokesHP = $('#player-one-pokemon').children().filter(':visible').data('hp');
+    let theirShownPokesHP = $('#player-two-pokemon').children().filter(':visible').data('hp');
+
+    let ourMaxHP = $('#player-one-pokemon').children().filter(':visible').data('maxHp');
+    let theirMaxHP = $('#player-two-pokemon').children().filter(':visible').data('maxHp');
+
+    let ourHit = $('#player-one-pokemon').children().filter(':visible').find('#hit');
+    let theirHit = $('#player-two-pokemon').children().filter(':visible').find('#hit');
+
+    let ourBar = $('#player-one-pokemon').children().filter(':visible').find('#bar')
+    let theirBar = $('#player-two-pokemon').children().filter(':visible').find('#bar')
+
+    let ourCurrentHP = ( ourShownPokesHP ) ? ourShownPokesHP : ourMaxHP;
+    let theirCurrentHP = (theirShownPokesHP) ? theirCurrentHP : theirMaxHP;
+
+    let ourDamage = Pokemon.theirAttack.power * .1; //magic num is multiplyer to effect speed
+    let theirDamage = Pokemon.ourAttack.power * .1;
+
+    ourCurrentHP -= ourDamage;
+    theirCurrentHP -= theirDamage;
+
     //Calculation of damage dealt and total width of the health bar
     //change this to a PLACEHOLDER VAR
-    let barWidth = (currentHP / opts[0].hp) * 100;
-    let hitWidth = (damage / currentHP) * 100 + '%';
+    let ourBarWidth = (ourCurrentHP / ourMaxHP) * 100;
+    let theirBarWidth = (theirCurrentHP / theirMaxHP) * 100;
+
+    let ourHitWidth = (ourDamage / ourCurrentHP) * 100 + '%';
+    let theirHitWidth = (theirDamage / theirCurrentHP) * 100 + '%';
+
 
     // show hit bar and set the width
-    hit.css('width', hitWidth);
+    ourHit.css('width', ourHitWidth); //P1
+    theirHit.css('width', theirHitWidth); //P1
 
     setTimeout(function(){
-      hit.css({'width': '0'});
-      bar.css('width', barWidth + '%');
+      ourHit.css({'width': '0'});
+      theirHit.css({'width': '0'});
+
+      ourBar.css('width', ourBarWidth + '%');
+      theirBar.css('width', theirBarWidth + '%');
     }, 300);
 
   //this chages the color of the damage bar
-    if(currentHP < (opts[0].hp * 0.3)){
-      bar.css({'background': 'red'})
-    } else if(currentHP > (opts[0].hp * 0.3)){
-      bar.css({'background': '#7FFF00'})
+    if(ourCurrentHP < (ourMaxHP * 0.3)){
+      ourBar.css({'background': 'red'})
+    } else if(currentHP > (ourMaxHP * 0.3)){
+      ourBar.css({'background': '#7FFF00'})
     }
-    console.log('Remaining Health:' + currentHP + ' Damage:' + damage);
-
-    returnHP = currentHP;
+    if(currentHP < (theirMaxHP * 0.3)){
+      theirBar.css({'background': 'red'})
+    } else if(currentHP > (theirMax * 0.3)){
+      theirBar.css({'background': '#7FFF00'})
+    }
   };
 
   battleView.renderBattleContent = function() {
@@ -94,6 +120,7 @@
     // eslint-disable-next-line
     battleView.renderSwitchDashboard(Pokemon.pokes);
     $('#dashboard-bottom-switch').hide();
+    battleView.healthBarInit();
   };
   // rendering their pokemon ---------
   battleView.renderTheirPokemon = () => {
