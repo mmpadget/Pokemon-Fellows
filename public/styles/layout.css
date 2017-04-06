@@ -245,40 +245,6 @@ footer{
   border-bottom-right-radius: 10px;
 
 }
-/*CSS FOR THE DATA BOX/HEALTH BAR*/
-.health-bar {
-  box-sizing: border-box;
-  width: 9em;
-  height: 1em;
-  padding: .1em;
-  background-color: #ddd;
-  border-radius: .1em;
-  position: relative;
-}
-/*comment this out later.... once hp bar works*/
-.bar{
-<<<<<<< HEAD
-<<<<<<< HEAD
-  background-color: #00F500;
-}
-.health-bar{
-  width: 95%;
-  max-width: 100%;
-  margin-bottom: 2%;
-  background-color: #7d7d7d;
-  border: 1px solid black;
-=======
-  background: #00F500;
-  position: relative;
-  transition-property: width;
-  transition-timing-function: linear;
-  transition-duration: 1.5s;
-  transition-delay: 1s;
->>>>>>> f8f7baf876dd66469c42974ab23a60cf06d845c0
-=======
->>>>>>> 01b21de53ed03957fcee615cc793b013df240489
-}
-
 .name-and-pic img{
   max-width: 40%;
   margin-bottom: -15%;
@@ -335,6 +301,7 @@ hr{
 
 #battle-content{
   background-image: url("/assets/arenaItems/spaceDrop.png");
+  min-height: 100vh;
 }
 
 .team img{
