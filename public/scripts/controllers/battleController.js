@@ -187,7 +187,7 @@
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
     }
-    if (Pokemon.results.theirFaint) 
+    if (Pokemon.results.theirFaint) {
       console.log('Theirs fainted and is removed');
       $('#player-two-pokemon').children().filter(':visible').remove();
       $('#player-two-pokemon').children().first().show()
@@ -226,8 +226,8 @@
 
     // l. share win/loss state. All pokemon are dead.
   battleController.gameOver = () => {
-
-  }
+    console.log('gameOver');
+  };
 
   // Make aboutView available on global scope.
   module.battleController = battleController;
