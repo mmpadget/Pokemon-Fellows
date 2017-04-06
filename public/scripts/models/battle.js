@@ -47,7 +47,7 @@ $(function(module){
             // have a url, assign API response: name, power, base_stat
             // console.log(move);
             // See constructor: move.name is move name and move.power is move power. Move is response.
-            if (isNaN(move.power)) {
+            if (move.power === '') {
               move.power = 0;
             }
             poke.moveSet.push(move);

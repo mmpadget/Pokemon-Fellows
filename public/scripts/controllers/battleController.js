@@ -159,22 +159,73 @@
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
     battleController.animate();
   }
+
   battleController.animate = () => {
     function updateHealthBars(){
       battleView.healthBarUpdate();
     }
     function showFight(){
       console.log('Showing fight');
+      battleController.pokemonFaints();
     }
   }
+  // Pokemon.ourAttack.hp = $(this).data('hp');
+  // Pokemon.results.ourHp;
+  // Pokemon.results.theirHp;
 
-  // k. pokemon faints
-  // function pokemonFaints() {
-  //
-  // }
+  //k. pokemon faints
+  battleController.pokemonFaints = () => {
+    // let death = false;
 
-  // l. share win/loss state
-  // function shareWinLossState() {
+    if (Pokemon.results.ourHp === 0) {
+      // Pokemon.results.ourPoke
+      $('#player-one-pokemon').filter(':visible').hide();
+      $(`button[id="${Pokemon.results.ourPoke}"]`).off('click');
+    }
+
+    if (Pokemon.results.theirHp === 0) {
+      // Pokemon.results.ourPoke
+      $('#player-two-pokemon').filter(':visible').hide();
+      $(`button[id="${Pokemon.results.theirPoke}"]`).off('click');
+    }
+
+    // else if (Pokemon.results.theirHp) {
+    //   Pokemon.results.theirPoke
+    // }
+
+    // if (death === true) {
+    //   battleController.gameOver();
+    // }
+
+    // PLAYER 1
+    // let death = FALSE;
+    // health = 100 @ start FALSE <<< HP start
+    // health > 0 @ play FALSE <<< HP current
+    // health = 0 @ death TRUE
+    // FOR EACH OF 3 POKEMON
+    // pokemon = @ start 3
+    // pokemon = @ death 0 TRUE trigger gameOver
+
+    // PLAYER 2
+    // let death = FALSE;
+    // health = 100 @ start FALSE
+    // health > 0 @ play FALSE
+    // health = 0 @ death TRUE
+    // FOR EACH OF 3 POKEMON
+    // pokemon @ start = 3
+    // pokemon @ death = 0 TRUE trigger gameOver
+
+    // if (pokemon death === true) {
+      // Call gameOver;
+    // }
+  }
+
+    // l. share win/loss state. All pokemon are dead.
+  battleController.gameOver = () => {
+
+  }
+
+  // battleController.scoreScreen = () => {
   //
   // }
 
