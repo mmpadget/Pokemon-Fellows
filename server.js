@@ -12,6 +12,7 @@
 
 const express = require('express');
 const app = express();
+const fs = require('fs');
 // eslint-disable-next-line
 const http = require('http').Server(app);
 const io = require('socket.io')(http); // this requires socket.io, a live or active event/route handler.
@@ -75,6 +76,10 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
 });
 
 // end Socket.io channels------------------
+
+app.get('*', function(req, res){
+  res.sendFile('index.html', {root: './public'});
+});
 
 http.listen(PORT, function(){
   console.log(`listening on ${PORT}`);
