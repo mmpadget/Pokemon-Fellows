@@ -74,6 +74,9 @@
     // eslint-disable-next-line
     battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
 
+    console.log('Give button click instructions.');
+    $('#instructions-text').text('Click on fight or switch Pokémon.');
+
     // eslint-disable-next-line
     battleView.renderFightDashboard(Pokemon.pokes[0]);
     battleView.renderFightDashboard(Pokemon.pokes[1]);
