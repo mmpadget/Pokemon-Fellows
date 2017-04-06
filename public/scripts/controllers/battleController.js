@@ -160,7 +160,7 @@
   }
   battleController.animate = () => {
     function updateHealthBars(){
-      //
+      battleView.healthBarUpdate();
     }
     function showFight(){
       console.log('Showing fight');
