@@ -25,8 +25,8 @@ $(function(module){
   Pokemon.theirPokes = []; //array for their pokes
   Pokemon.pokeUrl = 'http://pokeapi.co/api/v2/pokemon/';
   Pokemon.numberOfMoves = 4;
-  Pokemon.attackValueResets();
   Pokemon.attackValueResets = () => {
+    console.log('Resetting ');
     Pokemon.ourAttack = {};
     Pokemon.theirAttack = {};
     Pokemon.results = {};
@@ -35,6 +35,7 @@ $(function(module){
     Pokemon.ourPokeChanged = false;
     Pokemon.ourAttack.attack = true;
   }
+  Pokemon.attackValueResets();
     // const Player = function(){
   //   //your constructor here
   // };
