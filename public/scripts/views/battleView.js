@@ -32,19 +32,17 @@
   }
 
   battleView.healthBarInit = () => {
-    console.log('Setting initial health "bar" values, --not confident');
-    let healthBar = $('.health-bar');
-    let bar = healthBar.find('.bar');
-    let hit = healthBar.find('.hit');
+    console.log('Setting initial health "bar" values');
+    let barOne = $('#player-one-pokemon').find('.bar');
+    let barTwo = $('#player-two-pokemon').find('.bar');
 
-    hit.css({'width': '0'});
-    bar.css('width', '100%');
-    bar.css({'background': '#7FFF00'});
+    barOne.css({'width': '100%', 'background': '#7FFF00'});
+    barTwo.css({'width': '100%', 'background': '#7FFF00'});
   }
   battleView.healthBarUpdate = function() {
     console.log('---- start ------setting healthbar update values with jQuery');
-    let ourShownPokesHP = $('#player-one-pokemon').children().filter(':visible').data('hp');
-    let theirShownPokesHP = $('#player-two-pokemon').children().filter(':visible').data('hp');
+    let ourCurrentHP = $('#player-one-pokemon').children().filter(':visible').data('hp');
+    let theirCurrentHP = $('#player-two-pokemon').children().filter(':visible').data('hp');
 
     let ourMaxHP = $('#player-one-pokemon').children().filter(':visible').data('maxhp');
     let theirMaxHP = $('#player-two-pokemon').children().filter(':visible').data('maxhp');
@@ -55,10 +53,6 @@
     let ourBar = $('#player-one-pokemon').children().filter(':visible').find('.bar')
     let theirBar = $('#player-two-pokemon').children().filter(':visible').find('.bar')
     console.log('------ END-----');
-
-
-    let ourCurrentHP = ( ourShownPokesHP ) ? ourShownPokesHP : ourMaxHP;
-    let theirCurrentHP = (theirShownPokesHP) ? theirShownPokesHP : theirMaxHP;
 
     let ourDamage = Pokemon.theirAttack.power * 1; //magic num is multiplyer to effect speed
     let theirDamage = Pokemon.ourAttack.power * 1;
@@ -156,14 +150,7 @@
     battleView.renderBattleContent();
     // eslint-disable-next-line
     battleView.addEvents();
-    // battleController.shareAttacks();
-    // battleController.fightMath();
-    // battleController.shareResults();
-    // battleController.showFight();
-    // battleController.updateHealthBars();
-    // battleController.pokemonFaints();
-    // battleController.shareWinLossState();
-    // battleController.playAgainScreen();
+    battleView.healthBarInit();
   }
   module.battleView = battleView;
 })(window);
