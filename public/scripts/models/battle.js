@@ -9,7 +9,7 @@ $(function(module){
     this.name = poke.poke.name;
     this.id = poke.poke.id;
     this.frontSprite = `assets/sprites/pokemon/${poke.poke.id}.png`;
-    this.backSprite = `assets/sprites/pokemon//back/${poke.poke.id}.png`;
+    this.backSprite = `assets/sprites/pokemon/back/${poke.poke.id}.png`;
     this.sprite = this.backSprite;
     this.hp = poke.poke.stats[5].base_stat * 2;
     this.speed = poke.poke.stats[0].base_stat;
