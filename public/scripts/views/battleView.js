@@ -33,15 +33,11 @@
 
   battleView.healthBarInit = () => {
     console.log('Setting initial health "bar" values');
-    let healthBarOne = $('#player-one-pokemon').find('.health-bar');
-    let healthBarTwo = $('#player-two-pokemon').find('.health-bar');
-    let barOne = healthBarOne.find('.bar');
-    let barTwo = healthBarTwo.find('.bar');
+    let barOne = $('#player-one-pokemon').find('.bar');
+    let barTwo = $('#player-two-pokemon').find('.bar');
 
-    barOne.width(100 + '%');
-    barOne.css({'background': '#7FFF00'});
-    barTwo.width(100 + '%');
-    barTwo.css({'background': '#7FFF00'});
+    barOne.css({'width': '100%', 'background': '#7FFF00'});
+    barTwo.css({'width': '100%', 'background': '#7FFF00'});
   }
 
   battleView.healthBarUpdate = function() {
