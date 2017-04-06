@@ -7,11 +7,12 @@
 
   // Initialize the battle page view. /battle in routes.
   battleController.index = function() {
-    $('.all-content').hide(); // Hide all content.
-    $('#battle-content').show(); // Show battle content.
-    $('body').css('background-image', 'url()');
-    $('#about-click a, #home-click a').css('color', 'black');
     Pokemon.getSomePokes();
+    $('.all-content').hide(); // Hide all content.
+    $('#battle-content').show();
+    $('.nav-content').show();  // Show battle content.
+    $('.nav-bar').css('margin-top', '35%');
+
   }
 
   battleController.selectSwitch = function() {
