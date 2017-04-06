@@ -245,9 +245,9 @@ targetElement.toggleClass('.hide')x*/
 
 }
 /*comment this out later.... once hp bar works*/
-/*.bar{
+.bar{
   background-color: #00F500;
-}*/
+}
 .health-bar{
   width: 95%;
   max-width: 100%;
@@ -310,7 +310,7 @@ hr{
 }
 
 #battle-content{
-  background-image: url("/assets/battle-content-br.jpg");
+  background-image: url("/assets/arenaItems/beach.png");
 }
 
 .team img{
