@@ -97,6 +97,9 @@
   };
   // rendering their pokemon ---------
   battleView.renderTheirPokemon = () => {
+    Pokemon.thierPokes = Pokemon.theirPokes.map(poke =>
+      poke.sprite = poke.frontSprite
+    );
     battleView.renderPokemon(Pokemon.theirPokes[0], 'player-two-pokemon');
     battleView.renderPokemon(Pokemon.theirPokes[1], 'player-two-pokemon');
     $(`#${Pokemon.theirPokes[1].name}`).hide();

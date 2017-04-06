@@ -11,6 +11,7 @@
     $('.all-content').hide();
     $('#title-header').hide(); // Hide all content.
     $('#about-us-page').show(); // Show about content.
+    $('.nav-bar').hide(); //fix this later, its throwing CSS off
     $('body').css('background-image', 'url()');
   }
   // #about-us-page, #home-content, #battle-content, .all-content
