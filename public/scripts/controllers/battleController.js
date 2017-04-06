@@ -115,8 +115,10 @@
           // Pokemon.results.theirFaint = true;
           // console.log('Player Two Pokémon\'s HP: ', Pokemon.results.theirHp);
           console.log('Player Two\'s pokemon fainted');
+          Pokemon.results.theirAttackPower = 0;
           return 0;
         } else {
+          Pokemon.results.ourAttackPower = Pokemon.ourAttack.power;
           return Pokemon.theirAttack.hp - Pokemon.ourAttack.power;
         }
       }
@@ -125,16 +127,18 @@
           // Pokemon.results.ourFaint = true;
           // console.log('Player One Pokémon\'s HP: ', Pokemon.results.ourHp);
           console.log('Player One\'s pokemon fainted');
+          Pokemon.results.ourAttackPower = 0;
           return 0;
         } else {
+          Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
           return Pokemon.ourAttack.hp - Pokemon.theirAttack.power;
         }
       }
 
       Pokemon.results.ourPoke = Pokemon.ourAttack.name;
       Pokemon.results.theirPoke = Pokemon.theirAttack.name;
-      Pokemon.results.theirAttack = Pokemon.theirAttack.attack;
       Pokemon.results.ourAttack = Pokemon.ourAttack.attack;
+      Pokemon.results.theirAttack = Pokemon.theirAttack.attack;
 
       console.log('this is the results object ', Pokemon.results);
       console.log('--------end fight ---------');
@@ -145,15 +149,14 @@
   // h. share results
   battleController.shareResults = () => {
     socket.shareResults();
+    console.log('our HP ', Pokemon.results.ourHp);
+    console.log('their HP ', Pokemon.results.theirHp);
     console.log('Sending results');
     battleController.updateHealth();
   }
 
   // j. update health bars
   battleController.updateHealth = () => { //remember health is located on the char and the buttons.
-    if('zero-values'){
-      //remove evens - handle color change and pokeball image change
-    }
     console.log('Updating DOM object health values');
     $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
@@ -165,6 +168,13 @@
     function showFight(){
       console.log('Showing fight');
       battleController.pokemonFaints();
+      battleController.attackValueResets = () => {
+        Pokemon.ourAttack = {};
+        Pokemon.theirAttack = {};
+        Pokemon.results = {};
+        Pokemon.selectedAttack = false;
+        Pokemon.attackReceived = false;
+      }
     }
   }
   // Pokemon.ourAttack.hp = $(this).data('hp');

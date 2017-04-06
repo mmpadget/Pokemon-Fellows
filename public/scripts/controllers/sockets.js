@@ -76,6 +76,8 @@ $(function(module){
     results.theirHp = Pokemon.results.ourHp;
     results.ourPoke = Pokemon.results.theirPoke;
     results.theirPoke = Pokemon.results.ourPoke;
+    results.ourAttackPower = Pokemon.results.theirAttackPower;
+    results.theirAttackPower = Pokemon.results.ourAttackPower;
     socket.emit('results', {arena: socket.arena, results: results});
   }
 
