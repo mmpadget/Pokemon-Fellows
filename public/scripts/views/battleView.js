@@ -42,26 +42,26 @@
     bar.css({'background': '#7FFF00'});
   }
   battleView.healthBarUpdate = function() {
-    console.log('setting healthbar update values with jQuerystart');
+    console.log('---- start ------setting healthbar update values with jQuery');
     let ourShownPokesHP = $('#player-one-pokemon').children().filter(':visible').data('hp');
     let theirShownPokesHP = $('#player-two-pokemon').children().filter(':visible').data('hp');
 
-    let ourMaxHP = $('#player-one-pokemon').children().filter(':visible').data('maxHp');
-    let theirMaxHP = $('#player-two-pokemon').children().filter(':visible').data('maxHp');
+    let ourMaxHP = $('#player-one-pokemon').children().filter(':visible').data('maxhp');
+    let theirMaxHP = $('#player-two-pokemon').children().filter(':visible').data('maxhp');
 
-    let ourHit = $('#player-one-pokemon').children().filter(':visible').find('#hit');
-    let theirHit = $('#player-two-pokemon').children().filter(':visible').find('#hit');
+    let ourHit = $('#player-one-pokemon').children().filter(':visible').find('.hit');
+    let theirHit = $('#player-two-pokemon').children().filter(':visible').find('.hit');
 
-    let ourBar = $('#player-one-pokemon').children().filter(':visible').find('#bar')
-    let theirBar = $('#player-two-pokemon').children().filter(':visible').find('#bar')
-    console.log('------ END');
+    let ourBar = $('#player-one-pokemon').children().filter(':visible').find('.bar')
+    let theirBar = $('#player-two-pokemon').children().filter(':visible').find('.bar')
+    console.log('------ END-----');
 
 
     let ourCurrentHP = ( ourShownPokesHP ) ? ourShownPokesHP : ourMaxHP;
     let theirCurrentHP = (theirShownPokesHP) ? theirShownPokesHP : theirMaxHP;
 
-    let ourDamage = Pokemon.theirAttack.power * .1; //magic num is multiplyer to effect speed
-    let theirDamage = Pokemon.ourAttack.power * .1;
+    let ourDamage = Pokemon.theirAttack.power * 1; //magic num is multiplyer to effect speed
+    let theirDamage = Pokemon.ourAttack.power * 1;
 
     ourCurrentHP -= ourDamage;
     theirCurrentHP -= theirDamage;

@@ -146,9 +146,9 @@ body{
 
 }
 /*comment this out later.... once hp bar works*/
-.bar{
+/*.bar{
   background-color: #00F500;
-}
+}*/
 .health-bar{
   width: 95%;
   max-width: 100%;
