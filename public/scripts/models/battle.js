@@ -30,6 +30,7 @@ $(function(module){
   Pokemon.ourAttack = {};
   Pokemon.theirAttack = {};
   Pokemon.results = {};
+  Pokemon.switchedPokemon = false;
   Pokemon.selectedAttack = false;
   Pokemon.attackReceived = false;
   // const Player = function(){

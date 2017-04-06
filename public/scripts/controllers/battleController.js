@@ -90,6 +90,7 @@
       Pokemon.results.theirHp = Pokemon.theirAttack.hp;
 
       if (Pokemon.ourAttack.speed >= Pokemon.theirAttack.speed){
+        Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
         console.log('Player One\'s pokemon has a higher speed --> they attack first.');
         Pokemon.results.theirHp = ourTurn();
         console.log('Player Two Pokémon\'s HP: ', Pokemon.results.theirHp);
@@ -112,8 +113,7 @@
       // These functions calculate the fight results and handle if power >= hp
       function ourTurn(){
         if (Pokemon.theirAttack.hp <= Pokemon.ourAttack.power) {
-          // Pokemon.results.theirFaint = true;
-          // console.log('Player Two Pokémon\'s HP: ', Pokemon.results.theirHp);
+          Pokemon.results.ourAttackPower = Pokemon.ourAttack.power;
           console.log('Player Two\'s pokemon fainted');
           Pokemon.results.theirAttackPower = 0;
           return 0;
@@ -156,7 +156,7 @@
   }
 
   // j. update health bars
-  battleController.updateHealth = () => { //remember health is located on the char and the buttons.
+  battleController.updateHealth = () => { //remember health is located on the pokemon and the buttons.
     console.log('Updating DOM object health values');
     $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);

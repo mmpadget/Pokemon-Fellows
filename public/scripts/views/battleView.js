@@ -32,7 +32,7 @@
   }
 
   battleView.healthBarInit = () => {
-    console.log('Setting initial health "bar" values, --not confident');
+    console.log('Setting initial health "bar" values');
     let healthBarOne = $('#player-one-pokemon').find('.health-bar');
     let healthBarTwo = $('#player-two-pokemon').find('.health-bar');
     let barOne = healthBarOne.find('.bar');
@@ -58,14 +58,14 @@
 
     //Calculation of damage dealt and total width of the health bar
     //change this to a PLACEHOLDER VAR
-    let ourBarWidth = parseInt(((ourCurrentHP - Pokemon.results.theirAttackPower) / ourMaxHP) * 100);
-    let theirBarWidth = parseInt(((theirCurrentHP - Pokemon.results.ourAttackPower) / theirMaxHP) * 100);
+    let ourBarWidth = ((ourCurrentHP - Pokemon.results.theirAttackPower) / ourMaxHP) * 100;
+    let theirBarWidth = ((theirCurrentHP - Pokemon.results.ourAttackPower) / theirMaxHP) * 100;
 
     // show hit bar and set the width
     console.log('health bar widths should have changed now');
 
-    ourBar.width((ourBarWidth) + '%');
-    theirBar.width((theirBarWidth) + '%');
+    ourBar.css('width', `{{ourBarWidth)}%`);
+    theirBar.css('width', `{{theirBarWidth}}%`);
 
   //this changes the color of the damage bar
     if(ourCurrentHP < (ourMaxHP * 0.3)){
@@ -78,35 +78,24 @@
   };
 
   battleView.renderBattleContent = function() {
-    // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[0], 'player-one-pokemon'); // First Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[1], 'player-one-pokemon'); // Second Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
     $(`#${Pokemon.pokes[1].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
-    // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[2], 'player-one-pokemon'); // Third Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
     $(`#${Pokemon.pokes[2].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
 
-    // eslint-disable-next-line
     battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
 
-    // eslint-disable-next-line
     battleView.renderFightDashboard(Pokemon.pokes[0]);
     battleView.renderFightDashboard(Pokemon.pokes[1]);
     battleView.renderFightDashboard(Pokemon.pokes[2]);
     $('.fight-template').hide();
 
-    // eslint-disable-next-line
     battleView.renderSwitchDashboard(Pokemon.pokes);
     $('#dashboard-bottom-switch').hide();
   };
   // rendering their pokemon ---------
   battleView.renderTheirPokemon = () => {
-    Pokemon.thierPokes = Pokemon.theirPokes.map(poke =>
-      poke.sprite = poke.frontSprite
-    );
     battleView.renderPokemon(Pokemon.theirPokes[0], 'player-two-pokemon');
     battleView.renderPokemon(Pokemon.theirPokes[1], 'player-two-pokemon');
     $(`#${Pokemon.theirPokes[1].name}`).hide();
@@ -119,11 +108,8 @@
     if(socket.pokesSent && socket.pokesReceived){
       console.log('Adding events');
       battleController.selectSwitch();
-      // eslint-disable-next-line
       battleController.selectFight();
-      // eslint-disable-next-line
       battleController.selectAttack();
-      // eslint-disable-next-line
       battleController.selectPokemonCharacter();
     }
   }
@@ -131,7 +117,6 @@
   battleView.init = function() {
     battleView.renderBattleContent();
     battleView.healthBarInit();
-    // eslint-disable-next-line
     battleView.addEvents();
   }
   module.battleView = battleView;
