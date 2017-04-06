@@ -172,8 +172,7 @@ targetElement.toggleClass('.hide')x*/
   margin-left: 23%;
   width: 50vw;
 }
-.nav-bar a{
-}
+
 footer{
   display: inline-block;
 }
@@ -422,13 +421,13 @@ header img {
 
 }
 #about-us-page .logo-header{
-  width: 83%;
+  width: 86.5%;
   height: 15%;
   z-index: 2;
   padding: 2%;
   border: 6px solid black;
   background: rgba(0,0,0, .8);
-  margin-left: 5%;
+  margin-left: 3%;
   margin-right: 0%;
   margin-top: 3%;
 }
@@ -461,9 +460,8 @@ header img {
   background-color: rgba(0, 0, 0, .8);
   margin: 3%;
   margin-top: 4%;
-  width: 87%;
+  width: 90.5%;
   /*margin-bottom: 0%;*/
-  margin-left: 5%;
   text-align: center;
 }
 #game-status-page{
@@ -480,15 +478,15 @@ margin: 5%;
 #disconnect p{
   font-size: 2em;
 }
-/*#saul:hover{
-content: url();
+#saul:hover{
+content: url('../assets/saul.png');
 }
 #cameron:hover{
-content: attr();
+content: url('../assets/cameron.png');
 }
 #ely:hover{
-content: url();
+content: url('../assets/ely.png');
 }
 #michael:hover{
-content: url();
-}*/
+content: url('../assets/michael.png');
+}
