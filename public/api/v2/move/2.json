@@ -1,0 +1,450 @@
+{
+  "effect_chance": null,
+  "generation": {
+    "url": "http://pokeapi.co/api/v2/generation/1/",
+    "name": "generation-i"
+  },
+  "stat_changes": [],
+  "effect_changes": [],
+  "names": [
+    {
+      "name": "Karate Chop",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      }
+    },
+    {
+      "name": "Colpokarate",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/8/",
+        "name": "it"
+      }
+    },
+    {
+      "name": "Golpe Kárate",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/7/",
+        "name": "es"
+      }
+    },
+    {
+      "name": "Karateschlag",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/6/",
+        "name": "de"
+      }
+    },
+    {
+      "name": "Poing-Karaté",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      }
+    },
+    {
+      "name": "태권당수",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/3/",
+        "name": "ko"
+      }
+    },
+    {
+      "name": "からてチョップ",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/1/",
+        "name": "ja"
+      }
+    }
+  ],
+  "id": 2,
+  "machines": [],
+  "pp": 25,
+  "contest_combos": {
+    "super": {
+      "use_after": null,
+      "use_before": null
+    },
+    "normal": {
+      "use_after": [
+        {
+          "url": "http://pokeapi.co/api/v2/move/116/",
+          "name": "focus-energy"
+        }
+      ],
+      "use_before": null
+    }
+  },
+  "effect_entries": [
+    {
+      "short_effect": "Has an increased chance for a critical hit.",
+      "effect": "Inflicts regular damage.  User's critical hit rate is one level higher when using this move.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      }
+    }
+  ],
+  "contest_type": {
+    "url": "http://pokeapi.co/api/v2/contest-type/5/",
+    "name": "tough"
+  },
+  "priority": 0,
+  "contest_effect": {
+    "url": "http://pokeapi.co/api/v2/contest-effect/2/"
+  },
+  "type": {
+    "url": "http://pokeapi.co/api/v2/type/2/",
+    "name": "fighting"
+  },
+  "accuracy": 100,
+  "power": 50,
+  "past_values": [
+    {
+      "pp": null,
+      "power": null,
+      "effect_entries": [],
+      "effect_chance": null,
+      "type": {
+        "url": "http://pokeapi.co/api/v2/type/1/",
+        "name": "normal"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/3/",
+        "name": "gold-silver"
+      },
+      "accuracy": null
+    }
+  ],
+  "target": {
+    "url": "http://pokeapi.co/api/v2/move-target/10/",
+    "name": "selected-pokemon"
+  },
+  "super_contest_effect": {
+    "url": "http://pokeapi.co/api/v2/super-contest-effect/5/"
+  },
+  "name": "karate-chop",
+  "flavor_text_entries": [
+    {
+      "flavor_text": "鋭い　チョップで\n相手を　たたいて　攻撃する。\n急所に　当たりやすい。",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/11/",
+        "name": "ja-kanji"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "The target is attacked with a sharp chop.\nCritical hits land more easily.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Colpisce il bersaglio con un colpo netto.\nProbabile brutto colpo.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/8/",
+        "name": "it"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Da un golpe cortante. Suele ser crítico.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/7/",
+        "name": "es"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Gute Möglichkeit, einen Volltreffer zu landen.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/6/",
+        "name": "de"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "L’ennemi est tranché violemment.\nTaux de critiques élevé.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "날카로운 당수로\n상대를 때려서 공격한다.\n급소에 맞기 쉽다.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/3/",
+        "name": "ko"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "するどい　チョップで\nあいてを　たたいて　こうげきする。\nきゅうしょに　あたりやすい。",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/1/",
+        "name": "ja"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "鋭い　チョップで\n相手を　たたいて　攻撃する。\n急所に　当たりやすい。",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/11/",
+        "name": "ja-kanji"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "The target is attacked with a sharp chop.\nCritical hits land more easily.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "Colpisce il bersaglio con un colpo netto.\nProbabile brutto colpo.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/8/",
+        "name": "it"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "Da un golpe cortante. Suele ser crítico.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/7/",
+        "name": "es"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "Gute Möglichkeit, einen Volltreffer zu landen.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/6/",
+        "name": "de"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "L’ennemi est tranché violemment.\nTaux de critiques élevé.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "날카로운 당수로\n상대를 때려서 공격한다.\n급소에 맞기 쉽다.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/3/",
+        "name": "ko"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "するどい　チョップで\nあいてを　たたいて　こうげきする。\nきゅうしょに　あたりやすい。",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/1/",
+        "name": "ja"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "The target is attacked with a sharp chop.\nCritical hits land more easily.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/14/",
+        "name": "black-2-white-2"
+      }
+    },
+    {
+      "flavor_text": "The target is attacked with a sharp chop.\nCritical hits land more easily.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/11/",
+        "name": "black-white"
+      }
+    },
+    {
+      "flavor_text": "L’ennemi est tranché violemment.\nTaux de critiques élevé.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/11/",
+        "name": "black-white"
+      }
+    },
+    {
+      "flavor_text": "The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/10/",
+        "name": "heartgold-soulsilver"
+      }
+    },
+    {
+      "flavor_text": "The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/9/",
+        "name": "platinum"
+      }
+    },
+    {
+      "flavor_text": "The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/8/",
+        "name": "diamond-pearl"
+      }
+    },
+    {
+      "flavor_text": "The foe is attacked\nwith a sharp chop.\nIt has a high\ncritical-hit ratio.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/7/",
+        "name": "firered-leafgreen"
+      }
+    },
+    {
+      "flavor_text": "A chopping attack with a\nhigh critical-hit ratio.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/6/",
+        "name": "emerald"
+      }
+    },
+    {
+      "flavor_text": "A chopping attack with a\nhigh critical-hit ratio.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/5/",
+        "name": "ruby-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Has a high criti\u00ad\ncal hit ratio.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/4/",
+        "name": "crystal"
+      }
+    },
+    {
+      "flavor_text": "Has a high criti\u00ad\ncal hit ratio.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/3/",
+        "name": "gold-silver"
+      }
+    }
+  ],
+  "damage_class": {
+    "url": "http://pokeapi.co/api/v2/move-damage-class/2/",
+    "name": "physical"
+  },
+  "meta": {
+    "category": {
+      "url": "http://pokeapi.co/api/v2/move-category/0/",
+      "name": "damage"
+    },
+    "healing": 0,
+    "max_turns": null,
+    "drain": 0,
+    "ailment": {
+      "url": "http://pokeapi.co/api/v2/move-ailment/0/",
+      "name": "none"
+    },
+    "stat_chance": 0,
+    "flinch_chance": 0,
+    "min_hits": null,
+    "ailment_chance": 0,
+    "crit_rate": 1,
+    "min_turns": null,
+    "max_hits": null
+  }
+}

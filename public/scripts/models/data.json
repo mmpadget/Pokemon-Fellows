@@ -1,10 +1,41 @@
 [
   {
-    "example1": "text1",
-    "example2": "text2"
+    "poke": {
+      "name": "Rhydon",
+      "id": "112",
+      "stats": [{"base_stat": "40"}, "", "", "", "", {"base_stat": "105"}]
+    },
+    "moveSet": [
+      {"name": "Earthquake", "power": "100"},
+      {"name": "Rock Slide", "power": "75"},
+      {"name": "Substitute", "power": "85"},
+      {"name": "Body Slam", "power": "85"}
+    ]
   },
   {
-    "example1": "text1",
-    "example2": "text2"
+    "poke": {
+      "name": "Spearow",
+      "id": "string value of png number for this pokemon",
+      "stats": [{"base_stat": "this pokemons speed"}, "", "", "", "", {"base_stat": "health of the pokemon"}]
+    },
+    "moveSet": [
+      {"name": "this is a move string", "power": "this is a power string"},
+      {"name": "this is a move string", "power": "this is a power string"},
+      {"name": "this is a move string", "power": "this is a power string"},
+      {"name": "this is a move string", "power": "this is a power string"}
+    ]
+  },
+  {
+    "poke": {
+      "name": "string name of poke",
+      "id": "string value of png number for this pokemon",
+      "stats": [{"base_stat": "this pokemons speed"}, "", "", "", "", {"base_stat": "health of the pokemon"}]
+    },
+    "moveSet": [
+      {"name": "this is a move string", "power": "this is a power string"},
+      {"name": "this is a move string", "power": "this is a power string"},
+      {"name": "this is a move string", "power": "this is a power string"},
+      {"name": "this is a move string", "power": "this is a power string"}
+    ]
   }
 ]

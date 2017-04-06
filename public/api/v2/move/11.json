@@ -1,0 +1,438 @@
+{
+  "effect_chance": null,
+  "generation": {
+    "url": "http://pokeapi.co/api/v2/generation/1/",
+    "name": "generation-i"
+  },
+  "stat_changes": [],
+  "effect_changes": [],
+  "names": [
+    {
+      "name": "Vice Grip",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      }
+    },
+    {
+      "name": "Presa",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/8/",
+        "name": "it"
+      }
+    },
+    {
+      "name": "Agarre",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/7/",
+        "name": "es"
+      }
+    },
+    {
+      "name": "Klammer",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/6/",
+        "name": "de"
+      }
+    },
+    {
+      "name": "Force Poigne",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      }
+    },
+    {
+      "name": "찝기",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/3/",
+        "name": "ko"
+      }
+    },
+    {
+      "name": "はさむ",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/1/",
+        "name": "ja"
+      }
+    }
+  ],
+  "id": 11,
+  "machines": [],
+  "pp": 30,
+  "contest_combos": {
+    "super": {
+      "use_after": null,
+      "use_before": null
+    },
+    "normal": {
+      "use_after": null,
+      "use_before": [
+        {
+          "url": "http://pokeapi.co/api/v2/move/12/",
+          "name": "guillotine"
+        },
+        {
+          "url": "http://pokeapi.co/api/v2/move/20/",
+          "name": "bind"
+        }
+      ]
+    }
+  },
+  "effect_entries": [
+    {
+      "short_effect": "Inflicts regular damage with no additional effect.",
+      "effect": "Inflicts regular damage.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      }
+    }
+  ],
+  "contest_type": {
+    "url": "http://pokeapi.co/api/v2/contest-type/5/",
+    "name": "tough"
+  },
+  "priority": 0,
+  "contest_effect": {
+    "url": "http://pokeapi.co/api/v2/contest-effect/1/"
+  },
+  "type": {
+    "url": "http://pokeapi.co/api/v2/type/1/",
+    "name": "normal"
+  },
+  "accuracy": 100,
+  "power": 55,
+  "past_values": [],
+  "target": {
+    "url": "http://pokeapi.co/api/v2/move-target/10/",
+    "name": "selected-pokemon"
+  },
+  "super_contest_effect": {
+    "url": "http://pokeapi.co/api/v2/super-contest-effect/5/"
+  },
+  "name": "vice-grip",
+  "flavor_text_entries": [
+    {
+      "flavor_text": "相手を　両側から　はさんで\nダメージを　あたえる。\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/11/",
+        "name": "ja-kanji"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "The target is gripped and squeezed from\nboth sides to inflict damage.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Stringe il bersaglio in una morsa usando enormi\ne possenti tenaglie.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/8/",
+        "name": "it"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Atrapa y atenaza al objetivo.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/7/",
+        "name": "es"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Das Ziel wird umklammert und\nzusammengequetscht.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/6/",
+        "name": "de"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "L’ennemi est attrapé et compressé par les côtés.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "상대를 양쪽에서 집어서\n데미지를 준다.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/3/",
+        "name": "ko"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "あいてを　りょうがわから　はさんで\nダメージを　あたえる。\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/1/",
+        "name": "ja"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/16/",
+        "name": "omega-ruby-alpha-sapphire"
+      }
+    },
+    {
+      "flavor_text": "相手を　両側から　はさんで\nダメージを　あたえる。\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/11/",
+        "name": "ja-kanji"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "The target is gripped and squeezed from\nboth sides to inflict damage.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "Stringe il bersaglio in una morsa usando enormi\ne possenti tenaglie.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/8/",
+        "name": "it"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "Atrapa y atenaza al objetivo.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/7/",
+        "name": "es"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "Das Ziel wird umklammert und\nzusammengequetscht.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/6/",
+        "name": "de"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "L’ennemi est attrapé et compressé par les côtés.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "상대를 양쪽에서 집어서\n데미지를 준다.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/3/",
+        "name": "ko"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "あいてを　りょうがわから　はさんで\nダメージを　あたえる。\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/1/",
+        "name": "ja"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/15/",
+        "name": "x-y"
+      }
+    },
+    {
+      "flavor_text": "The target is gripped and squeezed from\nboth sides to inflict damage.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/14/",
+        "name": "black-2-white-2"
+      }
+    },
+    {
+      "flavor_text": "The target is gripped and squeezed from\nboth sides to inflict damage.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/11/",
+        "name": "black-white"
+      }
+    },
+    {
+      "flavor_text": "L’ennemi est attrapé et compressé\npar les côtés.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/5/",
+        "name": "fr"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/11/",
+        "name": "black-white"
+      }
+    },
+    {
+      "flavor_text": "Huge, impressive\npincers grip and\nsqueeze the foe.\n\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/10/",
+        "name": "heartgold-soulsilver"
+      }
+    },
+    {
+      "flavor_text": "Huge, impressive\npincers grip and\nsqueeze the foe.\n\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/9/",
+        "name": "platinum"
+      }
+    },
+    {
+      "flavor_text": "Huge, impressive\npincers grip and\nsqueeze the foe.\n\n",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/8/",
+        "name": "diamond-pearl"
+      }
+    },
+    {
+      "flavor_text": "Huge, impressive\npincers grip and\nsqueeze the foe.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/7/",
+        "name": "firered-leafgreen"
+      }
+    },
+    {
+      "flavor_text": "Grips the foe with large and\npowerful pincers.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/6/",
+        "name": "emerald"
+      }
+    },
+    {
+      "flavor_text": "Grips the foe with large and\npowerful pincers.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/5/",
+        "name": "ruby-sapphire"
+      }
+    },
+    {
+      "flavor_text": "Grips with power\u00ad\nful pincers.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/4/",
+        "name": "crystal"
+      }
+    },
+    {
+      "flavor_text": "Grips with power\u00ad\nful pincers.",
+      "language": {
+        "url": "http://pokeapi.co/api/v2/language/9/",
+        "name": "en"
+      },
+      "version_group": {
+        "url": "http://pokeapi.co/api/v2/version-group/3/",
+        "name": "gold-silver"
+      }
+    }
+  ],
+  "damage_class": {
+    "url": "http://pokeapi.co/api/v2/move-damage-class/2/",
+    "name": "physical"
+  },
+  "meta": {
+    "category": {
+      "url": "http://pokeapi.co/api/v2/move-category/0/",
+      "name": "damage"
+    },
+    "healing": 0,
+    "max_turns": null,
+    "drain": 0,
+    "ailment": {
+      "url": "http://pokeapi.co/api/v2/move-ailment/0/",
+      "name": "none"
+    },
+    "stat_chance": 0,
+    "flinch_chance": 0,
+    "min_hits": null,
+    "ailment_chance": 0,
+    "crit_rate": 0,
+    "min_turns": null,
+    "max_hits": null
+  }
+}
