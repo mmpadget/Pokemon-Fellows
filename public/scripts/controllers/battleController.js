@@ -154,16 +154,14 @@
     if('zero-values'){
       //remove evens - handle color change and pokeball image change
     }
-    console.log('Updating health');
+    console.log('Updating DOM object health values');
     $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
     battleController.animate();
   }
 
   battleController.animate = () => {
-    function updateHealthBars(){
-      battleView.healthBarUpdate();
-    }
+    battleView.healthBarUpdate();
     function showFight(){
       console.log('Showing fight');
       battleController.pokemonFaints();
