@@ -250,6 +250,7 @@ targetElement.toggleClass('.hide')x*/
 /*comment this out later.... once hp bar works*/
 .bar{
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #00F500;
 }
 .health-bar{
@@ -266,6 +267,8 @@ targetElement.toggleClass('.hide')x*/
   transition-duration: 1.5s;
   transition-delay: 1s;
 >>>>>>> f8f7baf876dd66469c42974ab23a60cf06d845c0
+=======
+>>>>>>> 01b21de53ed03957fcee615cc793b013df240489
 }
 
 .name-and-pic img{
