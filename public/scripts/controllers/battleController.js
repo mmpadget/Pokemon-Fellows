@@ -11,6 +11,7 @@
     $('.all-content').hide(); // Hide all content.
     $('#battle-content').show(); // Show battle content.
     $('body').css('background-image', 'url()');
+      $('#about-click a, #home-click a').css('color', 'black');
     Pokemon.getSomePokes();
   }
 

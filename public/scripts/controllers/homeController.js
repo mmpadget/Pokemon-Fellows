@@ -10,6 +10,8 @@
   homeController.index = function() {
     $('.all-content').hide(); // Hide all content.
     $('#home-content').show(); // Show home content.
+    $('body').css('background-image', 'url(../assets/splashBackground.png)');
+    $('#about-click a, #home-click a').css('color', 'white');
   }
 
   // eslint-disable-next-line
