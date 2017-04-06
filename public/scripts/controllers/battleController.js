@@ -197,8 +197,8 @@
 
     if (Pokemon.results.theirFaint) {
       console.log('Theirs fainted and are removed');
-      $('#player-two-pokemon').children().filter(':visible').fadeOut().remove();
-      $('#player-one-pokemon').children().first().show()
+      $('#player-two-pokemon').children().filter(':visible').slideDown().remove();
+      $('#player-two-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.theirPoke}"]`).off('click').css('background', 'gray');
     }
 
@@ -238,21 +238,6 @@
 
   }
 
-  // battleController.scoreScreen = () => {
-  //
-  // }
-
-  // m. play again screen
-  // function playAgainScreen() {
-  //
-  // }
-
-  // MAKE A FUNCTION PICKING BETWEEN 1-0 for true or false to pick who goes first
-  // function whoGoesFirst() {
-  //   let playerPicker = Math.random();
-  //   let playerReturn = playerPicker < 0.5 ? Math.floor(playerPicker) : Math.ceil(playerPicker);
-  //   return playerReturn;
-  // }
   // Make aboutView available on global scope.
   module.battleController = battleController;
 })(window);
