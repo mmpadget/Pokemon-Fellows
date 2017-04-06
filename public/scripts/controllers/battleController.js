@@ -78,8 +78,9 @@
   }
 
   // g. fight math
-  battleController.fightMath = () => {
+  battleController.fightMath = (handleSwitchedPokeCallback) => {
     if (Pokemon.selectedAttack && Pokemon.attackReceived){
+      handleSwitchedPokeCallback();
       $('#dashboard-bottom-default').show();
       // if ('their poke changed'){
       //   //change the pokemon out.
