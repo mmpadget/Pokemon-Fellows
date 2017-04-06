@@ -92,7 +92,6 @@ $(function(module){
     }
   }
   Pokemon.getRandomNumbers();
-  // Pokemon.getSomePokes();
-  module.Pokemon = Pokemon;
 
+  module.Pokemon = Pokemon;
 }(window));

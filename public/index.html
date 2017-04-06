@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="icon.ico">
-
-    <script>console.log("Version: 0.1.0");</script>
+    <script>console.log('Version: 0.1.1');</script>
     <!--Handlebars template for pokémon-->
     <script id="battle-template-pokemon" type="text/x-handlebars-template">
       <section id="{{name}}" data-speed="{{speed}}" data-hp="{{hp}}" data-maxhp="{{hp}}" class="pokemon-selector pokemon-template"> <!-- This is image next to Pokemon's name -->
@@ -21,13 +20,13 @@
             </figure>
             <p class="pokemon-name">{{name}}</p>
           </article>
-          <div id="{{name}}" class="health-bar red">
-            <span class="bar" data-hp="{{hp}}"></span>
+          <div class="health-bar">
+            <div class="bar"></div>
           </div>
         </section>
         <figure class="pokemon-sprite">
           <img id="pokemon"src="{{sprite}}" alt="pokemon-pic"> <!-- This is the bigger Pokemon image -->
-          <img id="platform" src="assets/battle-platform.png">
+          <img id="platform" src="assets/arenaItems/space.png">
         </figure>
       </section>
     </script>
@@ -36,9 +35,12 @@
     <script id="battle-template-dashboard" type="text/x-handlebars-template">
       <section id="dashboard" class="player-template">
         <section class="dashboard-top">
-          <div class="name">{{name}}</div>
+          <!-- ### Edit this ### -->
+          <div id="instructions-text" class="name"></div>
+          <!-- ### Edit this ### -->
           <div class="team">
-            Team:
+            <span>Trainer: </span>
+            <span>Team: </span>
             <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
             <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
             <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
@@ -113,8 +115,6 @@
               <img src="assets/logo-sprite.png" alt="">
             </div>
               <!-- <img id="splash-background" src="assets/splashBackground.png" alt=""> -->
-            <div class="overlay">
-            </div>
 
             <div class="instructions-br">
               <div class="instructions">
@@ -140,23 +140,32 @@
         </main>
         <!-- End main #battle-content -->
         <section id="about-us-page" class="all-content">
-          <h1 id="title">About Us</h1>
+          <img class="logo-header"src="assets/logo-sprite.png" alt="">
+          <!-- <h1 id="title">About Us</h1> -->
+          <div class="zero">
+            <h2>ABOUT US</h2>
+          </div>
           <div class="one">
-            <img id="saul" src="assets/sprites/pokemon/back/9.png"><br>
+            <img id="saul" src="assets/sprites/pokemon/9.png"><br>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <div class="two">
-            <img id="michael" src="assets/sprites/pokemon/back/44.png"><br>
+            <img id="michael" src="assets/sprites/pokemon/38.png"><br>
             <p>Michael is currently learning Javascript and C#. He started a video game company and is learning to work with Unity 3D. In his spare time, Michael enjoys playing video games, guitar, singing, songwriting, recording, and photography. Michael has never actually played Pokémon before. Until now!</p>
           </div>
           <div class="three">
-            <img id="cameron" src="assets/sprites/pokemon/back/111.png"><br>
+            <img id="cameron" src="assets/sprites/pokemon/217.png"><br>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <div class="four">
-            <img id="ely" src="assets/sprites/pokemon/back/3.png"><br>
+            <img id="ely" src="assets/sprites/pokemon/68.png"><br>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
+        </section>
+        <section id="game-status-page" class="all-content">
+            <p id="win">YOU WON!</p>
+            <p id="loose">YOU LOST...</p>
+            <p id="disconnect">Player 2 disconnected. Sorry for the inconvinience</p>
         </section>
         <!-- End section #about-us-page -->
         <footer class="nav-bar">
