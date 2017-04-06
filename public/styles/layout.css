@@ -166,10 +166,16 @@ targetElement.toggleClass('.hide')x*/
   position: absolute;
   padding-left: 6%;
   padding-right: 6%;
-  margin-top: 18%;
+  margin-top: 35%;
   top: 87%;
   display: inline;
   margin-left: 23%;
+  width: 50vw;
+}
+.nav-bar a{
+}
+footer{
+  display: inline-block;
 }
 #about-click, #home-click {
   color: white;
@@ -194,12 +200,13 @@ targetElement.toggleClass('.hide')x*/
 .play-button{
   padding-left: 6%;
   padding-right: 6%;
-  margin-top: 35%;
+  margin-top: 55%;
   position: absolute;
   top: 53%;
   bottom: 0;
   left: 0;
   width: 88%;
+  height: 30%;
   text-decoration: none;
 }
 .play-button a{
@@ -409,7 +416,7 @@ hr{
 /*about us page*/
   body{
   background-color: black;
-  text-align: justify;
+  /*text-align: justify;*/
 }
 #title{
   text-align: center;
