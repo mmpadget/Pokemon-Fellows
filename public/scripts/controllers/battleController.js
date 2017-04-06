@@ -44,7 +44,6 @@
       battleController.shareAttacks();//send attacks asap
       console.log('Pushed Attack Button, Pokemon.ourAttack object created');
       $('.fight-template').hide();
-      $('#dashboard-bottom-default').show();
     });
   }
 
@@ -79,6 +78,7 @@
   // g. fight math
   battleController.fightMath = () => {
     if (Pokemon.selectedAttack && Pokemon.attackReceived){
+      $('#dashboard-bottom-default').show();
       // if ('their poke changed'){
       //   //change the pokemon out.
       // }
@@ -91,46 +91,47 @@
 
       if (Pokemon.ourAttack.speed >= Pokemon.theirAttack.speed){
         Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
-        console.log('Player One\'s pokemon has a higher speed --> they attack first.');
+        console.log(`${Pokemon.ourAttack.name} has a higher speed --> and attacks first.`);
         Pokemon.results.theirHp = ourTurn();
-        console.log('Player Two Pokémon\'s HP: ', Pokemon.results.theirHp);
+        console.log(`${Pokemon.theirAttack.name}'s HP: ${Pokemon.results.theirHp}`);
         if (Pokemon.results.theirHp !== 0) {
-          console.log('Player Two\'s pokemon HP is > 0 therefore, they attack, too');
+          console.log(`${Pokemon.theirAttack.name}'s HP is > 0 therefore, they attack, too`);
           Pokemon.results.ourHp = theirTurn();
-          console.log('Player One Pokémon\'s HP: ', Pokemon.results.ourHp);
+          console.log(`${Pokemon.ourAttack.name}'s HP: ${Pokemon.results.ourHp}`);
         }
       } else {
-        console.log('Player Two\'s pokemon has a higher speed --> they attack first.');
+        Pokemon.results.ourAttackPower = Pokemon.ourAttack.power;
+        console.log(`${Pokemon.theirAttack.name} has a higher speed --> attacks first.`);
         Pokemon.results.ourHp = theirTurn();
-        console.log('Player One Pokémon\'s HP: ', Pokemon.results.ourHp);
+        console.log(`${Pokemon.ourAttack.name}'s HP: ${Pokemon.results.ourHp}`);
         if (Pokemon.results.ourHp !== 0) {
-          console.log('Player One\'s pokemon HP is > 0 therefore, they attack, too');
+          console.log(`${Pokemon.ourAttack.name}'s HP is > 0 therefore, they attack, too`);
           Pokemon.results.theirHp = ourTurn();
-          console.log('Player Two Pokémon\'s HP: ', Pokemon.results.theirHp);
+          console.log(`${Pokemon.theirAttack.name}'s HP: ${Pokemon.results.theirHp}`);
         }
       }
 
       // These functions calculate the fight results and handle if power >= hp
       function ourTurn(){
         if (Pokemon.theirAttack.hp <= Pokemon.ourAttack.power) {
-          Pokemon.results.ourAttackPower = Pokemon.ourAttack.power;
-          console.log('Player Two\'s pokemon fainted');
+        Pokemon.results.theirFaint = true;
+          console.log(`${Pokemon.theirAttack.name} fainted ${Pokemon.results.theirFaint}`);
           Pokemon.results.theirAttackPower = 0;
           return 0;
         } else {
-          Pokemon.results.ourAttackPower = Pokemon.ourAttack.power;
+          Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
           return Pokemon.theirAttack.hp - Pokemon.ourAttack.power;
         }
       }
       function theirTurn(){
         if (Pokemon.ourAttack.hp <= Pokemon.theirAttack.power) {
-          // Pokemon.results.ourFaint = true;
+        Pokemon.results.ourFaint = true;
           // console.log('Player One Pokémon\'s HP: ', Pokemon.results.ourHp);
-          console.log('Player One\'s pokemon fainted');
+          console.log(`${Pokemon.ourAttack.name} fainted ${Pokemon.results.ourFaint}`);
           Pokemon.results.ourAttackPower = 0;
           return 0;
         } else {
-          Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
+          Pokemon.results.ourAttackPower = Pokemon.ourAttack.power;
           return Pokemon.ourAttack.hp - Pokemon.theirAttack.power;
         }
       }
