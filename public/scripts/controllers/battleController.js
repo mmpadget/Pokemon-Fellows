@@ -11,25 +11,28 @@
     $('.all-content').hide(); // Hide all content.
     $('#battle-content').show(); // Show battle content.
     $('body').css('background-image', 'url()');
-      $('#about-click a, #home-click a').css('color', 'black');
+    $('#about-click a, #home-click a').css('color', 'black');
+    // Instructions-text is in battleView.renderDefaultDashboard around line 114.
     Pokemon.getSomePokes();
   }
 
   // d. select pokemon
   battleController.selectSwitch = function() {
     $('#switch-button').on('click', function() {
-      console.log('Pushed Switch Pokemon Button');
       $('#dashboard-bottom-default').hide();
       $('#dashboard-bottom-switch').show();
+      console.log('Clicked selectSwitch Button');
+      $('#instructions-text').text('Click on a Pokémon.');
     });
   }
 
   battleController.selectFight = function() {
     $('#fight-button').on('click', function() {
       $('#dashboard-bottom-fight').hide();
-      // console.log('Pushed Fight Button in selectFight');
       $('#dashboard-bottom-default').hide();
       $(`section[name="${$('.pokemon-selector').filter(':visible').attr('id')}"]`).show();
+      console.log('Clicked selectFight Button');
+      $('#instructions-text').text('Click on an attack.');
     });
   }
 
@@ -42,8 +45,9 @@
       Pokemon.ourAttack.speed = $(`#${$(this).parent().attr('name')}`).data('speed');
       Pokemon.ourAttack.name = $(this).parent().attr('name');
       battleController.shareAttacks();//send attacks asap
-      console.log('Pushed Attack Button, Pokemon.ourAttack object created');
       $('.fight-template').hide();
+      console.log('Pushed Attack button, Pokemon.ourAttack object created');
+      $('#instructions-text').text('Waiting on the other player...');
     });
   }
 
@@ -57,13 +61,15 @@
       Pokemon.ourAttack.attack = false;
       Pokemon.ourAttack.power = 0;
       battleController.shareAttacks();//send attacks asap
-      console.log('Pushed select char button, Pokemon.ourAttack object created');
+      // console.log('Pushed select char button, Pokemon.ourAttack object created');
       $('#dashboard-bottom-switch').hide();
       $('#dashboard-bottom-default').show();
       // eslint-disable-next-line
       $(`#${Pokemon.pokes[0].name}`).hide();
       $(`#${$(this).attr('id')}`).siblings().hide();
       $(`#${$(this).attr('id')}`).show();
+      console.log('Clicked selectPokemonCharacter Button');
+      $('#instructions-text').text('Waiting on the other player...');
     });
   }
 
@@ -147,6 +153,7 @@
       console.log('this is the results object ', Pokemon.results);
       console.log('--------end fight ---------');
       battleController.shareResults();
+      // $('#instructions-text').text('Opponent\'s HP: ', Pokemon.results.theirHp);
     }
   };
 
@@ -186,11 +193,13 @@
       $('#player-one-pokemon').children().filter(':visible').remove();
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
+      $('#instructions-text').text('All your Pokémon have fainted. You lose!');
     }
     if (Pokemon.results.theirFaint) {
       console.log('Theirs fainted and is removed');
       $('#player-two-pokemon').children().filter(':visible').remove();
       $('#player-two-pokemon').children().first().show()
+      $('#instructions-text').text('Your Pokémon triumphed. You win!');
     }
 
     // else if (Pokemon.results.theirHp) {
