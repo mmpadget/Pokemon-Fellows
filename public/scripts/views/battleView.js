@@ -36,63 +36,27 @@
     let barOne = $('#player-one-pokemon').find('.bar');
     let barTwo = $('#player-two-pokemon').find('.bar');
 
-    barOne.css({'width': '100%', 'background': '#7FFF00'});
-    barTwo.css({'width': '100%', 'background': '#7FFF00'});
+    barOne.css({'width': '100%'});
+    barTwo.css({'width': '100%'});
   }
-  battleView.healthBarUpdate = function() {
-    console.log('---- start ------setting healthbar update values with jQuery');
-    let ourCurrentHP = $('#player-one-pokemon').children().filter(':visible').data('hp');
-    let theirCurrentHP = $('#player-two-pokemon').children().filter(':visible').data('hp');
 
+  battleView.healthBarUpdate = function() {
+    let $ourBar = $('#player-one-pokemon').find('.health-bar > span');
+    let $theirBar = $('#player-two-pokemon').find('.health-bar > span');
     let ourMaxHP = $('#player-one-pokemon').children().filter(':visible').data('maxhp');
     let theirMaxHP = $('#player-two-pokemon').children().filter(':visible').data('maxhp');
 
-    let ourHit = $('#player-one-pokemon').children().filter(':visible').find('.hit');
-    let theirHit = $('#player-two-pokemon').children().filter(':visible').find('.hit');
+    let ourNewWidth = Pokemon.results.ourHp / (ourMaxHP * 100);
 
-    let ourBar = $('#player-one-pokemon').children().filter(':visible').find('.bar')
-    let theirBar = $('#player-two-pokemon').children().filter(':visible').find('.bar')
-    console.log('------ END-----');
+    let theirNewWidth = Pokemon.results.theirHp / (theirMaxHP * 100);
 
-    let ourDamage = Pokemon.theirAttack.power * 1; //magic num is multiplyer to effect speed
-    let theirDamage = Pokemon.ourAttack.power * 1;
+    $ourBar.animate({
+      width: ourNewWidth
+    }, 500);
 
-    ourCurrentHP -= ourDamage;
-    theirCurrentHP -= theirDamage;
-
-    //Calculation of damage dealt and total width of the health bar
-    //change this to a PLACEHOLDER VAR
-    let ourBarWidth = (ourCurrentHP / ourMaxHP) * 100;
-    let theirBarWidth = (theirCurrentHP / theirMaxHP) * 100;
-
-    let ourHitWidth = (ourDamage / ourCurrentHP) * 100 + '%';
-    let theirHitWidth = (theirDamage / theirCurrentHP) * 100 + '%';
-
-
-    // show hit bar and set the width
-    ourHit.css('width', ourHitWidth); //P1
-    theirHit.css('width', theirHitWidth); //P1
-    console.log('hit widths should have changed now');
-    setTimeout(function(){
-      ourHit.css({'width': '0'});
-      theirHit.css({'width': '0'});
-
-      ourBar.css('width', ourBarWidth + '%');
-      theirBar.css('width', theirBarWidth + '%');
-    }, 300);
-    console.log('bar widths should change now on a delay');
-  //this chages the color of the damage bar
-    if(ourCurrentHP < (ourMaxHP * 0.3)){
-      ourBar.css({'background': 'red'})
-    } else if(ourCurrentHP > (ourMaxHP * 0.3)){
-      ourBar.css({'background': '#7FFF00'})
-    }
-    if(theirCurrentHP < (theirMaxHP * 0.3)){
-      theirBar.css({'background': 'red'})
-    } else if(theirCurrentHP > (theirMaxHP * 0.3)){
-      theirBar.css({'background': '#7FFF00'})
-    }
-    console.log('------end health "bar" update ----------');
+    $theirBar.animate({
+      width: theirNewWidth
+    }, 500);
   };
 
   battleView.renderBattleContent = function() {
