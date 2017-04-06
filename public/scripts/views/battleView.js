@@ -109,20 +109,18 @@
       battleController.selectPokemonCharacter();
     }
   }
+
+  battleView.updateChangedPokemon = (changePokeTo) => {
+    console.log(`their pokemon switch to ${changePokeTo.name} instead of attacking`);
+    $('#player-two-pokemon').children().hide();
+    $('#player-two-pokemon').find(`[id="${changePokeTo.name}"]`).show();
+  };
   // Call all the things!
   battleView.init = function() {
     battleView.renderBattleContent();
     // eslint-disable-next-line
     battleView.addEvents();
     battleView.healthBarInit();
-    // battleController.shareAttacks();
-    // battleController.fightMath();
-    // battleController.shareResults();
-    // battleController.showFight();
-    // battleController.updateHealthBars();
-    // battleController.pokemonFaints();
-    // battleController.shareWinLossState();
-    // battleController.playAgainScreen();
   }
   module.battleView = battleView;
 })(window);

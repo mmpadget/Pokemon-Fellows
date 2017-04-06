@@ -49,6 +49,8 @@
 
   battleController.selectPokemonCharacter = function() {
     $('.pokemon-character').on('click', function() {
+      console.log(`Our pokemon will change to ${$(this).attr('id')}`);
+      Pokemon.ourPokeChanged = true;
       Pokemon.ourAttack.speed = 0;
       Pokemon.ourAttack.hp = $(this).data('hp');
       Pokemon.ourAttack.name = $(this).attr('id');
@@ -169,37 +171,25 @@
     function showFight(){
       console.log('Showing fight');
       battleController.pokemonFaints();
-      battleController.attackValueResets = () => {
-        Pokemon.ourAttack = {};
-        Pokemon.theirAttack = {};
-        Pokemon.results = {};
-        Pokemon.selectedAttack = false;
-        Pokemon.attackReceived = false;
-      }
-      battleController.attackValueResets();
+      Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
     showFight();
   }
-  // Pokemon.ourAttack.hp = $(this).data('hp');
-  // Pokemon.results.ourHp;
-  // Pokemon.results.theirHp;
 
   //k. pokemon faints
   battleController.pokemonFaints = () => {
     console.log('handling faints');
     if (Pokemon.results.ourFaint) {
       console.log('Ours fainted and are removed');
-      $('#player-one-pokemon').children().filter(':visible').fadeOut().remove();
+      $('#player-one-pokemon').children().filter(':visible').remove();
       $('#player-one-pokemon').children().first().show()
-      $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', 'gray');
+      $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
     }
-
-    if (Pokemon.results.theirFaint) {
-      console.log('Theirs fainted and are removed');
-      $('#player-two-pokemon').children().filter(':visible').slideDown().remove();
+    if (Pokemon.results.theirFaint) 
+      console.log('Theirs fainted and is removed');
+      $('#player-two-pokemon').children().filter(':visible').remove();
       $('#player-two-pokemon').children().first().show()
-      $(`button[id="${Pokemon.results.theirPoke}"]`).off('click').css('background', 'gray');
     }
 
     // else if (Pokemon.results.theirHp) {

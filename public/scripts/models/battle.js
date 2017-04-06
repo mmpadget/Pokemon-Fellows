@@ -4,12 +4,10 @@
 
 $(function(module){
   function Pokemon(poke){
-    //pokeConstructor here
-    // name, hp, moves, power
     this.name = poke.poke.name;
     this.id = poke.poke.id;
     this.frontSprite = `assets/sprites/pokemon/${poke.poke.id}.png`;
-    this.backSprite = `assets/sprites/pokemon//back/${poke.poke.id}.png`;
+    this.backSprite = `assets/sprites/pokemon/back/${poke.poke.id}.png`;
     this.sprite = this.backSprite;
     this.hp = poke.poke.stats[5].base_stat * 2;
     this.speed = poke.poke.stats[0].base_stat;
@@ -27,13 +25,18 @@ $(function(module){
   Pokemon.theirPokes = []; //array for their pokes
   Pokemon.pokeUrl = 'http://pokeapi.co/api/v2/pokemon/';
   Pokemon.numberOfMoves = 4;
-  Pokemon.ourAttack = {};
-  Pokemon.theirAttack = {};
-  Pokemon.results = {};
-  Pokemon.switchedPokemon = false;
-  Pokemon.selectedAttack = false;
-  Pokemon.attackReceived = false;
-  // const Player = function(){
+  Pokemon.attackValueResets = () => {
+    console.log('Resetting ');
+    Pokemon.ourAttack = {};
+    Pokemon.theirAttack = {};
+    Pokemon.results = {};
+    Pokemon.selectedAttack = false;
+    Pokemon.attackReceived = false;
+    Pokemon.ourPokeChanged = false;
+    Pokemon.ourAttack.attack = true;
+  }
+  Pokemon.attackValueResets();
+    // const Player = function(){
   //   //your constructor here
   // };
 
