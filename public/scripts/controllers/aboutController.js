@@ -12,7 +12,10 @@
     $('#title-header').hide(); // Hide all content.
     $('#about-us-page').show(); // Show about content.
     $('.nav-bar').hide(); //fix this later, its throwing CSS off
-    $('body').css('background-image', 'url()');
+    $('#about-us-page').css('background-image', 'url("assets/splashBackground.png")');
+    // $('header').css('background-image', 'url(assets/arenaItems/spaceDropHead.png)');
+
+    // $('#about-us-page').css('background-image', 'url(assets/arenaItems/spaceDrop.png)');
   }
   // #about-us-page, #home-content, #battle-content, .all-content
 
