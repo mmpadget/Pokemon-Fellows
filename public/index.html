@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-    <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
+    <link rel="icon" type="image/x-icon" href="icon.ico">
 
     <!--Handlebars template for pokémon-->
     <script id="battle-template-pokemon" type="text/x-handlebars-template">
-      <section id="{{name}}" data-speed="{{speed}}" data-hp="{{hp}}" class="pokemon-selector pokemon-template"> <!-- This is image next to Pokemon's name -->
+      <section id="{{name}}" data-speed="{{speed}}" data-hp="{{hp}}" data-maxHp="{{hp}}"class="pokemon-selector pokemon-template"> <!-- This is image next to Pokemon's name -->
         <section class="pokemon-stats">
           <article class="name-and-pic">
             <figure class="pokemon-img">
@@ -117,12 +117,21 @@
               </div>
             </div>
               <!-- <img id="splash-background" src="assets/splashBackground.png" alt=""> -->
+            
               <div class="overlay">
               </div>
               <div class="instructions-br">
+<!--Saul!!! fix this block of code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
               <!-- <div class="instructions">
                 <p>Pokemon Fellows is an online two player Pokemon battle arena game Instructions. Click the play button below to get started. The game takes a minute to load. Next, click the the fight button to play and select an attack. Wait for a second player to go through the same steps (or open a second window and pretend you are player two). Each player is given three Pokemon. Defeat the other player's Pokemon by selecting attack. For each round you’ll need to select a Pokemon and ability. After one player has defeated all three of the other player’s Pokemon, the game is over.</p>
               </div> -->
+              <div class="instructions">
+                <h2>Overview</h2>
+                <p>Pokemon Fellows is an online two player Pokemon battle arena game.</p>
+                <h2>Instructions</h2>
+                <p>Click the play button below to get started. The game takes a minute to load. Next, click the the fight button to play and select an attack. Wait for a second player to go through the same steps (or open a second window and pretend you are player two). Each player is given three Pokemon. Defeat the other player's Pokemon by selecting an attack. For each round you’ll need to select a Pokemon and ability. After one player has defeated all three of the other player’s Pokemon, the game is over.</p>
+              </div>
+
             </div>
 
             <a href="/battle"><div class="play-button">
@@ -151,7 +160,7 @@
           </div>
           <div class="two">
             <img id="michael" src="assets/sprites/pokemon/back/44.png"><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Michael is currently learning Javascript and C#. He started a video game company and is learning to work with Unity 3D. In his spare time, Michael enjoys playing video games, guitar, singing, songwriting, recording, and photography. Michael has never actually played Pokémon before!</p>
           </div>
           <div class="three">
             <img id="cameron" src="assets/sprites/pokemon/back/111.png"><br>

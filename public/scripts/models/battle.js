@@ -14,7 +14,7 @@ $(function(module){
     this.hp = poke.poke.stats[5].base_stat;
     this.speed = poke.poke.stats[0].base_stat;
     this.moveSet = poke.moveSet.map(function (move) {
-      return {name: move.name, power: move.power};
+      return { name: move.name, power: move.power };
     });
     Pokemon.pokes.push(this);
     console.log(Pokemon.pokes);
@@ -47,6 +47,9 @@ $(function(module){
             // have a url, assign API response: name, power, base_stat
             // console.log(move);
             // See constructor: move.name is move name and move.power is move power. Move is response.
+            if (isNaN(move.power)) {
+              move.power = 0;
+            }
             poke.moveSet.push(move);
             if (poke.moveSet.length === 4) {
               new Pokemon(poke);
