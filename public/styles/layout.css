@@ -166,10 +166,16 @@ targetElement.toggleClass('.hide')x*/
   position: absolute;
   padding-left: 6%;
   padding-right: 6%;
-  margin-top: 18%;
+  margin-top: 35%;
   top: 87%;
   display: inline;
   margin-left: 23%;
+  width: 50vw;
+}
+.nav-bar a{
+}
+footer{
+  display: inline-block;
 }
 #about-click, #home-click {
   color: white;
@@ -194,12 +200,13 @@ targetElement.toggleClass('.hide')x*/
 .play-button{
   padding-left: 6%;
   padding-right: 6%;
-  margin-top: 35%;
+  margin-top: 55%;
   position: absolute;
   top: 53%;
   bottom: 0;
   left: 0;
   width: 88%;
+  height: 30%;
   text-decoration: none;
 }
 .play-button a{
@@ -249,6 +256,26 @@ targetElement.toggleClass('.hide')x*/
 }
 /*comment this out later.... once hp bar works*/
 .bar{
+<<<<<<< HEAD
+<<<<<<< HEAD
+  background-color: #00F500;
+}
+.health-bar{
+  width: 95%;
+  max-width: 100%;
+  margin-bottom: 2%;
+  background-color: #7d7d7d;
+  border: 1px solid black;
+=======
+  background: #00F500;
+  position: relative;
+  transition-property: width;
+  transition-timing-function: linear;
+  transition-duration: 1.5s;
+  transition-delay: 1s;
+>>>>>>> f8f7baf876dd66469c42974ab23a60cf06d845c0
+=======
+>>>>>>> 01b21de53ed03957fcee615cc793b013df240489
 }
 
 .name-and-pic img{
@@ -389,7 +416,7 @@ hr{
 /*about us page*/
   body{
   background-color: black;
-  text-align: justify;
+  /*text-align: justify;*/
 }
 #title{
   text-align: center;
