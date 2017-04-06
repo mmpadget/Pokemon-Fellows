@@ -151,14 +151,6 @@
     // eslint-disable-next-line
     battleView.addEvents();
     battleView.healthBarInit();
-    // battleController.shareAttacks();
-    // battleController.fightMath();
-    // battleController.shareResults();
-    // battleController.showFight();
-    // battleController.updateHealthBars();
-    // battleController.pokemonFaints();
-    // battleController.shareWinLossState();
-    // battleController.playAgainScreen();
   }
   module.battleView = battleView;
 })(window);
