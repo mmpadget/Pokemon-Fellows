@@ -32,6 +32,7 @@
   }
 
   battleView.healthBarInit = () => {
+    console.log('Setting initial health "bar" values, --not confident');
     let healthBar = $('.health-bar');
     let bar = healthBar.find('.bar');
     let hit = healthBar.find('.hit');
@@ -41,6 +42,7 @@
     bar.css({'background': '#7FFF00'});
   }
   battleView.healthBarUpdate = function() {
+    console.log('setting healthbar update values with jQuerystart');
     let ourShownPokesHP = $('#player-one-pokemon').children().filter(':visible').data('hp');
     let theirShownPokesHP = $('#player-two-pokemon').children().filter(':visible').data('hp');
 
@@ -52,9 +54,11 @@
 
     let ourBar = $('#player-one-pokemon').children().filter(':visible').find('#bar')
     let theirBar = $('#player-two-pokemon').children().filter(':visible').find('#bar')
+    console.log('------ END');
+
 
     let ourCurrentHP = ( ourShownPokesHP ) ? ourShownPokesHP : ourMaxHP;
-    let theirCurrentHP = (theirShownPokesHP) ? theirCurrentHP : theirMaxHP;
+    let theirCurrentHP = (theirShownPokesHP) ? theirShownPokesHP : theirMaxHP;
 
     let ourDamage = Pokemon.theirAttack.power * .1; //magic num is multiplyer to effect speed
     let theirDamage = Pokemon.ourAttack.power * .1;
@@ -74,7 +78,7 @@
     // show hit bar and set the width
     ourHit.css('width', ourHitWidth); //P1
     theirHit.css('width', theirHitWidth); //P1
-
+    console.log('hit widths should have changed now');
     setTimeout(function(){
       ourHit.css({'width': '0'});
       theirHit.css({'width': '0'});
@@ -82,18 +86,19 @@
       ourBar.css('width', ourBarWidth + '%');
       theirBar.css('width', theirBarWidth + '%');
     }, 300);
-
+    console.log('bar widths should change now on a delay');
   //this chages the color of the damage bar
     if(ourCurrentHP < (ourMaxHP * 0.3)){
       ourBar.css({'background': 'red'})
-    } else if(currentHP > (ourMaxHP * 0.3)){
+    } else if(ourCurrentHP > (ourMaxHP * 0.3)){
       ourBar.css({'background': '#7FFF00'})
     }
-    if(currentHP < (theirMaxHP * 0.3)){
+    if(theirCurrentHP < (theirMaxHP * 0.3)){
       theirBar.css({'background': 'red'})
-    } else if(currentHP > (theirMax * 0.3)){
+    } else if(theirCurrentHP > (theirMaxHP * 0.3)){
       theirBar.css({'background': '#7FFF00'})
     }
+    console.log('------end health "bar" update ----------');
   };
 
   battleView.renderBattleContent = function() {
@@ -120,7 +125,6 @@
     // eslint-disable-next-line
     battleView.renderSwitchDashboard(Pokemon.pokes);
     $('#dashboard-bottom-switch').hide();
-    battleView.healthBarInit();
   };
   // rendering their pokemon ---------
   battleView.renderTheirPokemon = () => {
@@ -129,6 +133,7 @@
     $(`#${Pokemon.theirPokes[1].name}`).hide();
     battleView.renderPokemon(Pokemon.theirPokes[2], 'player-two-pokemon');
     $(`#${Pokemon.theirPokes[2].name}`).hide();
+    battleView.healthBarInit();
   };
   // end render therePokemon------------
   battleView.addEvents = () => {
