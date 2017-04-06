@@ -176,7 +176,10 @@
         Pokemon.selectedAttack = false;
         Pokemon.attackReceived = false;
       }
+      battleController.attackValueResets();
+      $('#dashboard-bottom-default').show();
     }
+    showFight();
   }
   // Pokemon.ourAttack.hp = $(this).data('hp');
   // Pokemon.results.ourHp;
@@ -184,18 +187,19 @@
 
   //k. pokemon faints
   battleController.pokemonFaints = () => {
-    // let death = false;
-
-    if (Pokemon.results.ourHp === 0) {
-      // Pokemon.results.ourPoke
-      $('#player-one-pokemon').filter(':visible').hide();
-      $(`button[id="${Pokemon.results.ourPoke}"]`).off('click');
+    console.log('handling faints');
+    if (Pokemon.results.ourFaint) {
+      console.log('Ours fainted and are removed');
+      $('#player-one-pokemon').children().filter(':visible').fadeOut().remove();
+      $('#player-one-pokemon').children().first().show()
+      $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', 'gray');
     }
 
-    if (Pokemon.results.theirHp === 0) {
-      // Pokemon.results.ourPoke
-      $('#player-two-pokemon').filter(':visible').hide();
-      $(`button[id="${Pokemon.results.theirPoke}"]`).off('click');
+    if (Pokemon.results.theirFaint) {
+      console.log('Theirs fainted and are removed');
+      $('#player-two-pokemon').children().filter(':visible').fadeOut().remove();
+      $('#player-one-pokemon').children().first().show()
+      $(`button[id="${Pokemon.results.theirPoke}"]`).off('click').css('background', 'gray');
     }
 
     // else if (Pokemon.results.theirHp) {

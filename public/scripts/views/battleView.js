@@ -152,6 +152,7 @@
     battleView.renderBattleContent();
     // eslint-disable-next-line
     battleView.addEvents();
+    battleView.healthBarInit();
     // battleController.shareAttacks();
     // battleController.fightMath();
     // battleController.shareResults();
