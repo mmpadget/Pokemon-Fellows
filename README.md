@@ -20,7 +20,7 @@ Our game is based on the Pokémon red and blue version released in 1998 for game
 # Game Play
 
 1. Each player is given three Pokémon.
-2. Defeat the other player's Pokémon by selecting attack.
+2. Defeat the other player's Pokémon by selecting an attack.
 3. For each round you’ll need to select a Pokémon and ability.
 4. After one player has defeated all three of the other player’s Pokémon, the game is over.
 
