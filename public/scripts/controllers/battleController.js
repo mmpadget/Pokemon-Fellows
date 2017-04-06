@@ -3,7 +3,6 @@
 // Control the model business with function calls.
 
 (function(module) {
-  // See battleController.init in routes.js
   const battleController = {};
 
   // Initialize the battle page view. /battle in routes.
@@ -12,11 +11,9 @@
     $('#battle-content').show(); // Show battle content.
     $('body').css('background-image', 'url()');
     $('#about-click a, #home-click a').css('color', 'black');
-    // Instructions-text is in battleView.renderDefaultDashboard around line 114.
     Pokemon.getSomePokes();
   }
 
-  // d. select pokemon
   battleController.selectSwitch = function() {
     $('#switch-button').on('click', function() {
       $('#dashboard-bottom-default').hide();
@@ -36,7 +33,6 @@
     });
   }
 
-  // e. select attack
   battleController.selectAttack = function() {
     $('.attack').on('click', function() {
       Pokemon.ourAttack.power = $(this).data('power');
@@ -63,8 +59,6 @@
       battleController.shareAttacks();//send attacks asap
       // console.log('Pushed select char button, Pokemon.ourAttack object created');
       $('#dashboard-bottom-switch').hide();
-      $('#dashboard-bottom-default').show();
-      // eslint-disable-next-line
       $(`#${Pokemon.pokes[0].name}`).hide();
       $(`#${$(this).attr('id')}`).siblings().hide();
       $(`#${$(this).attr('id')}`).show();
@@ -73,7 +67,6 @@
     });
   }
 
-  // f. share attacks
   battleController.shareAttacks = () => {
     Pokemon.selectedAttack = true;
     if(!socket.host){
@@ -83,7 +76,6 @@
     battleController.fightMath();
   }
 
-  // g. fight math
   battleController.fightMath = (handleSwitchedPokeCallback) => {
     if (Pokemon.selectedAttack && Pokemon.attackReceived){
       if (handleSwitchedPokeCallback) handleSwitchedPokeCallback();
@@ -123,7 +115,7 @@
       // These functions calculate the fight results and handle if power >= hp
       function ourTurn(){
         if (Pokemon.theirAttack.hp <= Pokemon.ourAttack.power) {
-        Pokemon.results.theirFaint = true;
+          Pokemon.results.theirFaint = true;
           console.log(`${Pokemon.theirAttack.name} fainted ${Pokemon.results.theirFaint}`);
           Pokemon.results.theirAttackPower = 0;
           return 0;
@@ -134,8 +126,7 @@
       }
       function theirTurn(){
         if (Pokemon.ourAttack.hp <= Pokemon.theirAttack.power) {
-        Pokemon.results.ourFaint = true;
-          // console.log('Player One Pokémon\'s HP: ', Pokemon.results.ourHp);
+          Pokemon.results.ourFaint = true;
           console.log(`${Pokemon.ourAttack.name} fainted ${Pokemon.results.ourFaint}`);
           Pokemon.results.ourAttackPower = 0;
           return 0;
@@ -157,7 +148,6 @@
     }
   };
 
-  // h. share results
   battleController.shareResults = () => {
     socket.shareResults();
     console.log('our HP ', Pokemon.results.ourHp);
@@ -166,7 +156,6 @@
     battleController.updateHealth();
   }
 
-  // j. update health bars
   battleController.updateHealth = () => { //remember health is located on the pokemon and the buttons.
     console.log('Updating DOM object health values');
     $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
@@ -185,7 +174,6 @@
     showFight();
   }
 
-  //k. pokemon faints
   battleController.pokemonFaints = () => {
     console.log('handling faints');
     if (Pokemon.results.ourFaint) {
@@ -201,43 +189,11 @@
       $('#player-two-pokemon').children().first().show()
       $('#instructions-text').text('Your Pokémon triumphed. You win!');
     }
-
-    // else if (Pokemon.results.theirHp) {
-    //   Pokemon.results.theirPoke
-    // }
-
-    // if (death === true) {
-    //   battleController.gameOver();
-    // }
-
-    // PLAYER 1
-    // let death = FALSE;
-    // health = 100 @ start FALSE <<< HP start
-    // health > 0 @ play FALSE <<< HP current
-    // health = 0 @ death TRUE
-    // FOR EACH OF 3 POKEMON
-    // pokemon = @ start 3
-    // pokemon = @ death 0 TRUE trigger gameOver
-
-    // PLAYER 2
-    // let death = FALSE;
-    // health = 100 @ start FALSE
-    // health > 0 @ play FALSE
-    // health = 0 @ death TRUE
-    // FOR EACH OF 3 POKEMON
-    // pokemon @ start = 3
-    // pokemon @ death = 0 TRUE trigger gameOver
-
-    // if (pokemon death === true) {
-      // Call gameOver;
-    // }
   }
 
-    // l. share win/loss state. All pokemon are dead.
   battleController.gameOver = () => {
-    console.log('gameOver');
+    console.log('gameOver Not yet working... or ever called');
   };
 
-  // Make aboutView available on global scope.
   module.battleController = battleController;
 })(window);

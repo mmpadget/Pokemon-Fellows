@@ -4,28 +4,23 @@
   let battleView = {};
 
   // Updated by the return value of battleView.attackExecute()
-    // eslint-disable-next-line
   battleView.renderPokemon = function(pokemon, container) {
-    // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-pokemon').text());
     $(`#${container}`).append(template(pokemon));
   }
 
   battleView.renderDefaultDashboard = function(dashboard) {
-    // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-dashboard').text());
     $('#battle-content').append(template(dashboard));
   }
 
   battleView.renderFightDashboard = function(dashboard) {
-    // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-dashboard-fight').text());
     $('.dashboard-bottom-default').hide();
     $('.dashboard-bottom').append(template(dashboard));
   }
 
   battleView.renderSwitchDashboard = function(dashboard) {
-    // eslint-disable-next-line
     let template = Handlebars.compile($('#battle-template-dashboard-switch').text());
     $('.dashboard-bottom-default').hide();
     $('.dashboard-bottom').append(template(dashboard));
@@ -51,39 +46,28 @@
     let theirNewWidth = Pokemon.results.theirHp / (theirMaxHP * 100);
 
     $ourBar.animate({
-      width: ourNewWidth
+      width: ourNewWidth + '%'
     }, 500);
 
     $theirBar.animate({
-      width: theirNewWidth
+      width: theirNewWidth + '%'
     }, 500);
   };
 
   battleView.renderBattleContent = function() {
-    // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[0], 'player-one-pokemon'); // First Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[1], 'player-one-pokemon'); // Second Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
     $(`#${Pokemon.pokes[1].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
-    // eslint-disable-next-line
     battleView.renderPokemon(Pokemon.pokes[2], 'player-one-pokemon'); // Third Pokemon for player one: name, picture, health bar.
-    // eslint-disable-next-line
     $(`#${Pokemon.pokes[2].name}`).hide(); // Load, but hide Pokemon now, so we can show it later.
-
-    // eslint-disable-next-line
     battleView.renderDefaultDashboard(Pokemon.pokes[0]); // Only call renderDefaultDashboard here.
-
     console.log('Give button click instructions.');
     $('#instructions-text').text('Click on fight or switch Pokémon.');
-
-    // eslint-disable-next-line
     battleView.renderFightDashboard(Pokemon.pokes[0]);
     battleView.renderFightDashboard(Pokemon.pokes[1]);
     battleView.renderFightDashboard(Pokemon.pokes[2]);
     $('.fight-template').hide();
 
-    // eslint-disable-next-line
     battleView.renderSwitchDashboard(Pokemon.pokes);
     $('#dashboard-bottom-switch').hide();
   };
@@ -104,11 +88,8 @@
     if(socket.pokesSent && socket.pokesReceived){
       console.log('Adding events');
       battleController.selectSwitch();
-      // eslint-disable-next-line
       battleController.selectFight();
-      // eslint-disable-next-line
       battleController.selectAttack();
-      // eslint-disable-next-line
       battleController.selectPokemonCharacter();
     }
   }
@@ -121,7 +102,6 @@
   // Call all the things!
   battleView.init = function() {
     battleView.renderBattleContent();
-    // eslint-disable-next-line
     battleView.addEvents();
     battleView.healthBarInit();
   }

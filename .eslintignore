@@ -1,1 +1,15 @@
 **/*/vendor/
+/*global*/
+/*global
+Pokemon,
+socket,
+aboutController,
+battleController,
+dataController,
+homeController,
+battleView,
+aboutView,
+homeView,
+page
+Handlebars
+*/
