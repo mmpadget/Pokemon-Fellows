@@ -249,12 +249,6 @@ targetElement.toggleClass('.hide')x*/
 }
 /*comment this out later.... once hp bar works*/
 .bar{
-  background: #00F500;
-  position: relative;
-  transition-property: width;
-  transition-timing-function: linear;
-  transition-duration: 1.5s;
-  transition-delay: 1s;
 }
 
 .name-and-pic img{
@@ -312,7 +306,7 @@ hr{
 }
 
 #battle-content{
-  background-image: url("/assets/battle-content-br.jpg");
+  background-image: url("/assets/arenaItems/beach.png");
 }
 
 .team img{
