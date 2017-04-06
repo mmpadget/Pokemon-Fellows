@@ -41,6 +41,9 @@ $(function(module){
     console.log('Recieved their attack ', attack);
     Pokemon.theirAttack = attack; //data is pokes array comeing from second player
     Pokemon.attackReceived = true;
+    if (!attack.attack){
+      battleController.fightMath(battleView.updateChangedPokemon(attack));
+    }
     battleController.fightMath();
   });
 

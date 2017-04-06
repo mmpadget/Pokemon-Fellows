@@ -49,7 +49,7 @@
 
   battleController.selectPokemonCharacter = function() {
     $('.pokemon-character').on('click', function() {
-      console.log('Our pokemon changed');
+      console.log(`Our pokemon will change to ${$(this).attr('id')}`);
       Pokemon.ourPokeChanged = true;
       Pokemon.ourAttack.speed = 0;
       Pokemon.ourAttack.hp = $(this).data('hp');
@@ -176,7 +176,7 @@
     }
     showFight();
   }
-  
+
   //k. pokemon faints
   battleController.pokemonFaints = () => {
     console.log('handling faints');
@@ -186,9 +186,8 @@
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
     }
-
     if (Pokemon.results.theirFaint) {
-      console.log('Theirs fainted and are removed');
+      console.log('Theirs fainted and is removed');
       $('#player-two-pokemon').children().filter(':visible').remove();
       $('#player-two-pokemon').children().first().show()
     }

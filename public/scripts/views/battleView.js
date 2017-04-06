@@ -145,6 +145,12 @@
       battleController.selectPokemonCharacter();
     }
   }
+
+  battleView.updateChangedPokemon = (changePokeTo) => {
+    console.log(`their pokemon switch to ${changePokeTo.name} instead of attacking`);
+    $('#player-two-pokemon').children().hide();
+    $('#player-two-pokemon').find(`[id="${changePokeTo.name}"]`).show();
+  };
   // Call all the things!
   battleView.init = function() {
     battleView.renderBattleContent();
