@@ -300,6 +300,7 @@ hr{
 
 #battle-content{
   background-image: url("/assets/arenaItems/beach.png");
+  min-height: 100vh;
 }
 
 .team img{
