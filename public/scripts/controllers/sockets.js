@@ -38,9 +38,8 @@ $(function(module){
   });
 
   socket.on('attack', function(attack){
-    console.log('their attack ', attack);
+    console.log('Recieved their attack ', attack);
     Pokemon.theirAttack = attack; //data is pokes array comeing from second player
-    console.log('We have their attack');
     Pokemon.attackReceived = true;
     battleController.fightMath();
   });
@@ -70,7 +69,7 @@ $(function(module){
   }
 
   socket.shareResults= () => {
-    let results ={};
+    let results ={};//switcharoo for other client, not "host"
     results.ourAttack = Pokemon.results.theirAttack;
     results.theirAttack = Pokemon.results.ourAttack;
     results.ourHp = Pokemon.results.theirHp;
@@ -79,6 +78,8 @@ $(function(module){
     results.theirPoke = Pokemon.results.ourPoke;
     results.ourAttackPower = Pokemon.results.theirAttackPower;
     results.theirAttackPower = Pokemon.results.ourAttackPower;
+    results.ourFaint = Pokemon.results.theirFaint;
+    results.theirFaint = Pokemon.results.ourFaint;
     socket.emit('results', {arena: socket.arena, results: results});
   }
 
