@@ -78,8 +78,9 @@
   }
 
   // g. fight math
-  battleController.fightMath = () => {
+  battleController.fightMath = (handleSwitchedPokeCallback) => {
     if (Pokemon.selectedAttack && Pokemon.attackReceived){
+      if (handleSwitchedPokeCallback) handleSwitchedPokeCallback();
       $('#dashboard-bottom-default').show();
       // if ('their poke changed'){
       //   //change the pokemon out.
@@ -225,24 +226,9 @@
 
     // l. share win/loss state. All pokemon are dead.
   battleController.gameOver = () => {
+    console.log('gameOver');
+  };
 
-  }
-
-  // battleController.scoreScreen = () => {
-  //
-  // }
-
-  // m. play again screen
-  // function playAgainScreen() {
-  //
-  // }
-
-  // MAKE A FUNCTION PICKING BETWEEN 1-0 for true or false to pick who goes first
-  // function whoGoesFirst() {
-  //   let playerPicker = Math.random();
-  //   let playerReturn = playerPicker < 0.5 ? Math.floor(playerPicker) : Math.ceil(playerPicker);
-  //   return playerReturn;
-  // }
   // Make aboutView available on global scope.
   module.battleController = battleController;
 })(window);
