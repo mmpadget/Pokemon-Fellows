@@ -23,13 +23,14 @@ $(function(module){
   });
 
   socket.on('player', function(data){
-    socket.haveSecondPlayer = data; //data is boolean true if comeing from second player
+    socket.haveSecondPlayer = data; //data is boolean true if coming from second player
     Pokemon.sendToOpponent();
     console.log('There is a second Player');
   });
 
   socket.on('pokes', function(data){
-    Pokemon.theirPokes = data; //data is pokes array comeing from second player
+    data.forEach(ele => ele.sprite = ele.frontSprite);
+    Pokemon.theirPokes = data; //data is pokes array coming from second player
     socket.pokesReceived = true;
     battleView.addEvents();
     console.log('We have all their pokes');
@@ -76,6 +77,8 @@ $(function(module){
     results.theirHp = Pokemon.results.ourHp;
     results.ourPoke = Pokemon.results.theirPoke;
     results.theirPoke = Pokemon.results.ourPoke;
+    results.ourAttackPower = Pokemon.results.theirAttackPower;
+    results.theirAttackPower = Pokemon.results.ourAttackPower;
     socket.emit('results', {arena: socket.arena, results: results});
   }
 

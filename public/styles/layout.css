@@ -245,12 +245,16 @@ targetElement.toggleClass('.hide')x*/
 
 }
 /*comment this out later.... once hp bar works*/
-/*.bar{
+.bar{
   background-color: #00F500;
-}*/
+  position: relative;
+  transition: width .5s linear;
+}
 .health-bar{
-  width: 95%;
-  max-width: 100%;
+  box-sizing: border-box;
+  width: 8em;
+  height: 22%;
+  padding: .75%;
   margin-bottom: 2%;
   background-color: #7d7d7d;
   border: 1px solid black;
