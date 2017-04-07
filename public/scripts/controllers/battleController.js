@@ -221,13 +221,17 @@
       $('#player-one-pokemon').children().filter(':visible').remove();
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
-      $('#instructions-text').text('All your Pokémon have fainted. You lose!');
+      if ($('#player-one-pokemon').children().length === 0 ){
+        battleController.gameOver('lose');
+      }
     }
     if (Pokemon.results.theirFaint) {
       console.log('Theirs fainted and is removed');
       $('#player-two-pokemon').children().filter(':visible').remove();
-      $('#player-two-pokemon').children().first().show()
-      $('#instructions-text').text('Your Pokémon triumphed. You win!');
+      $('#player-two-pokemon').children().first().show();
+      if ($('#player-one-pokemon').children().length === 0 ){
+        battleController.gameOver('win');
+      }
     }
   }
 
