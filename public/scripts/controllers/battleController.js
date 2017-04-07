@@ -4,6 +4,22 @@
 
 (function(module) {
   const battleController = {};
+//SAUL PROGRAMMING ANIMATIONS//
+
+// $('').on('click', function(){
+//   $('margin').css('change')
+// });
+
+
+
+
+
+
+
+
+
+
+
 
   // Initialize the battle page view. /battle in routes.
   battleController.index = function() {
@@ -162,15 +178,38 @@
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
     battleController.animate();
   }
-
+  function p1Attack(){
+    console.log('p1attack');
+    move('#player-one-pokemon #pokemon').ease('snap').x(120).y(-100).end();
+    setTimeout(function(){
+        move('#player-one-pokemon #pokemon').x(0).end();
+      }, 800);
+      move('#player-two-pokemon #pokemon').rotate(720).end();
+      setTimeout(function(){
+          move('#player-two-pokemon #pokemon').rotate(720).end();
+        }, 400);
+  };
+  function p2Attack(){
+    console.log('p2attack');
+    move('#player-two-pokemon #pokemon').ease('snap').x(-120).y(100).end();
+    setTimeout(function(){
+        move('#player-two-pokemon #pokemon').x(0).end();
+      }, 800);
+      move('#player-one-pokemon #pokemon').rotate(720).end();
+      setTimeout(function(){
+          move('#player-one-pokemon #pokemon').rotate(720).end();
+        }, 400);
+  };
   battleController.animate = () => {
     battleView.healthBarUpdate();
     function showFight(){
+      setTimeout(p1Attack(), 500);
       console.log('Showing fight');
       battleController.pokemonFaints();
       Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
+
     showFight();
     socket.socketStatesReset();
   }
