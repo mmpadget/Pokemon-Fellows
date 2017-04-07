@@ -33,31 +33,36 @@
 
   battleView.healthBarInit = () => {
     console.log('Setting initial health "bar" values');
-    let barOne = $('#player-one-pokemon').find('.bar');
-    let barTwo = $('#player-two-pokemon').find('.bar');
+    let $ourBar = $('#player-one-pokemon').children(':visible').find('.hp-bar');
+    let $theirBar = $('#player-two-pokemon').children(':visible').find('.hp-bar');
 
-    barOne.css({'width': '100%'});
-    barTwo.css({'width': '100%'});
+    $ourBar.css({'width': '100%'});
+    $theirBar.css({'width': '100%'});
   }
 
   battleView.healthBarUpdate = function() {
-    let $ourBar = $('#player-one-pokemon').find('.health-bar > span');
-    let $theirBar = $('#player-two-pokemon').find('.health-bar > span');
-    let ourMaxHP = $('#player-one-pokemon').children().filter(':visible').data('maxhp');
-    let theirMaxHP = $('#player-two-pokemon').children().filter(':visible').data('maxhp');
+    let $ourBars = $('#player-one-pokemon').children(':visible').find('.health-bar').children();
+    let $theirBar = $('#player-two-pokemon').children(':visible').find('.health-bar').children();
 
-    let ourNewWidth = Pokemon.results.ourHp / (ourMaxHP * 100);
+    let ourMaxHitPoints = $('#player-one-pokemon').children(':visible').data('maxhp');
+    let theirMaxHitPoints = $('#player-two-pokemon').children(':visible').data('maxhp');
+    let ourHealthBarsLeft = 10 - (Math.floor((1 - (Pokemon.results.ourHp / ourMaxHitPoints)) * 10));
 
-    let theirNewWidth = Pokemon.results.theirHp / (theirMaxHP * 100);
+    let theirHealthBarsLeft = 10 - (Math.floor((1 - (Pokemon.results.theirHp / theirMaxHitPoints)) * 10));
 
-    $ourBar.animate({
-      width: ourNewWidth
-    }, 500);
+    $('#player-one-pokemon').children(':visible').data('hp', Pokemon.results.ourHp);
+    $('#player-two-pokemon').children(':visible').data('hp', Pokemon.results.theirHp);
 
-    $theirBar.animate({
-      width: theirNewWidth
-    }, 500);
-  };
+    ourBarsToSubtract = $ourBars.length % ourHealthBarsLeft;
+    for (var i = 0; i < ourBarsToSubtract; i++) {
+      $ourBars.last().remove();
+    }
+    theirBarsToSubtract = $theirBars.length % theirHealthBarsLeft;
+    for (var i = 0; i < theirBarsToSubtract; i++) {
+      $theirBars.last().remove();
+    }
+    debugger;
+  }
 
   battleView.renderBattleContent = function() {
     // eslint-disable-next-line

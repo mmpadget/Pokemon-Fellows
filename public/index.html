@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!--Handlebars template for pokémon-->
     <script id="battle-template-pokemon" type="text/x-handlebars-template">
@@ -19,10 +20,19 @@
               <img src="{{frontSprite}}" alt="pokemon-pic">
             </figure>
             <p class="pokemon-name">{{name}}</p>
+            <div class="health-bar">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </article>
-          <div id="{{name}}" class="health-bar red">
-            <span class="bar" data-hp="{{hp}}"></span>
-          </div>
         </section>
         <figure class="pokemon-sprite">
           <img id="pokemon"src="{{sprite}}" alt="pokemon-pic"> <!-- This is the bigger Pokemon image -->
@@ -76,26 +86,26 @@
         <hr>
         <button id="{{0.name}}" data-hp="{{0.hp}}" data-speed="{{0.speed}}" class="pokemon-character" type="button" name="{{0.name}}">
           {{0.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div class="w3-container"  data-hp="{{hp}}" data-maxhp="{{hp}}" >
+            <div class="w3-light-grey">
+              <div id="{{name}}" class="w3-container w3-round w3-green w3-center w3-red hp-bar"></div>
+            </div>
           </div>
         </button>
         <button id="{{1.name}}" data-hp="{{1.hp}}" data-speed="{{1.speed}}" class="pokemon-character" type="button" name="{{1.name}}">
           {{1.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div class="w3-container"  data-hp="{{hp}}" data-maxhp="{{hp}}" >
+            <div class="w3-light-grey">
+              <div id="{{name}}" class="w3-container w3-round w3-green w3-center w3-red hp-bar"></div>
+            </div>
           </div>
         </button>
         <button id="{{2.name}}" data-hp="{{2.hp}}" data-speed="{{2.speed}}" class="pokemon-character" type="button" name="{{2.name}}">
           {{2.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div class="w3-container"  data-hp="{{hp}}" data-maxhp="{{hp}}">
+            <div class="w3-light-grey">
+              <div id="{{name}}" class="w3-container w3-round w3-green w3-center w3-red hp-bar"></div>
+            </div>
           </div>
         </button>
       </section>

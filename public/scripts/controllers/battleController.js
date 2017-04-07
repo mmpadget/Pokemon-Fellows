@@ -36,6 +36,7 @@
   // e. select attack
   battleController.selectAttack = function() {
     $('.attack').on('click', function() {
+      Pokemon.attackValueResets();
       Pokemon.ourAttack.power = $(this).data('power');
       Pokemon.ourAttack.attack = $(this).attr('name');
       Pokemon.ourAttack.hp = $('#player-one-pokemon').children().filter(':visible').data('hp');
@@ -49,6 +50,7 @@
 
   battleController.selectPokemonCharacter = function() {
     $('.pokemon-character').on('click', function() {
+      Pokemon.attackValueResets();
       console.log(`Our pokemon will change to ${$(this).attr('id')}`);
       Pokemon.ourPokeChanged = true;
       Pokemon.ourAttack.speed = 0;
@@ -168,11 +170,10 @@
   }
 
   battleController.animate = () => {
-    battleView.healthBarUpdate();
     function showFight(){
       console.log('Showing fight');
+      battleView.healthBarUpdate();
       battleController.pokemonFaints();
-      Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
     showFight();
