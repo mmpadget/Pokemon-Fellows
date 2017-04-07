@@ -172,7 +172,7 @@ targetElement.toggleClass('.hide')x*/
   padding-left: 6%;
   padding-right: 6%;
   margin-top: 35%;
-  top: 87%;
+  top: 100%;
   display: inline;
   margin-left: 23%;
   width: 50vw;
@@ -490,7 +490,7 @@ header img {
 #game-status-page #win, #game-status-page #lose, #game-status-page #disconnect{
 border: 6px solid black;
 background-color: rgba(0, 0, 0, .8);
-margin-top: 60%;
+margin-top: 70%;
 width: 100%;
 text-align: center;
 font-size: 2.5em;
