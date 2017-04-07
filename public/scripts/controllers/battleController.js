@@ -194,8 +194,7 @@
 
   battleController.gameOver = (state) => {
     console.log('gameOver: Head\'s I win, tails you lose.');
-    // Hide everything (except...) and show the box.
-    // $('.main-content').hide();
+    // Hide everything, show what we want for win or lose.
     $('#battle-content').hide();
     $('#game-status-page').show();
     $('#game-status-page').children().hide();
