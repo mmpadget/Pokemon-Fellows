@@ -4,24 +4,7 @@
 
 (function(module) {
   const battleController = {};
-//SAUL PROGRAMMING ANIMATIONS//
-
-// $('').on('click', function(){
-//   $('margin').css('change')
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-  // Initialize the battle page view. /battle in routes.
+  
   battleController.index = function() {
     Pokemon.getSomePokes();
     $('.all-content').hide(); // Hide all content.
