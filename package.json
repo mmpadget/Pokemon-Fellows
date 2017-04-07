@@ -1,6 +1,6 @@
 {
   "name": "pokemon-fellows",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "This is a turn-based Pokémon battle game game which will allow users to battle users to battle each other on seperate machines. This app is designed to play similar to Pokémon Stadium for the Nintendo 64, but as a web application.",
   "main": "server.js",
   "scripts": {

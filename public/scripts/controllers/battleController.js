@@ -56,12 +56,10 @@
       Pokemon.ourAttack.name = $(this).attr('id');
       Pokemon.ourAttack.attack = false;
       Pokemon.ourAttack.power = 0;
-      battleController.shareAttacks();//send attacks asap
+      battleController.shareAttacks();
+      battleView.updateMyChangedPokemon(Pokemon.ourAttack.name);
       // console.log('Pushed select char button, Pokemon.ourAttack object created');
       $('#dashboard-bottom-switch').hide();
-      $(`#${Pokemon.pokes[0].name}`).hide();
-      $(`#${$(this).attr('id')}`).siblings().hide();
-      $(`#${$(this).attr('id')}`).show();
       console.log('Clicked selectPokemonCharacter Button');
       $('#instructions-text').text('Waiting on the other player...');
     });
@@ -78,11 +76,9 @@
 
   battleController.fightMath = (handleSwitchedPokeCallback) => {
     if (Pokemon.selectedAttack && Pokemon.attackReceived){
-      if (handleSwitchedPokeCallback) handleSwitchedPokeCallback();
+      if (handleSwitchedPokeCallback) { handleSwitchedPokeCallback();}
       $('#dashboard-bottom-default').show();
-      // if ('their poke changed'){
-      //   //change the pokemon out.
-      // }
+
       console.log('---fight math start---');
       console.log('Pokemon.ourAttack object ', Pokemon.ourAttack);
       console.log('Pokemon.theirAttack object ', Pokemon.theirAttack);
@@ -121,6 +117,8 @@
           return 0;
         } else {
           Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
+          $('#instructions-text').text(`You did ${Pokemon.ourAttack.power} damage. Click fight or switch button.`);
+          // Add: they have X hit points left here...
           return Pokemon.theirAttack.hp - Pokemon.ourAttack.power;
         }
       }
@@ -144,22 +142,26 @@
       console.log('this is the results object ', Pokemon.results);
       console.log('--------end fight ---------');
       battleController.shareResults();
-      // $('#instructions-text').text('Opponent\'s HP: ', Pokemon.results.theirHp);
     }
   };
 
   battleController.shareResults = () => {
+    if (!Pokemon.theirAttack.attack){
+      battleView.updateChangedPokemon(Pokemon.theirAttack);
+    }
     socket.shareResults();
     console.log('our HP ', Pokemon.results.ourHp);
     console.log('their HP ', Pokemon.results.theirHp);
     console.log('Sending results');
     battleController.updateHealth();
   }
-
+  // This is the first place we get the results of fight back from the server.
   battleController.updateHealth = () => { //remember health is located on the pokemon and the buttons.
     console.log('Updating DOM object health values');
+    console.log(Pokemon.results);
     $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
+    $('#instructions-text').text(`You did ${Pokemon.ourAttack.power} damage. Click fight or switch button.`);
     battleController.animate();
   }
   function p1Attack(){
@@ -187,14 +189,27 @@
   battleController.animate = () => {
     battleView.healthBarUpdate();
     function showFight(){
+      console.log('Show fight');
       setTimeout(p1Attack(), 500);
-      console.log('Showing fight');
       battleController.pokemonFaints();
+
+      // let damage = Pokemon.results.theirHp - Pokemon.ourAttack.power;
+      // $('#instructions-text').text(damage);
+
+      // console.log(`${Pokemon.ourAttack.name} has a power of ${Pokemon.ourAttack.power}. We have ${Pokemon.results.ourHp} hit points.`);
+
+      // $('#instructions-text').text(`P1:n ${Pokemon.ourAttack.name} P1:ap ${Pokemon.ourAttack.power} P1:hp ${Pokemon.results.ourHp}`);
+
+      // console.log(`Our opponent ${Pokemon.theirAttack.name} has ${Pokemon.results.theirHp} hit points.`);
+
+      // $('#instructions-text').text(`P2:n ${Pokemon.theirAttack.name} P2:hp ${Pokemon.results.theirHp}`);
+
       Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
 
     showFight();
+    socket.socketStatesReset();
   }
 
   battleController.pokemonFaints = () => {
@@ -204,18 +219,39 @@
       $('#player-one-pokemon').children().filter(':visible').remove();
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
-      $('#instructions-text').text('All your Pokémon have fainted. You lose!');
+      if ($('#player-one-pokemon').children().length === 0 ){
+        battleController.gameOver('lose');
+      }
     }
     if (Pokemon.results.theirFaint) {
       console.log('Theirs fainted and is removed');
       $('#player-two-pokemon').children().filter(':visible').remove();
-      $('#player-two-pokemon').children().first().show()
-      $('#instructions-text').text('Your Pokémon triumphed. You win!');
+      $('#player-two-pokemon').children().first().show();
+      if ($('#player-one-pokemon').children().length === 0 ){
+        battleController.gameOver('win');
+      }
     }
   }
 
-  battleController.gameOver = () => {
-    console.log('gameOver Not yet working... or ever called');
+  battleController.gameOver = (state) => {
+    console.log('gameOver: Head\'s I win, tails you lose.');
+    // Hide everything, show what we want for win or lose.
+    $('#battle-content').hide();
+    $('#game-status-page').show();
+    $('#game-status-page').children().hide();
+    if (state === 'win') {
+      // 1. win: battleController.gameOver('win')
+      console.log('Win');
+      $('#win').show();
+    } else if (state === 'lose') {
+      // 2. lose
+      console.log('Lose');
+      $('#lose').show();
+    } else {
+      // 3. disconnect
+      console.log('Disconnect');
+      $('#disconnect').show();
+    }
   };
 
   module.battleController = battleController;
