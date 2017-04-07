@@ -11,7 +11,6 @@
     $('#battle-content').show();
     $('.nav-content').show();  // Show battle content.
     $('.nav-bar').css('margin-top', '35%');
-
   }
 
   battleController.selectSwitch = function() {
@@ -235,6 +234,26 @@
       $('#player-one-pokemon').children().filter(':visible').remove();
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
+      $('#instructions-text').text(`Your Pokémon ${Pokemon.ourAttack.name} fainted.`);
+      if ($('#player-one-pokemon').children().length === 2) {
+        // First faint
+        $('.alive').hide();
+        $('#pokeball-alive-1').show();
+        $('#pokeball-alive-2').show();
+        $('#pokeball-faint-3').show();
+      } else if ($('#player-one-pokemon').children().length === 1) {
+        // Second faint
+        $('.alive').hide();
+        $('#pokeball-alive-1').show();
+        $('#pokeball-faint-2').show();
+        $('#pokeball-faint-3').show();
+      }
+      else {
+        // Third faint
+        $('.alive').hide();
+        $('.faint').show();
+      }
+
       if ($('#player-one-pokemon').children().length === 0 ){
         battleController.gameOver('lose');
       }
@@ -255,6 +274,9 @@
     $('#battle-content').hide();
     $('#game-status-page').show();
     $('#game-status-page').children().hide();
+    $('.nav-bar').show()
+    $('.nav-bar').css('color', 'white')
+    $('.nav-bar').css('top', '78%')
     if (state === 'win') {
       // 1. win: battleController.gameOver('win')
       console.log('Win');

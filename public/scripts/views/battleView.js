@@ -12,6 +12,8 @@
   battleView.renderDefaultDashboard = function(dashboard) {
     let template = Handlebars.compile($('#battle-template-dashboard').text());
     $('#battle-content').append(template(dashboard));
+    $('.faint').hide();
+    $('.alive').show();
   }
 
   battleView.renderFightDashboard = function(dashboard) {

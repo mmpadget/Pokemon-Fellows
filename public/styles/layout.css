@@ -172,7 +172,7 @@ targetElement.toggleClass('.hide')x*/
   padding-left: 6%;
   padding-right: 6%;
   margin-top: 35%;
-  top: 87%;
+  top: 100%;
   display: inline;
   margin-left: 23%;
   width: 50vw;
@@ -308,7 +308,7 @@ hr{
 
 .attack{
   background-color: gray;
-  width: 28%;
+  width: 27%;
   margin: 1.1%
 
 }
@@ -478,16 +478,35 @@ header img {
   /*margin-bottom: 0%;*/
   text-align: center;
 }
-#game-status-page{
-  background: url('assets/splashBackground.png');
+/*#game-status-page{
+  background-image: : url('assets/splashBackground.png');
+  width: 100%;
+}*/
+#game-status-page p{
+  background-color: rgba(0, 0, 0, .8);
+  background-size: cover;
 }
-#win, #loose, #disconnect{
+
+#game-status-page #win, #game-status-page #lose, #game-status-page #disconnect{
 border: 6px solid black;
 background-color: rgba(0, 0, 0, .8);
-margin: 5%;
+margin-top: 70%;
+width: 100%;
+text-align: center;
+font-size: 2.5em;
+color: white;
+z-index: 2;
 }
-#win p, #loose p{
-  font-size: 4em;
+#win, #lose, #disconnect{
+  background-color: rgba(0, 0, 0, .8)
+  padding 4%;
+  z-index: 2;
+
+
+
+}
+#lose{
+  background-color: rgba(0, 0, 0, .8)
 }
 #disconnect p{
   font-size: 2em;

@@ -48,11 +48,13 @@
           <div id="instructions-text" class="name"></div>
           <!-- ### Edit this ### -->
           <div class="team">
-            <span>Trainer: </span>
             <span>Team: </span>
-            <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
-            <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
-            <img src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
+            <img class="alive" id="pokeball-alive-1" src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
+            <img class="alive" id="pokeball-alive-2" src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
+            <img class="alive" id="pokeball-alive-3" src="assets/sprites/items/poke-ball.png" alt="pokeball-pic">
+            <img class="faint" id="pokeball-faint-1" src="poke-ball-x.png" alt="pokeball-pic">
+            <img class="faint" id="pokeball-faint-2" src="poke-ball-x.png" alt="pokeball-pic">
+            <img class="faint" id="pokeball-faint-3" src="poke-ball-x.png" alt="pokeball-pic">
           </div>
         </section>
         <section class="dashboard-bottom">
@@ -88,26 +90,47 @@
         <hr>
         <button id="{{0.name}}" data-hp="{{0.hp}}" data-speed="{{0.speed}}" class="pokemon-character" type="button" name="{{0.name}}">
           {{0.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div id="{{0.name}}" class="health-bar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </button>
         <button id="{{1.name}}" data-hp="{{1.hp}}" data-speed="{{1.speed}}" class="pokemon-character" type="button" name="{{1.name}}">
           {{1.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div id="{{1.name}}" class="health-bar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </button>
         <button id="{{2.name}}" data-hp="{{2.hp}}" data-speed="{{2.speed}}" class="pokemon-character" type="button" name="{{2.name}}">
           {{2.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div id="{{2.name}}" class="health-bar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </button>
       </section>
@@ -121,18 +144,16 @@
         <section id="home-content" class="all-content">
           <article id="intro-content">
             <div class="logo-header">
-              <img src="assets/logo-sprite.png" alt="">
+              <img src="assets/logo-sprite.png" alt="Pokémon Header Logo">
             </div>
               <!-- <img id="splash-background" src="assets/splashBackground.png" alt=""> -->
 
             <div class="instructions-br">
               <div class="instructions">
 
-                <p>Pokemon Fellows, a two player battle arena game.<br> <br>
-                Click PLAY button below to start, Wait for the game to load. Click FIGHT button to select and execute an attack. Wait for player 2 to submit an attack. Each player is given 3 pokemon to fight with, defeat all three of your opponents pokemon to WIN. <br><br>
+                <p>Pokemon Fellows, a two player battle arena game.<br><br>
+                Click PLAY button below to start, Wait for the game to load. Click the FIGHT button to select and execute an attack. Wait for player 2 to submit an attack. Each player is given 3 pokemon to fight with, defeat all three of your opponents pokemon to WIN. <br><br>
                 *** If playing alone, open a second browser window play as player two as well. Sorry our computer opponent is still being developed.</p>
-                <!-- <p>Pokemon Fellows is an online two player Pokemon battle arena game Instructions. Click the play button below to get started. The game takes a minute to load. Next, click the the fight button to play and select an attack. Wait for a second player to go through the same steps (or open a second window and pretend you are player two). Each player is given three Pokemon. Defeat the other player's Pokemon by selecting attack. For each round you’ll need to select a Pokemon and ability. After one player has defeated all three of the other player’s Pokemon, the game is over.</p> -->
-
               </div>
             </div>
 
@@ -145,7 +166,7 @@
         <!-- End section home content -->
         <main id="battle-content" class="all-content">
           <header>
-            <img src="assets/logo-sprite.png" alt="">
+            <img src="assets/logo-sprite.png" alt="Pokémon Header Logo">
           </header>
           <div class="battle-background">
             <section id="player-one-pokemon"></section>
@@ -154,7 +175,7 @@
         </main>
         <!-- End main #battle-content -->
         <section id="about-us-page" class="all-content">
-          <img class="logo-header"src="assets/logo-sprite.png" alt="">
+          <img class="logo-header"src="assets/logo-sprite.png" alt="Pokémon Header Logo">
           <!-- <h1 id="title">About Us</h1> -->
           <div class="zero">
             <h2>ABOUT US</h2>
@@ -179,7 +200,7 @@
         <section id="game-status-page" class="all-content">
             <p id="win">YOU WON!</p>
             <p id="lose">YOU LOST...</p>
-            <p id="disconnect">Player 2 disconnected. Sorry for the inconvinience</p>
+            <p id="disconnect">Connection Lost...</p>
         </section>
         <!-- End section #about-us-page -->
         <footer class="nav-bar">
