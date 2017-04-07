@@ -57,12 +57,10 @@
       Pokemon.ourAttack.name = $(this).attr('id');
       Pokemon.ourAttack.attack = false;
       Pokemon.ourAttack.power = 0;
-      battleController.shareAttacks();//send attacks asap
+      battleController.shareAttacks();
+      battleView.updateMyChangedPokemon(Pokemon.ourAttack.name);
       // console.log('Pushed select char button, Pokemon.ourAttack object created');
       $('#dashboard-bottom-switch').hide();
-      $(`#${Pokemon.pokes[0].name}`).hide();
-      $(`#${$(this).attr('id')}`).siblings().hide();
-      $(`#${$(this).attr('id')}`).show();
       console.log('Clicked selectPokemonCharacter Button');
       $('#instructions-text').text('Waiting on the other player...');
     });
@@ -79,11 +77,9 @@
 
   battleController.fightMath = (handleSwitchedPokeCallback) => {
     if (Pokemon.selectedAttack && Pokemon.attackReceived){
-      if (handleSwitchedPokeCallback) handleSwitchedPokeCallback();
+      if (handleSwitchedPokeCallback) { handleSwitchedPokeCallback();}
       $('#dashboard-bottom-default').show();
-      // if ('their poke changed'){
-      //   //change the pokemon out.
-      // }
+
       console.log('---fight math start---');
       console.log('Pokemon.ourAttack object ', Pokemon.ourAttack);
       console.log('Pokemon.theirAttack object ', Pokemon.theirAttack);
@@ -150,6 +146,9 @@
   };
 
   battleController.shareResults = () => {
+    if (!Pokemon.theirAttack.attack){
+      battleView.updateChangedPokemon(Pokemon.theirAttack);
+    }
     socket.shareResults();
     console.log('our HP ', Pokemon.results.ourHp);
     console.log('their HP ', Pokemon.results.theirHp);
@@ -173,6 +172,7 @@
       $('#dashboard-bottom-default').show();
     }
     showFight();
+    socket.socketStatesReset();
   }
 
   battleController.pokemonFaints = () => {
