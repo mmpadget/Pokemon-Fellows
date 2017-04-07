@@ -58,8 +58,8 @@ $(function(module){
   });
 
   // disconnect listener
-  socket.on('testDisconnect', function(data){
-    // doSomethingOnUserDisconnect();//make this something graceful
+  socket.on('disconnect', function(data){
+    battleController.gameOver('disconnect');
     console.log('a user disconnected: do something', data)
   });
   // end Socket.io listeners -------------------
