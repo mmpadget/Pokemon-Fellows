@@ -262,7 +262,7 @@
       console.log('Theirs fainted and is removed');
       $('#player-two-pokemon').children().filter(':visible').remove();
       $('#player-two-pokemon').children().first().show();
-      if ($('#player-one-pokemon').children().length === 0 ){
+      if ($('#player-two-pokemon').children().length === 0 ){  // TEST: change back to #player-one-pokemon if it breaks
         battleController.gameOver('win');
       }
     }
