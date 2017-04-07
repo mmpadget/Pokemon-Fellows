@@ -66,7 +66,7 @@ io.on('connection', function(socket){ //io.connection sets up the paths/connecti
 
   socket.on('disconnect', function(socket){
     console.log('a user disconnected', socket)
-    io.to(arena).emit('testDisconnect', true);
+    io.to(arena).emit('disconnect', true);
   });
 
   console.log('a user connected'); // this logs to the server console/terminal
