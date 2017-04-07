@@ -12,6 +12,7 @@
     $('#home-content').show(); // Show home content.
     $('body').css('background-image', 'url(../assets/splashBackground.png)');
     $('#about-click a, #home-click a').css('color', 'white');
+    $('.nav-bar').css('margin-top', '35%');
   }
 
   // eslint-disable-next-line
