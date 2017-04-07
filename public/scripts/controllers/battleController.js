@@ -134,6 +134,8 @@
           return 0;
         } else {
           Pokemon.results.theirAttackPower = Pokemon.theirAttack.power;
+          $('#instructions-text').text(`You did ${Pokemon.ourAttack.power} damage. Click fight or switch button.`);
+          // Add: they have X hit points left here...
           return Pokemon.theirAttack.hp - Pokemon.ourAttack.power;
         }
       }
@@ -157,7 +159,6 @@
       console.log('this is the results object ', Pokemon.results);
       console.log('--------end fight ---------');
       battleController.shareResults();
-      // $('#instructions-text').text('Opponent\'s HP: ', Pokemon.results.theirHp);
     }
   };
 
@@ -171,11 +172,13 @@
     console.log('Sending results');
     battleController.updateHealth();
   }
-
+  // This is the first place we get the results of fight back from the server.
   battleController.updateHealth = () => { //remember health is located on the pokemon and the buttons.
     console.log('Updating DOM object health values');
+    console.log(Pokemon.results);
     $('#player-one-pokemon').children().filter(':visible').data('hp', Pokemon.results.ourHp);
     $('#player-two-pokemon').children().filter(':visible').data('hp', Pokemon.results.theirHp);
+    $('#instructions-text').text(`You did ${Pokemon.ourAttack.power} damage. Click fight or switch button.`);
     battleController.animate();
   }
   function p1Attack(){
@@ -203,9 +206,21 @@
   battleController.animate = () => {
     battleView.healthBarUpdate();
     function showFight(){
+      console.log('Show fight');
       setTimeout(p1Attack(), 500);
-      console.log('Showing fight');
       battleController.pokemonFaints();
+
+      // let damage = Pokemon.results.theirHp - Pokemon.ourAttack.power;
+      // $('#instructions-text').text(damage);
+
+      // console.log(`${Pokemon.ourAttack.name} has a power of ${Pokemon.ourAttack.power}. We have ${Pokemon.results.ourHp} hit points.`);
+
+      // $('#instructions-text').text(`P1:n ${Pokemon.ourAttack.name} P1:ap ${Pokemon.ourAttack.power} P1:hp ${Pokemon.results.ourHp}`);
+
+      // console.log(`Our opponent ${Pokemon.theirAttack.name} has ${Pokemon.results.theirHp} hit points.`);
+
+      // $('#instructions-text').text(`P2:n ${Pokemon.theirAttack.name} P2:hp ${Pokemon.results.theirHp}`);
+
       Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
