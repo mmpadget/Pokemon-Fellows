@@ -4,7 +4,7 @@
 
 (function(module) {
   const battleController = {};
-  
+
   battleController.index = function() {
     Pokemon.getSomePokes();
     $('.all-content').hide(); // Hide all content.
@@ -164,50 +164,66 @@
     $('#instructions-text').text(`You did ${Pokemon.ourAttack.power} damage. Click fight or switch button.`);
     battleController.animate();
   }
-  function p1Attack(){
+  function p1Attack(callback){
     console.log('p1attack');
-    move('#player-one-pokemon #pokemon').ease('snap').x(120).y(-100).end();
-    setTimeout(function(){
-        move('#player-one-pokemon #pokemon').x(0).end();
-      }, 800);
-      move('#player-two-pokemon #pokemon').rotate(720).end();
-      setTimeout(function(){
-          move('#player-two-pokemon #pokemon').rotate(720).end();
-        }, 400);
+    move('#player-one-pokemon #pokemon').ease('snap').x(120).y(-100).end(
+      move('#player-one-pokemon #pokemon').x(0).end(
+        move('#player-two-pokemon #pokemon').rotate(720).end(
+          move('#player-two-pokemon #pokemon').rotate(720).end(
+            (function(){
+              console.log('P1 attacks and Callback animation fired');
+              if (callback) {
+                callback(battleController.pokemonFaints());
+              } else {
+                battleController.pokemonFaints();
+              }
+            }())
+          )
+        )
+      )
+    );
   };
-  function p2Attack(){
-    console.log('p2attack');
-    move('#player-two-pokemon #pokemon').ease('snap').x(-120).y(100).end();
-    setTimeout(function(){
-        move('#player-two-pokemon #pokemon').x(0).end();
-      }, 800);
-      move('#player-one-pokemon #pokemon').rotate(720).end();
-      setTimeout(function(){
-          move('#player-one-pokemon #pokemon').rotate(720).end();
-        }, 400);
+  function p2Attack(callback){
+    console.log('p1attack');
+    move('#player-two-pokemon #pokemon').ease('snap').x(-120).y(100).end(
+      move('#player-two-pokemon #pokemon').x(0).end(
+        move('#player-one-pokemon #pokemon').rotate(720).end(
+          move('#player-one-pokemon #pokemon').rotate(720).end(
+            (function(){
+              console.log('P2 attack first and Callback animation fired');
+              if (callback) {
+                callback(battleController.pokemonFaints());
+              } else {
+                battleController.pokemonFaints();
+              }
+            }())
+          )
+        )
+      )
+    );
   };
+
   battleController.animate = () => {
     battleView.healthBarUpdate();
     function showFight(){
+      console.log(Pokemon.results);
       console.log('Show fight');
-      setTimeout(p1Attack(), 500);
-      battleController.pokemonFaints();
-
-      // let damage = Pokemon.results.theirHp - Pokemon.ourAttack.power;
-      // $('#instructions-text').text(damage);
-
-      // console.log(`${Pokemon.ourAttack.name} has a power of ${Pokemon.ourAttack.power}. We have ${Pokemon.results.ourHp} hit points.`);
-
-      // $('#instructions-text').text(`P1:n ${Pokemon.ourAttack.name} P1:ap ${Pokemon.ourAttack.power} P1:hp ${Pokemon.results.ourHp}`);
-
-      // console.log(`Our opponent ${Pokemon.theirAttack.name} has ${Pokemon.results.theirHp} hit points.`);
-
-      // $('#instructions-text').text(`P2:n ${Pokemon.theirAttack.name} P2:hp ${Pokemon.results.theirHp}`);
-
+      if (!Pokemon.ourAttack && Pokemon.theirAttack){
+        p2Attack();
+      } else if (Pokemon.ourAttack && Pokemon.theirAttack){
+        if (Pokemon.ourAttack.speed >= Pokemon.theirAttack.speed) {
+          p1Attack(p2Attack);
+        } else {
+          p2Attack(p1Attack);
+        }
+      } else if (!Pokemon.ourAttack && !Pokemon.theirAttack){
+        battleController.pokemonFaints();
+      } else if (!Pokemon.theirAttack && Pokemon.ourAttack){
+        p1Attack();
+      }
       Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
-
     showFight();
     socket.socketStatesReset();
   }
