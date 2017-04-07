@@ -11,7 +11,6 @@
     $('#battle-content').show();
     $('.nav-content').show();  // Show battle content.
     $('.nav-bar').css('margin-top', '35%');
-
   }
 
   battleController.selectSwitch = function() {
@@ -193,17 +192,6 @@
       setTimeout(p1Attack(), 500);
       battleController.pokemonFaints();
 
-      // let damage = Pokemon.results.theirHp - Pokemon.ourAttack.power;
-      // $('#instructions-text').text(damage);
-
-      // console.log(`${Pokemon.ourAttack.name} has a power of ${Pokemon.ourAttack.power}. We have ${Pokemon.results.ourHp} hit points.`);
-
-      // $('#instructions-text').text(`P1:n ${Pokemon.ourAttack.name} P1:ap ${Pokemon.ourAttack.power} P1:hp ${Pokemon.results.ourHp}`);
-
-      // console.log(`Our opponent ${Pokemon.theirAttack.name} has ${Pokemon.results.theirHp} hit points.`);
-
-      // $('#instructions-text').text(`P2:n ${Pokemon.theirAttack.name} P2:hp ${Pokemon.results.theirHp}`);
-
       Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
     }
@@ -219,6 +207,26 @@
       $('#player-one-pokemon').children().filter(':visible').remove();
       $('#player-one-pokemon').children().first().show()
       $(`button[id="${Pokemon.results.ourPoke}"]`).off('click').css('background', '#303d51');
+      $('#instructions-text').text(`Your Pokémon ${Pokemon.ourAttack.name} fainted.`);
+      if ($('#player-one-pokemon').children().length === 2) {
+        // First faint
+        $('.alive').hide();
+        $('#pokeball-alive-1').show();
+        $('#pokeball-alive-2').show();
+        $('#pokeball-faint-3').show();
+      } else if ($('#player-one-pokemon').children().length === 1) {
+        // Second faint
+        $('.alive').hide();
+        $('#pokeball-alive-1').show();
+        $('#pokeball-faint-2').show();
+        $('#pokeball-faint-3').show();
+      }
+      else {
+        // Third faint
+        $('.alive').hide();
+        $('.faint').show();
+      }
+
       if ($('#player-one-pokemon').children().length === 0 ){
         battleController.gameOver('lose');
       }
