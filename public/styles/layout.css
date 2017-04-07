@@ -490,7 +490,7 @@ header img {
 #game-status-page #win, #game-status-page #lose, #game-status-page #disconnect{
 border: 6px solid black;
 background-color: rgba(0, 0, 0, .8);
-margin-top: 60%;
+margin-top: 70%;
 width: 100%;
 text-align: center;
 font-size: 2.5em;
