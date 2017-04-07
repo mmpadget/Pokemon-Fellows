@@ -11,7 +11,6 @@
     $('#battle-content').show();
     $('.nav-content').show();  // Show battle content.
     $('.nav-bar').css('margin-top', '35%');
-
   }
 
   battleController.selectSwitch = function() {
