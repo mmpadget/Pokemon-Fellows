@@ -4,14 +4,13 @@
 
 (function(module) {
   const battleController = {};
-  
+
   battleController.index = function() {
     Pokemon.getSomePokes();
     $('.all-content').hide(); // Hide all content.
     $('#battle-content').show();
     $('.nav-content').show();  // Show battle content.
     $('.nav-bar').css('margin-top', '35%');
-
   }
 
   battleController.selectSwitch = function() {
