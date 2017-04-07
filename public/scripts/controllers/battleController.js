@@ -4,31 +4,13 @@
 
 (function(module) {
   const battleController = {};
-//SAUL PROGRAMMING ANIMATIONS//
 
-// $('').on('click', function(){
-//   $('margin').css('change')
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-  // Initialize the battle page view. /battle in routes.
   battleController.index = function() {
     Pokemon.getSomePokes();
     $('.all-content').hide(); // Hide all content.
     $('#battle-content').show();
     $('.nav-content').show();  // Show battle content.
     $('.nav-bar').css('margin-top', '35%');
-
   }
 
   battleController.selectSwitch = function() {

@@ -35,7 +35,7 @@
         </section>
         <figure class="pokemon-sprite">
           <img id="pokemon"src="{{sprite}}" alt="pokemon-pic"> <!-- This is the bigger Pokemon image -->
-          <img id="platform" src="assets/arenaItems/space.png">
+          <img id="platform" src="assets/battle-platform.png">
         </figure>
       </section>
     </script>
@@ -88,26 +88,47 @@
         <hr>
         <button id="{{0.name}}" data-hp="{{0.hp}}" data-speed="{{0.speed}}" class="pokemon-character" type="button" name="{{0.name}}">
           {{0.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div id="{{0.name}}" class="health-bar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </button>
         <button id="{{1.name}}" data-hp="{{1.hp}}" data-speed="{{1.speed}}" class="pokemon-character" type="button" name="{{1.name}}">
           {{1.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div id="{{1.name}}" class="health-bar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </button>
         <button id="{{2.name}}" data-hp="{{2.hp}}" data-speed="{{2.speed}}" class="pokemon-character" type="button" name="{{2.name}}">
           {{2.name}}
-          <div class="health-bar">
-              <div class="bar">
-                  <div class="hit"></div>
-              </div>
+          <div id="{{2.name}}" class="health-bar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
         </button>
       </section>
@@ -127,7 +148,12 @@
 
             <div class="instructions-br">
               <div class="instructions">
-                <p>Pokemon Fellows is an online two player Pokemon battle arena game.<br><br>Instructions:<br><br>Click the play button below to get started. The game takes a minute to load. Next, click the the fight button to play and select an attack. Wait for a second player to go through the same steps (or open a second window and pretend you are player two). Each player is given three Pokemon. Defeat the other player's Pokemon by selecting attack. For each round you’ll need to select a Pokemon and ability. After one player has defeated all three of the other player’s Pokemon, the game is over.</p>
+
+                <p>Pokemon Fellows, a two player battle arena game.<br> <br>
+                Click PLAY button below to start, Wait for the game to load. Click FIGHT button to select and execute an attack. Wait for player 2 to submit an attack. Each player is given 3 pokemon to fight with, defeat all three of your opponents pokemon to WIN. <br><br>
+                *** If playing alone, open a second browser window play as player two as well. Sorry our computer opponent is still being developed.</p>
+                <!-- <p>Pokemon Fellows is an online two player Pokemon battle arena game Instructions. Click the play button below to get started. The game takes a minute to load. Next, click the the fight button to play and select an attack. Wait for a second player to go through the same steps (or open a second window and pretend you are player two). Each player is given three Pokemon. Defeat the other player's Pokemon by selecting attack. For each round you’ll need to select a Pokemon and ability. After one player has defeated all three of the other player’s Pokemon, the game is over.</p> -->
+
               </div>
             </div>
 
@@ -156,19 +182,19 @@
           </div>
           <div class="one">
             <img id="saul" src="assets/sprites/pokemon/9.png"><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>SAUL: is working towards finishing a full stack Javascript education and moving into front end development work. He doesent think anyone will read this so until he has time, this is going to stay as filler text in place. </p>
           </div>
           <div class="two">
             <img id="michael" src="assets/sprites/pokemon/38.png"><br>
-            <p>Michael is currently learning Javascript and C#. He started a video game company and is learning to work with Unity 3D. In his spare time, Michael enjoys playing video games, guitar, singing, songwriting, recording, and photography. Michael has never actually played Pokémon before. Until now!</p>
+            <p>MICHAEL: is currently learning Javascript and C#. He started a video game company and is learning to work with Unity 3D. In his spare time, Michael enjoys playing video games, guitar, singing, songwriting, recording, and photography. Michael has never actually played Pokémon before. Until now!</p>
           </div>
           <div class="three">
             <img id="cameron" src="assets/sprites/pokemon/217.png"><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>CAMERON: ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
           <div class="four">
             <img id="ely" src="assets/sprites/pokemon/68.png"><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>ELY: ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </section>
         <section id="game-status-page" class="all-content">
