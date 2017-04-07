@@ -191,26 +191,8 @@
     }
   }
 
-  battleController.gameOver = (state) => {
-    console.log('gameOver: Head\'s I win, tails you lose.');
-    // Hide everything (except...) and show the box.
-    // $('.main-content').hide();
-    $('#battle-content').hide();
-    $('#game-status-page').show();
-    $('#game-status-page').children().hide();
-    if (state === 'win') {
-      // 1. win: battleController.gameOver('win')
-      console.log('Win');
-      $('#win').show();
-    } else if (state === 'lose') {
-      // 2. lose
-      console.log('Lose');
-      $('#lose').show();
-    } else {
-      // 3. disconnect
-      console.log('Disconnect');
-      $('#disconnect').show();
-    }
+  battleController.gameOver = () => {
+    console.log('gameOver Not yet working... or ever called');
   };
 
   module.battleController = battleController;
