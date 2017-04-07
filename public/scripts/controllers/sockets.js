@@ -7,7 +7,11 @@ $(function(module){
   socket.arena;
   socket.host = false;
   socket.haveSecondPlayer = false;
-  socket.pokesSent = false;
+  socket.socketStatesReset = () => {
+    socket.pokesSent = false;
+    socket.attacksSent = false;
+  }
+  socket.socketStatesReset();
   // end socket.io vars
 
   // socket.io listeners--------------------
@@ -41,8 +45,8 @@ $(function(module){
     console.log('Recieved their attack ', attack);
     Pokemon.theirAttack = attack; //data is pokes array comeing from second player
     Pokemon.attackReceived = true;
-    if (!attack.attack){
-      battleController.fightMath(battleView.updateChangedPokemon(attack));
+    if (Pokemon.ourPokeChanged) {
+      battleView.updateMyChangedPokemon(Pokemon.ourAttack.name);
     }
     battleController.fightMath();
   });
@@ -68,7 +72,7 @@ $(function(module){
 
   socket.sendAttack = () => {
     socket.emit('attack', {arena: socket.arena, attack: Pokemon.ourAttack});
-    // socket.pokesSent = true;
+    socket.attacksSent = true;
   }
 
   socket.shareResults= () => {

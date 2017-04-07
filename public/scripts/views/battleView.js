@@ -99,6 +99,12 @@
     $('#player-two-pokemon').children().hide();
     $('#player-two-pokemon').find(`[id="${changePokeTo.name}"]`).show();
   };
+
+  battleView.updateMyChangedPokemon = (name) => {
+    console.log(`our pokemon switch to ${name} instead of attacking`);
+    $('#player-one-pokemon').children().hide();
+    $('#player-one-pokemon').find(`[id="${name}"]`).show();
+  }
   // Call all the things!
   battleView.init = function() {
     battleView.renderBattleContent();
