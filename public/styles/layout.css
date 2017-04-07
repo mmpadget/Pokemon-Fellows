@@ -467,12 +467,12 @@ header img {
   text-align: center;
 }
 #game-status-page{
-  background: url('assets/splashBackground.png');
+  background: url('/assets/splashBackground.png');
 }
 #win, #loose, #disconnect{
-border: 6px solid black;
-background-color: rgba(0, 0, 0, .8);
-margin: 5%;
+  border: 6px solid black;
+  background-color: rgba(0, 0, 0, .8);
+  margin: 5%;
 }
 #win p, #loose p{
   font-size: 4em;
