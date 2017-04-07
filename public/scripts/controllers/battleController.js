@@ -4,7 +4,7 @@
 
 (function(module) {
   const battleController = {};
-  
+
   battleController.index = function() {
     Pokemon.getSomePokes();
     $('.all-content').hide(); // Hide all content.
@@ -239,6 +239,9 @@
     $('#battle-content').hide();
     $('#game-status-page').show();
     $('#game-status-page').children().hide();
+    $('.nav-bar').show()
+    $('.nav-bar').css('color', 'white')
+    $('.nav-bar').css('top', '78%')
     if (state === 'win') {
       // 1. win: battleController.gameOver('win')
       console.log('Win');
