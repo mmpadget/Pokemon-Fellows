@@ -163,43 +163,45 @@
     $('#instructions-text').text(`You did ${Pokemon.ourAttack.power} damage. Click fight or switch button.`);
     battleController.animate();
   }
-  function p1Attack(callback){
+  battleController.p1Attack = (callback) => {
     console.log('p1attack');
-    move('#player-one-pokemon #pokemon').ease('snap').x(120).y(-100).end(
-      move('#player-one-pokemon #pokemon').x(0).end(
-        move('#player-two-pokemon #pokemon').rotate(720).end(
-          move('#player-two-pokemon #pokemon').rotate(720).end(
-            (function(){
-              console.log('P1 attacks and Callback animation fired');
+    move('#player-one-pokemon #pokemon').ease('snap').x(120).y(-100)
+    .end(function(callback){
+      move('#player-two-pokemon #pokemon').rotate(720)
+        .end(function(callback){
+          move('#player-one-pokemon #pokemon').x(0)
+            .end(function(callback){
               if (callback) {
-                callback(battleController.pokemonFaints());
+                console.log('callback - p2 animation fired');
+                console.log(callback);
+                callback(battleController.pokemonFaints);
               } else {
+                console.log('no callback handling faints');
                 battleController.pokemonFaints();
               }
-            }())
-          )
-        )
-      )
-    );
+            }(callback))
+        }(callback))
+    }(callback));
   };
-  function p2Attack(callback){
+  battleController.p2Attack = (callback) => {
     console.log('p1attack');
-    move('#player-two-pokemon #pokemon').ease('snap').x(-120).y(100).end(
-      move('#player-two-pokemon #pokemon').x(0).end(
-        move('#player-one-pokemon #pokemon').rotate(720).end(
-          move('#player-one-pokemon #pokemon').rotate(720).end(
-            (function(){
-              console.log('P2 attack first and Callback animation fired');
-              if (callback) {
-                callback(battleController.pokemonFaints());
-              } else {
-                battleController.pokemonFaints();
-              }
-            }())
-          )
-        )
-      )
-    );
+    move('#player-two-pokemon #pokemon').ease('snap').x(-120).y(100)
+      .end(function(callback){
+        move('#player-one-pokemon #pokemon').rotate(720)
+          .end(function(callback){
+            move('#player-two-pokemon #pokemon').x(0)
+              .end(function(callback){
+                if (callback) {
+                  console.log('P2 attack first and Callback animation fired for P1 attack');
+                  console.log(callback);
+                  callback(battleController.pokemonFaints);
+                } else {
+                  console.log('No Callback, handling faints');
+                  battleController.pokemonFaints();
+                }
+              }(callback))
+          }(callback))
+      }(callback));
   };
 
   battleController.animate = () => {
@@ -208,17 +210,17 @@
       console.log(Pokemon.results);
       console.log('Show fight');
       if (!Pokemon.ourAttack && Pokemon.theirAttack){
-        p2Attack();
+        battleController.p2Attack();
       } else if (Pokemon.ourAttack && Pokemon.theirAttack){
         if (Pokemon.ourAttack.speed >= Pokemon.theirAttack.speed) {
-          p1Attack(p2Attack);
+          battleController.p1Attack(battleController.p2Attack);
         } else {
-          p2Attack(p1Attack);
+          battleController.p2Attack(battleController.p1Attack);
         }
       } else if (!Pokemon.ourAttack && !Pokemon.theirAttack){
         battleController.pokemonFaints();
       } else if (!Pokemon.theirAttack && Pokemon.ourAttack){
-        p1Attack();
+        battleController.p1Attack();
       }
       Pokemon.attackValueResets();
       $('#dashboard-bottom-default').show();
